@@ -7,13 +7,13 @@
   "color": "amber",
   "accent": "#f59e0b",
   "week": "7-13 Eylül Haftası",
-  "files_count": 42,
-  "expected_count": 42,
+  "files_count": 54,
+  "expected_count": 54,
   "completion": 100,
-  "size": 2903552,
-  "size_str": "2.8 MB",
-  "latest_mtime": 1789260642.4985867,
-  "latest_mtime_str": "13.09.2026 03:50",
+  "size": 3129528,
+  "size_str": "3.0 MB",
+  "latest_mtime": 1789314157.3519232,
+  "latest_mtime_str": "13.09.2026 18:42",
   "teachers": [
     {
       "id": "ugur",
@@ -22,10 +22,10 @@
       "principal": "Mustafa ÖZKAN",
       "role": "Matematik Zümre Başkanı",
       "folder": "Uğur Hoca",
-      "total_size": 1451236,
-      "total_size_str": "1.4 MB",
-      "files_count": 21,
-      "expected_count": 21,
+      "total_size": 1564220,
+      "total_size_str": "1.5 MB",
+      "files_count": 27,
+      "expected_count": 27,
       "completion": 100,
       "documents": [
         {
@@ -345,6 +345,120 @@
               "mtime_str": "13.09.2026 03:50"
             }
           ]
+        },
+        {
+          "id": "eba_scorm",
+          "title": "EBA SCORM 1.2 Etkileşimli Paket (.zip)",
+          "desc": "EBA İçerik Üretimi modülüne yüklenebilir standart SCORM 1.2 paketi (Puan ve tamamlama takipli)",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA SCORM",
+          "formats": [
+            {
+              "ext": "zip",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_SCORM_Paketi_Ugur_Yasayan.zip",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_SCORM_Paketi/8_Sinif_Matematik_1_Hafta_EBA_SCORM_Paketi_Ugur_Yasayan.zip",
+              "size": 13184,
+              "size_str": "13 KB",
+              "mtime": 1789314157.19393,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_questions",
+          "title": "EBA Soru Bankası Toplu Yükleme Şablonu (.xlsx)",
+          "desc": "Kazanım kodları, zorluk seviyeleri, çeldirici analizleri ve pedagojik çözümlü resmi EBA şablonu",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Soru Bankası",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Soru_Bankasi_Yukleme_Sablonu_Ugur_Yasayan.xlsx",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Soru_Bankasi/8_Sinif_Matematik_1_Hafta_EBA_Soru_Bankasi_Yukleme_Sablonu_Ugur_Yasayan.xlsx",
+              "size": 10048,
+              "size_str": "10 KB",
+              "mtime": 1789314157.2092752,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_qti",
+          "title": "EBA / IMS QTI v2.1 Dijital Sınav Paketi (.zip)",
+          "desc": "Dijital sınav sistemleri ve EBA çevrim içi test modülü ile uyumlu XML sınav paketi",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA QTI Sınav",
+          "formats": [
+            {
+              "ext": "zip",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_QTI_Sinav_Paketi_Ugur_Yasayan.zip",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_QTI_Sinav/8_Sinif_Matematik_1_Hafta_EBA_QTI_Sinav_Paketi_Ugur_Yasayan.zip",
+              "size": 12542,
+              "size_str": "12 KB",
+              "mtime": 1789314157.210055,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_assignment",
+          "title": "EBA Haftalık Ders Çalışma Görevi (.docx)",
+          "desc": "EBA 'Çalışma Gönder' alanına kopyalanabilir öğrenci yönergesi ve görev planı",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Ödev Planı",
+          "formats": [
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Ders_Calisma_Gorevi_Ugur_Yasayan.docx",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Ders_Calisma_Gorevi/8_Sinif_Matematik_1_Hafta_EBA_Ders_Calisma_Gorevi_Ugur_Yasayan.docx",
+              "size": 38720,
+              "size_str": "38 KB",
+              "mtime": 1789314157.2597725,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_portfolio",
+          "title": "EBA Portfolyo Maarif Modeli Gelişim Raporu (.xlsx)",
+          "desc": "28 öğrenci için 4 Maarif düzeyinde hazır EBA Portfolyo öğretmen değerlendirme ifadeleri",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Portfolyo",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Ugur_Yasayan.xlsx",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Portfolyo_Gelisim/8_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Ugur_Yasayan.xlsx",
+              "size": 7695,
+              "size_str": "8 KB",
+              "mtime": 1789314157.2728906,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_radar",
+          "title": "EBA & MEB Kazanım ve Video Telafi Radarı (HTML)",
+          "desc": "Her soru için doğrudan EBA video/ders linkleri ve veli/öğrenci telafi reçetesi",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Telafi Radarı",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Kazanim_ve_Video_Telafi_Radari_Ugur_Yasayan.html",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Kazanim_ve_Video_Telafi_Radari/8_Sinif_Matematik_1_Hafta_EBA_Kazanim_ve_Video_Telafi_Radari_Ugur_Yasayan.html",
+              "size": 30795,
+              "size_str": "30 KB",
+              "mtime": 1789314157.2730656,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
         }
       ]
     },
@@ -355,10 +469,10 @@
       "principal": "Ali Rıza HACIOĞLU",
       "role": "Matematik Öğretmeni",
       "folder": "Demet Hoca",
-      "total_size": 1452316,
-      "total_size_str": "1.4 MB",
-      "files_count": 21,
-      "expected_count": 21,
+      "total_size": 1565308,
+      "total_size_str": "1.5 MB",
+      "files_count": 27,
+      "expected_count": 27,
       "completion": 100,
       "documents": [
         {
@@ -676,6 +790,120 @@
               "size_str": "82 KB",
               "mtime": 1789260642.4985867,
               "mtime_str": "13.09.2026 03:50"
+            }
+          ]
+        },
+        {
+          "id": "eba_scorm",
+          "title": "EBA SCORM 1.2 Etkileşimli Paket (.zip)",
+          "desc": "EBA İçerik Üretimi modülüne yüklenebilir standart SCORM 1.2 paketi (Puan ve tamamlama takipli)",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA SCORM",
+          "formats": [
+            {
+              "ext": "zip",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_SCORM_Paketi_Demet_Gurhan_Yasayan.zip",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_SCORM_Paketi/8_Sinif_Matematik_1_Hafta_EBA_SCORM_Paketi_Demet_Gurhan_Yasayan.zip",
+              "size": 13172,
+              "size_str": "13 KB",
+              "mtime": 1789314157.274099,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_questions",
+          "title": "EBA Soru Bankası Toplu Yükleme Şablonu (.xlsx)",
+          "desc": "Kazanım kodları, zorluk seviyeleri, çeldirici analizleri ve pedagojik çözümlü resmi EBA şablonu",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Soru Bankası",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Soru_Bankasi_Yukleme_Sablonu_Demet_Gurhan_Yasayan.xlsx",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Soru_Bankasi/8_Sinif_Matematik_1_Hafta_EBA_Soru_Bankasi_Yukleme_Sablonu_Demet_Gurhan_Yasayan.xlsx",
+              "size": 10057,
+              "size_str": "10 KB",
+              "mtime": 1789314157.2886817,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_qti",
+          "title": "EBA / IMS QTI v2.1 Dijital Sınav Paketi (.zip)",
+          "desc": "Dijital sınav sistemleri ve EBA çevrim içi test modülü ile uyumlu XML sınav paketi",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA QTI Sınav",
+          "formats": [
+            {
+              "ext": "zip",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_QTI_Sinav_Paketi_Demet_Gurhan_Yasayan.zip",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_QTI_Sinav/8_Sinif_Matematik_1_Hafta_EBA_QTI_Sinav_Paketi_Demet_Gurhan_Yasayan.zip",
+              "size": 12542,
+              "size_str": "12 KB",
+              "mtime": 1789314157.2894223,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_assignment",
+          "title": "EBA Haftalık Ders Çalışma Görevi (.docx)",
+          "desc": "EBA 'Çalışma Gönder' alanına kopyalanabilir öğrenci yönergesi ve görev planı",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Ödev Planı",
+          "formats": [
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Ders_Calisma_Gorevi_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Ders_Calisma_Gorevi/8_Sinif_Matematik_1_Hafta_EBA_Ders_Calisma_Gorevi_Demet_Gurhan_Yasayan.docx",
+              "size": 38719,
+              "size_str": "38 KB",
+              "mtime": 1789314157.3389704,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_portfolio",
+          "title": "EBA Portfolyo Maarif Modeli Gelişim Raporu (.xlsx)",
+          "desc": "28 öğrenci için 4 Maarif düzeyinde hazır EBA Portfolyo öğretmen değerlendirme ifadeleri",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Portfolyo",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Demet_Gurhan_Yasayan.xlsx",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Portfolyo_Gelisim/8_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Demet_Gurhan_Yasayan.xlsx",
+              "size": 7697,
+              "size_str": "8 KB",
+              "mtime": 1789314157.3517704,
+              "mtime_str": "13.09.2026 18:42"
+            }
+          ]
+        },
+        {
+          "id": "eba_radar",
+          "title": "EBA & MEB Kazanım ve Video Telafi Radarı (HTML)",
+          "desc": "Her soru için doğrudan EBA video/ders linkleri ve veli/öğrenci telafi reçetesi",
+          "folder": "EBA İçerik Paketleri",
+          "badge": "EBA Telafi Radarı",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "8_Sinif_Matematik_1_Hafta_EBA_Kazanim_ve_Video_Telafi_Radari_Demet_Gurhan_Yasayan.html",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Kazanim_ve_Video_Telafi_Radari/8_Sinif_Matematik_1_Hafta_EBA_Kazanim_ve_Video_Telafi_Radari_Demet_Gurhan_Yasayan.html",
+              "size": 30805,
+              "size_str": "30 KB",
+              "mtime": 1789314157.3519232,
+              "mtime_str": "13.09.2026 18:42"
             }
           ]
         }

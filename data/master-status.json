@@ -1,11 +1,11 @@
 {
   "overall_completion": 100,
-  "grand_expected_files": 174,
-  "grand_existing_files": 174,
-  "grand_size_bytes": 13261245,
-  "grand_size_str": "12.6 MB",
-  "latest_update_ts": 1789261088.8955152,
-  "latest_update_str": "13.09.2026 03:58",
+  "grand_expected_files": 222,
+  "grand_existing_files": 222,
+  "grand_size_bytes": 14163157,
+  "grand_size_str": "13.5 MB",
+  "latest_update_ts": 1789314157.3519232,
+  "latest_update_str": "13.09.2026 18:42",
   "week": "7-13 Eylül Haftası",
   "grades": [
     {
@@ -16,12 +16,12 @@
       "slug": "5_sinif",
       "color": "blue",
       "accent": "#3b82f6",
-      "files_count": 42,
-      "expected_count": 42,
+      "files_count": 54,
+      "expected_count": 54,
       "completion": 100,
-      "size_bytes": 2912121,
-      "size_str": "2.8 MB",
-      "latest_mtime": 1789261088.8955152
+      "size_bytes": 3140252,
+      "size_str": "3.0 MB",
+      "latest_mtime": 1789314156.830444
     },
     {
       "grade": 6,
@@ -31,12 +31,12 @@
       "slug": "6_sinif",
       "color": "teal",
       "accent": "#14b8a6",
-      "files_count": 42,
-      "expected_count": 42,
+      "files_count": 54,
+      "expected_count": 54,
       "completion": 100,
-      "size_bytes": 2899020,
-      "size_str": "2.8 MB",
-      "latest_mtime": 1789260642.4975886
+      "size_bytes": 3122249,
+      "size_str": "3.0 MB",
+      "latest_mtime": 1789314157.0059152
     },
     {
       "grade": 7,
@@ -46,12 +46,12 @@
       "slug": "7_sinif",
       "color": "purple",
       "accent": "#a855f7",
-      "files_count": 42,
-      "expected_count": 42,
+      "files_count": 54,
+      "expected_count": 54,
       "completion": 100,
-      "size_bytes": 2872849,
-      "size_str": "2.7 MB",
-      "latest_mtime": 1789260642.498216
+      "size_bytes": 3097425,
+      "size_str": "3.0 MB",
+      "latest_mtime": 1789314157.1797175
     },
     {
       "grade": 8,
@@ -61,12 +61,12 @@
       "slug": "8_sinif",
       "color": "amber",
       "accent": "#f59e0b",
-      "files_count": 42,
-      "expected_count": 42,
+      "files_count": 54,
+      "expected_count": 54,
       "completion": 100,
-      "size_bytes": 2903552,
-      "size_str": "2.8 MB",
-      "latest_mtime": 1789260642.4985867
+      "size_bytes": 3129528,
+      "size_str": "3.0 MB",
+      "latest_mtime": 1789314157.3519232
     },
     {
       "grade": "tyt",

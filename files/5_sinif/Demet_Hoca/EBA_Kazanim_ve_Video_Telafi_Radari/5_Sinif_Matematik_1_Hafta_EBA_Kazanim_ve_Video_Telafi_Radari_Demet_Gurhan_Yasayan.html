@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Sınıf Matematik - EBA Kazanım & Video Telafi Radarı</title>
+  <style>
+    :root {
+      --primary: #0078D4;
+      --primary-dark: #005A9E;
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-light: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #38BDF8;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    header {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .header-info h1 { font-size: 22px; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    .header-info p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
+    .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { background: rgba(0, 120, 212, 0.2); border: 1px solid var(--primary); color: #60A5FA; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+    
+    .radar-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .radar-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+    .card-header { display: flex; justify-content: space-between; align-items: center; }
+    .badge-group { display: flex; gap: 6px; }
+    .badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .badge-num { background: #3B82F6; color: white; }
+    .badge-code { background: #1E293B; border: 1px solid #475569; color: #E2E8F0; }
+    .badge-kolay { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #10B981; }
+    .badge-orta { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid #F59E0B; }
+    .badge-zor { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid #EF4444; }
+    .card-answer { font-size: 12px; color: #94A3B8; }
+    .card-answer b { color: #38BDF8; font-size: 14px; }
+
+    .card-title { font-size: 16px; font-weight: 700; color: #FFFFFF; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    .diagnosis-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 3px solid var(--danger);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+      color: #FECACA;
+    }
+    .box-label { font-weight: 700; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .remedy-box {
+      background: rgba(0, 120, 212, 0.08);
+      border-left: 3px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+    }
+    .remedy-box .box-label { color: #60A5FA; }
+    .remedy-list { list-style: none; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+    .remedy-list li { line-height: 1.4; color: #E2E8F0; }
+
+    .card-footer { margin-top: auto; padding-top: 10px; }
+    .btn-eba {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .btn-eba:hover { background: var(--primary-dark); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1>🇹🇷 5. Sınıf Matematik • EBA Kazanım ve Video Telafi Radarı</h1>
+        <p>1. Tema: Sayılar ve Nicelikler — Çok Basamaklı Doğal Sayılar & Bölükler | Öğretmen: <b>Demet GÜRHAN YAŞAYAN</b> (Yavuz Selim Ortaokulu)</p>
+      </div>
+      <div class="header-badges">
+        <div class="pill">2026-2027 Eğitim Öğretim Yılı</div>
+        <div class="pill">7-13 Eylül Haftası</div>
+        <div class="pill">12 Hedef Kazanım</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 1</span>
+              <span class="badge badge-code">MAT.5.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Bölükler ve Okuma</h3>
+          <p class="card-desc">En çok dokuz basamaklı doğal sayıların bölüklerini ve basamaklarını belirler.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Milyonlar ve birler bölüğünü toplarken binler bölüğünü dahil etme veya basamak kaydırma hatası (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Bölükler ve Okuma - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Sayıyı bölüklerine ayıralım (sağdan sola üçerli):
+• Milyonlar Bölüğü: 84
+• Binler Bölüğü: 056 (56)
+• Birler Bölüğü: 312
+2) Milyonlar ve b...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.1+Bölükler ve Okuma" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 2</span>
+              <span class="badge badge-code">MAT.5.1.1.2</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>D</b></div>
+          </div>
+          
+          <h3 class="card-title">Okunuştan Sayı Yazma</h3>
+          <p class="card-desc">Okunuşu verilen çok basamaklı doğal sayıları rakamla yazar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>«Kırk bin» ifadesini 3 basamaklı bölük kuralına uyduramayıp 400 yazma ya da sıfırları eksik yazma yanılgısı (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Okunuştan Sayı Yazma - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Bölükleri sırayla belirleyelim:
+• Milyonlar: 105   • Binler: 040 (kırk bin)
+• Birler: 008 (sekiz)
+2) Her bölükte en fazla 3 basamak olmal...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.2+Okunuştan Sayı Yazma" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 3</span>
+              <span class="badge badge-code">MAT.5.1.1.3</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>A</b></div>
+          </div>
+          
+          <h3 class="card-title">Basamak Değeri</h3>
+          <p class="card-desc">Doğal sayıların basamak değerlerini belirler ve çözümler.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>2 rakamının on binler basamağındaki değerini milyonlar basamağı ile karıştırma (Çeldirici B).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Basamak Değeri - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 7 rakamı yüz milyonlar basamağındadır:
+Basamak Değeri = 7 × 100 000 000 = 700 000 000
+2) 2 rakamı on binler basamağındadır:
+Basamak Değer...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.3+Basamak Değeri" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 4</span>
+              <span class="badge badge-code">MAT.5.1.1.4</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Sayı Oluşturma &amp; Bölükler</h3>
+          <p class="card-desc">Verilen rakamlarla kurala uygun en büyük/küçük çok basamaklı sayıları modeller.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Çift sayı şartını gözden kaçırarak birler basamağına tek sayı yerleştirme veya binler bölüğünü yanlış okuma (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Sayı Oluşturma &amp; Bölükler - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) En büyük sayı için büyük rakamlar başa yazılır. Sayının çift olması için birler basamağı çift {8, 4, 2, 0} olmalıdır.
+2) En büyük çift sa...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.4+Sayı Oluşturma &amp; Bölükler" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 5</span>
+              <span class="badge badge-code">MAT.5.1.1.5</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>D</b></div>
+          </div>
+          
+          <h3 class="card-title">Hârizmî &amp; Sıfırın Rolü</h3>
+          <p class="card-desc">Onluk sistemde basamak değerinde &#x27;0&#x27;ın yer tutucu rolünü ve matematik tarihini kavrar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Sıfırın basamak değerini bulunduğu basamağın değeri (100.000) ile karıştırma yanılgısı (Çeldirici B).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Hârizmî &amp; Sıfırın Rolü - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Basamaklar sağdan sola: birler(8), onlar(1), yüzler(2), binler(5), on binler(4), yüz binler(0).
+2) 0 rakamının basamak değeri: 0 × 100 00...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.5+Hârizmî &amp; Sıfırın Rolü" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 6</span>
+              <span class="badge badge-code">MAT.5.1.1.6</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Büyüklük Karşılaştırma</h3>
+          <p class="card-desc">Çok basamaklı doğal sayıları karşılaştırır ve sıralar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Soruda istenen &#x27;en yüksek ikinci&#x27; ifadesini gözden kaçırıp &#x27;en yüksek&#x27; olanı seçme dikkatsizliği (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Büyüklük Karşılaştırma - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Bütçeleri büyükten küçüğe sıralayalım:
+1. M Firması: 49 100 000 TL (en yüksek)
+2. K Firması: 48 250 000 TL (2. en yüksek)
+3. N Firması: 4...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.1.6+Büyüklük Karşılaştırma" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 7</span>
+              <span class="badge badge-code">MAT.5.1.2.1</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">TÜİK Nüfus Tablosu Analizi</h3>
+          <p class="card-desc">Gerçek yaşam verileri içeren tablolardan sayısal çıkarım yapar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Kocaeli nüfusunda 0&#x27;ın bulunduğu basamakları (onlar ve on binler) yüz binler basamağı ile karıştırma (Çeldirici B).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"TÜİK Nüfus Tablosu Analizi - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Kocaeli nüfusu: 2 102 907.
+Basamaklar: 7(birler), 0(onlar), 9(yüzler), 2(binler), 0(on binler), 1(yüz binler).
+2) Sıfırlar onlar ve on bi...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.1+TÜİK Nüfus Tablosu Analizi" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 8</span>
+              <span class="badge badge-code">MAT.5.1.2.2</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>A</b></div>
+          </div>
+          
+          <h3 class="card-title">Uzay Bilimi &amp; Sayı Değerleri</h3>
+          <p class="card-desc">Büyük sayıların bölüklerindeki rakamların sayı değerleri toplamını hesaplar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Rakamları toplarken (1+4+9=14 ve 3+8+4=15) işlem hatası yapma (Çeldirici B).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Uzay Bilimi &amp; Sayı Değerleri - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Güneş (149 597 870): Milyonlar bölüğü = 149.
+Rakamlar toplamı: 1 + 4 + 9 = 14
+2) Ay (384 400): Binler bölüğü = 384.
+Rakamlar toplamı: 3 +...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.2+Uzay Bilimi &amp; Sayı Değerleri" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 9</span>
+              <span class="badge badge-code">MAT.5.1.2.3</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>D</b></div>
+          </div>
+          
+          <h3 class="card-title">Mekanik Sayaç Modelleme</h3>
+          <p class="card-desc">Mekanik ve dijital modeller üzerinden basamak değerleri ilişkilerini geneller.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Binler bölüğündeki en küçük basamak değerli rakamı en küçük sayı değeriyle karıştırıp 5 seçme hatası (Çeldirici B).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Mekanik Sayaç Modelleme - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Milyonlar bölüğü: 4 + ■ = 11 =&gt; ■ = 7
+2) Binler bölüğü: 8, 5 ve ▲. En küçük basamak değerli basamak binler basamağıdır (▲). Bu değer 3 ve...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.3+Mekanik Sayaç Modelleme" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 10</span>
+              <span class="badge badge-code">MAT.5.1.2.4</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Sosyal Sorumluluk &amp; Çözümleme</h3>
+          <p class="card-desc">Çözümlenmiş olarak verilen çok basamaklı sayıları birleştirip okur.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>(6×10.000) ifadesini altı yüz bin olarak yorumlayıp sıfır yer tutucuları atlama yanılgısı (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Sosyal Sorumluluk &amp; Çözümleme - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Basamaklar: Milyonlar: 85, Binler: 060, Birler: 409.
+2) Sayı: 85 060 409
+3) Okunuşu: «Seksen beş milyon altmış bin dört yüz dokuz». (Doğr...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.4+Sosyal Sorumluluk &amp; Çözümleme" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 11</span>
+              <span class="badge badge-code">MAT.5.1.2.5</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Şifreli Kasa &amp; Mantıksal Örüntü</h3>
+          <p class="card-desc">Bölükler arası oransal ve mantıksal ilişkileri kurarak şifre modeller.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Rakamlar toplamının 5 katı hesabında (8×5=40) işlem hatası yapıp 25 bulma yanılgısı (Çeldirici A).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Şifreli Kasa &amp; Mantıksal Örüntü - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Birler bölüğü: 3 basamaklı en küçük tek sayı = 101
+2) Binler bölüğü: 101 × 4 = 404
+3) Milyonlar bölüğü: 404&#x27;ün rakamları toplamı (4+0+4=8...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.5+Şifreli Kasa &amp; Mantıksal Örüntü" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 12</span>
+              <span class="badge badge-code">MAT.5.1.2.6</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>A</b></div>
+          </div>
+          
+          <h3 class="card-title">Maarif Modeli Genelleme</h3>
+          <p class="card-desc">Çok basamaklı sayıların okunma kurallarına ilişkin genellemeleri analiz eder.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Binler bölüğü 000 olduğunda &#x27;bin&#x27; denmeyeceği istisnasını unutup III. önermeyi doğru kabul etme yanılgısı (Çeldirici D).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 12 - 28 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Maarif Modeli Genelleme - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) I. Doğrudur (Üçerli bölükleme kuralı).
+2) II. Doğrudur (Birler bölüğünün adı okunmaz).
+3) III. Yanlıştır (Binler bölüğü 000 ise «bin» den...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.5.1.2.6+Maarif Modeli Genelleme" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</body>
+</html>

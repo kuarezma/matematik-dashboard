@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. Sınıf Matematik - EBA Kazanım & Video Telafi Radarı</title>
+  <style>
+    :root {
+      --primary: #0078D4;
+      --primary-dark: #005A9E;
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-light: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #38BDF8;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    header {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .header-info h1 { font-size: 22px; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    .header-info p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
+    .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { background: rgba(0, 120, 212, 0.2); border: 1px solid var(--primary); color: #60A5FA; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+    
+    .radar-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .radar-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+    .card-header { display: flex; justify-content: space-between; align-items: center; }
+    .badge-group { display: flex; gap: 6px; }
+    .badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .badge-num { background: #3B82F6; color: white; }
+    .badge-code { background: #1E293B; border: 1px solid #475569; color: #E2E8F0; }
+    .badge-kolay { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #10B981; }
+    .badge-orta { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid #F59E0B; }
+    .badge-zor { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid #EF4444; }
+    .card-answer { font-size: 12px; color: #94A3B8; }
+    .card-answer b { color: #38BDF8; font-size: 14px; }
+
+    .card-title { font-size: 16px; font-weight: 700; color: #FFFFFF; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    .diagnosis-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 3px solid var(--danger);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+      color: #FECACA;
+    }
+    .box-label { font-weight: 700; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .remedy-box {
+      background: rgba(0, 120, 212, 0.08);
+      border-left: 3px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+    }
+    .remedy-box .box-label { color: #60A5FA; }
+    .remedy-list { list-style: none; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+    .remedy-list li { line-height: 1.4; color: #E2E8F0; }
+
+    .card-footer { margin-top: auto; padding-top: 10px; }
+    .btn-eba {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .btn-eba:hover { background: var(--primary-dark); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1>🇹🇷 8. Sınıf Matematik • EBA Kazanım ve Video Telafi Radarı</h1>
+        <p>1. Ünite: Çarpanlar ve Katlar — Çarpanlar ve Katlar / Asal Çarpanlar | Öğretmen: <b>Uğur YAŞAYAN</b> (Alparslan Ortaokulu)</p>
+      </div>
+      <div class="header-badges">
+        <div class="pill">2026-2027 Eğitim Öğretim Yılı</div>
+        <div class="pill">7-13 Eylül Haftası</div>
+        <div class="pill">12 Hedef Kazanım</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 1</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Pozitif Çarpan Sayısı &amp; Bölenler</h3>
+          <p class="card-desc">Verilen pozitif tam sayının pozitif çarpanlarını tam liste veya üslü formülle belirler.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Pozitif çarpanları ararken bazı çarpan çiftlerini (örn: 3×24) atlama yanılgısı.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Pozitif Çarpan Sayısı &amp; Bölenler - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Çarpan çiftlerini yazalım:
+1×72, 2×36, 3×24, 4×18, 6×12, 8×9.
+2) Toplam: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 olmak üzere 12 adet çarp...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Pozitif Çarpan Sayısı &amp; Bölenler" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 2</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Gökkuşağı Yöntemi &amp; Sıralı Çarpanlar</h3>
+          <p class="card-desc">Sıralı pozitif çarpanlar dizisinde baştan ve sondan simetri kuralını uygular.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Çarpımın sabit olduğunu unutup komşu iki çarpanın farkı üzerinden tahmin yürütme.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Gökkuşağı Yöntemi &amp; Sıralı Çarpanlar - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Baştan ve sondan eşleşen çarpanların çarpımı sabittir (Gökkuşağı kuralı):
+• 2 × 24 = 48 olduğundan aranan sayı 48&#x27;dir.
+2) Eksik çarpanlar...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Gökkuşağı Yöntemi &amp; Sıralı Çarpanlar" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 3</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Asal Çarpan Algoritması (Bölen Listesi)</h3>
+          <p class="card-desc">Sayıyı asal çarpanlar algoritmasıyla üslü ifadelerin çarpımı olarak yazar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Bölen listesinde asal olmayan sayılara (örn: 4 veya 9) bölme kural ihlali.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Asal Çarpan Algoritması (Bölen Listesi) - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 180 sayısını asal çarpanlar algoritmasıyla bölelim:
+180 ÷ 2 = 90
+90 ÷ 2 = 45
+45 ÷ 3 = 15
+15 ÷ 3 = 5
+5 ÷ 5 = 1
+2) 180 = 2² × 3² × 5¹ =&gt; x ...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Asal Çarpan Algoritması (Bölen Listesi)" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 4</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Farklı Asal Çarpanlar Toplamı</h3>
+          <p class="card-desc">Bir sayının asal çarpanlarını belirler ve tekrarlı asalları tek sayarak toplar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Üslü kuvvetleri de toplama katarak asal çarpan sayısı ile kuvvet toplamını karıştırma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Farklı Asal Çarpanlar Toplamı - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 210 sayısını asal çarpanlarına ayıralım:
+210 = 2 × 105 = 2 × 3 × 35 = 2 × 3 × 5 × 7.
+2) Farklı asal çarpanları: 2, 3, 5, 7&#x27;dir.
+3) Toplam...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Farklı Asal Çarpanlar Toplamı" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 5</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Çarpan Ağacı Modeli</h3>
+          <p class="card-desc">Çarpan ağacında dalların çarpımını takip ederek üst kök sayıları bulur.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Dalları çarpmak yerine toplama işlemi uygulayarak eksik değer hesaplama.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Çarpan Ağacı Modeli - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Aşağıdan yukarıya doğru çarpalım:
+• N = 5 × 7 = 35
+• M = 3 × N = 3 × 35 = 105
+• K = 2 × M = 2 × 105 = 210
+2) Fark: K - M = 210 - 105 = 10...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Çarpan Ağacı Modeli" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 6</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Geometrik Modelleme: Alan ve Çevre</h3>
+          <p class="card-desc">Sabit alanlı dikdörtgenin çevresini en küçük yapmak için birbirine en yakın çarpanları seçer.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Çevrenin en küçük olması için kenarların en uzak (1 ve 48) seçilmesi gerektiği yanılgısı.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Geometrik Modelleme: Alan ve Çevre - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Alan = a × b = 48 cm².
+2) Çevre = 2 × (a + b). Çevrenin en küçük olması için kenarlar birbirine en yakın seçilmelidir.
+3) Kenar çiftleri:...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Geometrik Modelleme: Alan ve Çevre" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 7</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Asal Sayılar &amp; İki Basamaklı Sınırlar</h3>
+          <p class="card-desc">İki basamaklı asal sayıları tanır, 91 sayısının 7×13 olduğunu bilir.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>91 sayısını asal zannetme veya 1&#x27;i iki basamaklı en küçük asal sayı sanma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Asal Sayılar &amp; İki Basamaklı Sınırlar - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) İki basamaklı en küçük asal sayı: 11&#x27;dir.
+2) İki basamaklı en büyük asal sayı: 97&#x27;dir (91 asal değildir: 7×13=91).
+3) Toplam: 11 + 97 = 1...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Asal Sayılar &amp; İki Basamaklı Sınırlar" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 8</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Üslü Gösterimden Çarpan Analizi</h3>
+          <p class="card-desc">Üslü biçimde verilmiş sayının alt çarpanlarını üs karşılaştırmasıyla eler.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>54 sayısındaki 3³ kuvvetinin ana sayıda olmadığını görememe.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Üslü Gösterimden Çarpan Analizi - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Seçenekleri asal çarpanlarına ayıralım:
+• 24 = 2³ × 3¹ (A&#x27;da var: 2³ ve 3² içerir).
+• 42 = 2¹ × 3¹ × 7¹ (A&#x27;da var).
+• 56 = 2³ × 7¹ (A&#x27;da ...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Üslü Gösterimden Çarpan Analizi" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 9</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Pozitif Bölen Sayısı Tek Olan Sayılar</h3>
+          <p class="card-desc">Yalnızca tam kare sayıların çarpan adedinin tek olduğunu kavrar ve aralıktaki adedi sayar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Asal sayıların çarpan adedinin tek olduğunu sanma (asalların 2 çarpanı vardır, çifttir).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Pozitif Bölen Sayısı Tek Olan Sayılar - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Önemli Kural: Sadece tam kare sayıların pozitif bölen sayısı tektir (çünkü k × k eşleşmesinde bir çarpan tek sayılır).
+2) 1 ile 50 arasın...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Pozitif Bölen Sayısı Tek Olan Sayılar" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 10</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Asal Çarpan Kısıtı &amp; En Büyük Sayı</h3>
+          <p class="card-desc">Sadece belirli asal çarpanlara sahip en büyük iki basamaklı sayıyı kuvvet kombinasyonlarıyla bulur.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>90 gibi başka asal çarpan (5) içeren sayıları doğru yanıt zannetme.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Asal Çarpan Kısıtı &amp; En Büyük Sayı - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Sayı 2ᵃ × 3ᵇ biçiminde olmalıdır (başka asal çarpan içermez):
+• 98 = 2 × 7² (7 var, olmaz).
+• 96 = 2⁵ × 3¹ = 32 × 3 = 96 (Sadece 2 ve 3 v...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+Asal Çarpan Kısıtı &amp; En Büyük Sayı" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 11</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">LGS Tarzı Parçalama Problemi</h3>
+          <p class="card-desc">Bir uzunluğu eşit parçalara ayırırken çarpanlar kümesinden aralık şartına uyanları seçer.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Sınır değerleri (5 ve 20) aralığa dahil etme veya bölen olmayan sayıları alma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"LGS Tarzı Parçalama Problemi - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Parça uzunluğu 90&#x27;ın bir böleni olmalıdır.
+2) 90&#x27;ın pozitif bölenleri: 1, 2, 3, 5, 6, 9, 10, 15, 18, 30, 45, 90.
+3) 5 ile 20 arasındaki b...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+LGS Tarzı Parçalama Problemi" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 12</span>
+              <span class="badge badge-code">MAT.8.1.1.1</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">LGS Beceri Temelli: Kart Seçme</h3>
+          <p class="card-desc">Küme mantığıyla &#x27;içeren&#x27; ve &#x27;içermeyen&#x27; asal çarpan koşullarını aynı anda sağlayan sayıyı bulur.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>60 sayısını hemen seçip içinde 5 asalının da bulunduğunu gözden kaçırma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 26 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"LGS Beceri Temelli: Kart Seçme - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Kartlardaki sayıların asal çarpanlarını bulalım:
+• 60 = 2² × 3 × 5 (5 çarpanı var).
+• 75 = 3 × 5² (2 çarpanı yok).
+• 90 = 2 × 3² × 5 (5 ç...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.8.1.1.1+LGS Beceri Temelli: Kart Seçme" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</body>
+</html>

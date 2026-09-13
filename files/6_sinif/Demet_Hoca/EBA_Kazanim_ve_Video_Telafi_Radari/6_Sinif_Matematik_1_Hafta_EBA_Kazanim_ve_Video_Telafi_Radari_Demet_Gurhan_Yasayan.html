@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Sınıf Matematik - EBA Kazanım & Video Telafi Radarı</title>
+  <style>
+    :root {
+      --primary: #0078D4;
+      --primary-dark: #005A9E;
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-light: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #38BDF8;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    header {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .header-info h1 { font-size: 22px; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    .header-info p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
+    .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { background: rgba(0, 120, 212, 0.2); border: 1px solid var(--primary); color: #60A5FA; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+    
+    .radar-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-light);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .radar-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+    .card-header { display: flex; justify-content: space-between; align-items: center; }
+    .badge-group { display: flex; gap: 6px; }
+    .badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .badge-num { background: #3B82F6; color: white; }
+    .badge-code { background: #1E293B; border: 1px solid #475569; color: #E2E8F0; }
+    .badge-kolay { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #10B981; }
+    .badge-orta { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid #F59E0B; }
+    .badge-zor { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid #EF4444; }
+    .card-answer { font-size: 12px; color: #94A3B8; }
+    .card-answer b { color: #38BDF8; font-size: 14px; }
+
+    .card-title { font-size: 16px; font-weight: 700; color: #FFFFFF; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    .diagnosis-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 3px solid var(--danger);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+      color: #FECACA;
+    }
+    .box-label { font-weight: 700; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .remedy-box {
+      background: rgba(0, 120, 212, 0.08);
+      border-left: 3px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 12px;
+    }
+    .remedy-box .box-label { color: #60A5FA; }
+    .remedy-list { list-style: none; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+    .remedy-list li { line-height: 1.4; color: #E2E8F0; }
+
+    .card-footer { margin-top: auto; padding-top: 10px; }
+    .btn-eba {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .btn-eba:hover { background: var(--primary-dark); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1>🇹🇷 6. Sınıf Matematik • EBA Kazanım ve Video Telafi Radarı</h1>
+        <p>1. Ünite: Doğal Sayılarla İşlemler — Doğal Sayılarla İşlemler & Üslü İfadeler | Öğretmen: <b>Demet GÜRHAN YAŞAYAN</b> (Yavuz Selim Ortaokulu)</p>
+      </div>
+      <div class="header-badges">
+        <div class="pill">2026-2027 Eğitim Öğretim Yılı</div>
+        <div class="pill">7-13 Eylül Haftası</div>
+        <div class="pill">12 Hedef Kazanım</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 1</span>
+              <span class="badge badge-code">MAT.6.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Tekrarlı Çarpım &amp; Üslü Gösterim</h3>
+          <p class="card-desc">Tekrarlı çarpımı verilen doğal sayıları üslü ifade olarak gösterir.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Çarpılan sayı adedini taban yapma veya tabanla üssü toplama yanılgısı.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Tekrarlı Çarpım &amp; Üslü Gösterim - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 4 sayısı kendisiyle 5 kez çarpılmıştır: 4 × 4 × 4 × 4 × 4 = 4⁵ =&gt; a = 5.
+2) 3 sayısı kendisiyle 3 kez çarpılmıştır: 3 × 3 × 3 = 3³ =&gt; b =...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.1+Tekrarlı Çarpım &amp; Üslü Gösterim" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 2</span>
+              <span class="badge badge-code">MAT.6.1.1.1</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>D</b></div>
+          </div>
+          
+          <h3 class="card-title">Taban, Üs ve Değer Hesaplama</h3>
+          <p class="card-desc">Tabanı ve üssü verilen üslü ifadenin değerini hesaplar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Taban ile üssü çarpma hatası (3⁴ yerine 3×4=12 yazma).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Taban, Üs ve Değer Hesaplama - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Taban = 3, Üs = 4 ise ifade 3⁴ şeklinde yazılır.
+2) Değer hesaplama (4 tane 3&#x27;ün çarpımı):
+3 × 3 = 9; 9 × 3 = 27; 27 × 3 = 81.
+(Not: 3 × ...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.1+Taban, Üs ve Değer Hesaplama" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 3</span>
+              <span class="badge badge-code">MAT.6.1.1.2</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">0 ve 1&#x27;in Kuvvetleri</h3>
+          <p class="card-desc">1&#x27;in tüm kuvvetlerinin 1, sıfır hariç sayıların sıfırıncı kuvvetinin 1 olduğunu kavrar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>9⁰ ifadesini 0 olarak düşünme veya 1²⁰²⁶ değerini 2026 sanma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"0 ve 1&#x27;in Kuvvetleri - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 1&#x27;in tüm kuvvetleri 1&#x27;dir: 1²⁰²⁶ = 1
+2) Sıfırın pozitif kuvvetleri 0&#x27;dır: 0¹⁸ = 0
+3) Bir sayının 1. kuvveti kendisine eşittir: 2026¹ = 20...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.2+0 ve 1&#x27;in Kuvvetleri" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Kolay">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 4</span>
+              <span class="badge badge-code">MAT.6.1.1.3</span>
+              <span class="badge badge-kolay">Kolay</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>A</b></div>
+          </div>
+          
+          <h3 class="card-title">Üslü İfadeleri Sıralama</h3>
+          <p class="card-desc">Farklı taban ve üslere sahip ifadeleri değerlerini bularak karşılaştırır.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Üssü büyük olanı hesaplamadan doğrudan büyük kabul etme yanılgısı.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Üslü İfadeleri Sıralama - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Değerleri hesaplayalım:
+• a = 2⁵ = 32
+• b = 3³ = 27
+• c = 5² = 25
+• d = 4³ = 64
+2) Sıralama: 25  c . (Doğru Seçenek: A)...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.3+Üslü İfadeleri Sıralama" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 5</span>
+              <span class="badge badge-code">MAT.6.1.1.4</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Tarihsel Bağlam: Satranç Problemi</h3>
+          <p class="card-desc">Üslü ifadeleri tarihsel bağlam ve ikiye katlanma problemleriyle ilişkilendirir.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>7. kare için 2⁷ hesaplayıp bir önceki basamağı atlama hatası.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Tarihsel Bağlam: Satranç Problemi - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Kare numarası ile üs ilişkisi: n. karedeki buğday = 2ⁿ⁻¹.
+2) 7. kare için üs = 7 - 1 = 6 olur.
+3) 2⁶ = 2 × 2 × 2 × 2 × 2 × 2 = 64 buğday ...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.4+Tarihsel Bağlam: Satranç Problemi" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 6</span>
+              <span class="badge badge-code">MAT.6.1.1.5</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">10&#x27;un Kuvvetleri ve Basamak Sayısı</h3>
+          <p class="card-desc">10ⁿ sayısının sondaki sıfır sayısını ve toplam basamak sayısını belirler.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Toplam basamak sayısını n kabul edip baştaki &#x27;1&#x27; rakamını saymama hatası.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"10&#x27;un Kuvvetleri ve Basamak Sayısı - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 10ⁿ üslü ifadesinde 1&#x27;in yanına n tane sıfır yazılır. Dolayısıyla 10⁸ sayısının sondan 8 basamağı sıfırdır.
+2) Baştaki 1 rakamı ile birli...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.5+10&#x27;un Kuvvetleri ve Basamak Sayısı" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 7</span>
+              <span class="badge badge-code">MAT.6.1.1.5</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>C</b></div>
+          </div>
+          
+          <h3 class="card-title">Çarpım ve Basamak Sayısı</h3>
+          <p class="card-desc">A × 10ⁿ biçimindeki sayıların basamak sayısını hesaplar.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Katsayının basamak sayısı ile üssü toplamak yerine çarpmak.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Çarpım ve Basamak Sayısı - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 36 sayısı 2 basamaklı bir doğal sayıdır.
+2) 10⁷ ifadesi sayının sonuna 7 tane sıfır ekler.
+3) Toplam basamak sayısı = 2 + 7 = 9 basamaklı...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.5+Çarpım ve Basamak Sayısı" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Orta">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 8</span>
+              <span class="badge badge-code">MAT.6.1.1.6</span>
+              <span class="badge badge-orta">Orta</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Dört İşlemle İlişkilendirme</h3>
+          <p class="card-desc">Üslü ifadeler içeren temel aritmetik işlemleri öncelik sırasına göre çözer.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>İşlem önceliğini gözetmeksizin soldan sağa rasgele işlem yapma.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Dört İşlemle İlişkilendirme - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Üslü ifadelerin değerlerini bulalım:
+• 2⁴ = 16
+• 3³ = 27
+• 4² = 16
+2) İşlemi yapalım: 16 + 27 - 16 = 27 bulunur. (Doğru Seçenek: B)...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.6+Dört İşlemle İlişkilendirme" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 9</span>
+              <span class="badge badge-code">MAT.6.1.1.7</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>A</b></div>
+          </div>
+          
+          <h3 class="card-title">Geometrik Modelleme (Alan &amp; Hacim)</h3>
+          <p class="card-desc">Karenin alanını 2. kuvvet, küpün hacmini 3. kuvvet ile modeller.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Küpün hacminde 4³ yerine 4×3=12 hesaplama hatası.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Geometrik Modelleme (Alan &amp; Hacim) - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Karenin Alanı = 8² = 8 × 8 = 64 cm²
+2) Küpün Hacmi = 4³ = 4 × 4 × 4 = 64 cm³
+3) Fark = 64 - 64 = 0 bulunur. (Doğru Seçenek: A)...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.7+Geometrik Modelleme (Alan &amp; Hacim)" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 10</span>
+              <span class="badge badge-code">MAT.6.1.1.8</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Bilinmeyen Kuvvet ve Taban</h3>
+          <p class="card-desc">Sonucu verilen üslü denklemde eksik taban veya üssü tespit eder.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>2ˣ = 32 denkleminde x = 16 bulma (2&#x27;ye bölme yanılgısı).</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Bilinmeyen Kuvvet ve Taban - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 2⁵ = 32 olduğundan x = 5&#x27;tir.
+2) 5³ = 125 olduğundan y = 5&#x27;tir.
+3) Çarpım: 5 × 5 = 25 bulunur. (Doğru Seçenek: B)...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.8+Bilinmeyen Kuvvet ve Taban" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 11</span>
+              <span class="badge badge-code">MAT.6.1.1.9</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Biyolojik Modelleme (Bakteri Çoğalması)</h3>
+          <p class="card-desc">Günlük hayat ve doğadaki katlanarak artış durumlarını üslü modellerle çözer.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Zaman periyodu ile katlanma sayısını orantılayamama.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Biyolojik Modelleme (Bakteri Çoğalması) - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) 1 saat sonra: 2³ = 8 bakteri.
+2) 2 saat sonra: 2⁶ = 64 bakteri.
+3) Fark = 64 - 8 = 56 fazladır. (Doğru Seçenek: B)...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.9+Biyolojik Modelleme (Bakteri Çoğalması)" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="radar-card" data-zorluk="Zor">
+          <div class="card-header">
+            <div class="badge-group">
+              <span class="badge badge-num">Soru 12</span>
+              <span class="badge badge-code">MAT.6.1.1.10</span>
+              <span class="badge badge-zor">Zor</span>
+            </div>
+            <div class="card-answer">Doğru Yanıt: <b>B</b></div>
+          </div>
+          
+          <h3 class="card-title">Mantık Muhakeme &amp; Beceri Temelli</h3>
+          <p class="card-desc">Birden fazla üslü değeri karşılaştırarak en büyük ve en küçük durumları analiz eder.</p>
+
+          <div class="diagnosis-box">
+            <div class="box-label">⚠ Tespit Edilen Kavram Yanılgısı & Çeldirici:</div>
+            <p>Aynı halkaya iki kez vurulduğunu varsayma veya en düşük puanı yanlış seçme.</p>
+          </div>
+
+          <div class="remedy-box">
+            <div class="box-label">🎯 EBA & MEB Bireysel Telafi Reçetesi:</div>
+            <ul class="remedy-list">
+              <li>📖 <b>MEB Ders Kitabı:</b> Sayfa 10 - 24 arasındaki ilgili konuyu ve çözümlü alıştırmaları inceleyiniz.</li>
+              <li>🎬 <b>Önerilen EBA Video / Dersi:</b> <i>"Mantık Muhakeme &amp; Beceri Temelli - Konu Anlatımı ve Örnek Çözümler"</i></li>
+              <li>💡 <b>Öğretmen Tavsiyesi:</b> 1) Halka puanları: 2⁵ = 32, 3³ = 27, 4² = 16, 5¹ = 5.
+2) En yüksek 2 puanın toplamı = 32 + 27 = 59.
+3) En düşük 2 puanın toplamı = 16 + 5 = ...</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.eba.gov.tr/ders?q=MAT.6.1.1.10+Mantık Muhakeme &amp; Beceri Temelli" target="_blank" class="btn-eba">
+              <span>🇹🇷 EBA'da Konuyu Aç</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</body>
+</html>
