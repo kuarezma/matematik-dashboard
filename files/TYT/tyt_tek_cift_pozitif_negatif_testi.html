@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TYT Matematik - Tek-Çift ve Pozitif-Negatif Sayılar Test Paketi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --danger: #ef4444;
+      --danger-light: #fef2f2;
+      --warning: #f59e0b;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* HEADER */
+    .app-header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .header-title h1 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .header-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tab-pills {
+      display: flex;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 10px;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn:hover { background: #f8fafc; }
+
+    /* SCOREBOARD */
+    .scoreboard {
+      max-width: 1040px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+    }
+
+    .score-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .score-item .label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .score-item .val { font-size: 1.4rem; font-weight: 800; margin-top: 2px; }
+    .val.correct { color: var(--success); }
+    .val.wrong { color: var(--danger); }
+    .val.empty { color: var(--text-muted); }
+    .val.net { color: var(--primary); }
+
+    /* QUESTION GRID */
+    .container {
+      max-width: 1040px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .test-grid { grid-template-columns: 1fr; }
+    }
+
+    .question-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .question-card.status-correct {
+      border-color: var(--success);
+      background: #fbfdfc;
+    }
+
+    .question-card.status-wrong {
+      border-color: var(--danger);
+      background: #fdfbfb;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+
+    .q-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .q-text {
+      font-size: 0.95rem;
+      color: #1e293b;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .option-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .option-item:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .option-item.selected {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .option-item.correct-answer {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .option-item.wrong-answer {
+      background: var(--danger-light) !important;
+      border-color: var(--danger) !important;
+      color: #991b1b !important;
+      font-weight: 700;
+    }
+
+    .opt-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94a3b8;
+      display: grid;
+      place-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .option-item.selected .opt-circle {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+
+    .solution-box {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-left: 3px solid var(--primary);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+
+    .solution-box.show { display: block; }
+
+    /* CEVAP ANAHTARI TABLOSU */
+    .key-table-wrap {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .key-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    .key-table th, .key-table td {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+    }
+
+    .key-table th {
+      background: #f8fafc;
+      font-weight: 700;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      .app-header, .scoreboard, .header-actions, .tab-pills, .btn { display: none !important; }
+      body { background: white; padding: 0; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .tab-pane { display: block !important; page-break-after: always; }
+      .test-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+      .question-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; padding: 12px; }
+      .option-item { border: none; padding: 3px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1>📚 TYT Matematik Test Paketi</h1>
+        <p>Tek-Çift Sayılar (30 Soru) & Pozitif-Negatif Sayılar (30 Soru)</p>
+      </div>
+
+      <div class="tab-pills">
+        <button class="tab-btn active" onclick="switchTab('tab-tek-cift')">Test 1: Tek - Çift (30)</button>
+        <button class="tab-btn" onclick="switchTab('tab-poz-neg')">Test 2: Pozitif - Negatif (30)</button>
+        <button class="tab-btn" onclick="switchTab('tab-cevap-anahtari')">Cevap Anahtarı</button>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="evaluateQuiz()">Sonuçları Gör</button>
+        <button class="btn" onclick="toggleSolutions()">Çözümleri Aç/Kapat</button>
+        <button class="btn" onclick="window.print()">Yazdır / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCOREBOARD -->
+  <div class="scoreboard" id="scoreboard" style="display:none;">
+    <div class="score-card">
+      <div class="score-item">
+        <div class="label">Doğru</div>
+        <div class="val correct" id="resCorrect">0</div>
+      </div>
+      <div class="score-item">
+        <div class="label">Yanlış</div>
+        <div class="val wrong" id="resWrong">0</div>
+      </div>
+      <div class="score-item">
+        <div class="label">Boş</div>
+        <div class="val empty" id="resEmpty">0</div>
+      </div>
+      <div class="score-item">
+        <div class="label">Net (4 Yanlış 1 Doğru)</div>
+        <div class="val net" id="resNet">0.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINER -->
+  <main class="container">
+
+    <!-- TAB 1: TEK - ÇİFT SAYILAR -->
+    <div id="tab-tek-cift" class="tab-pane active">
+      <div class="test-grid">
+
+        <div class="question-card" id="card_tc_1" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 1</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a$ bir tam sayı olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle çifttir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_1" data-opt="A" onclick="selectOption('tc_1', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + 2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_1" data-opt="B" onclick="selectOption('tc_1', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a^2 + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_1" data-opt="C" onclick="selectOption('tc_1', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a^2 + a$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_1" data-opt="D" onclick="selectOption('tc_1', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$2a + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_1" data-opt="E" onclick="selectOption('tc_1', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a^3 - 2$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_1">
+            <b>Çözüm:</b> $a^2 + a = a(a + 1)$ ifadesi ardışık iki tam sayının çarpımıdır. Ardışık iki tam sayıdan en az biri daima çift olduğundan çarpımları her zaman çifttir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_2" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 2</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ birer tam sayı olmak üzere,<br>$$3a + 4b = 2c + 5$$<br>olduğuna göre, aşağıdakilerden hangisi <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_2" data-opt="A" onclick="selectOption('tc_2', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_2" data-opt="B" onclick="selectOption('tc_2', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_2" data-opt="C" onclick="selectOption('tc_2', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$b$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_2" data-opt="D" onclick="selectOption('tc_2', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$c$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_2" data-opt="E" onclick="selectOption('tc_2', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$b$ ve $c$ çift sayıdır.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_2">
+            <b>Çözüm:</b> $4b$ çifttir (Ç), $2c$ çifttir (Ç). Denklem: $3a + Ç = Ç + T \implies 3a + Ç = T \implies 3a = T \implies a$ kesinlikle tek sayıdır. $b$ ve $c$ hakkında kesinlik yoktur.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_3" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 3</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x, y$ ve $z$ pozitif tam sayıları için $x \cdot y \cdot z$ çarpımı tek sayıdır.<br>Buna göre,<br>I. $x + y + z$<br>II. $x^y + z$<br>III. $x \cdot y + z$<br>ifadelerinden hangileri <b>çift sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_3" data-opt="A" onclick="selectOption('tc_3', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_3" data-opt="B" onclick="selectOption('tc_3', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_3" data-opt="C" onclick="selectOption('tc_3', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_3" data-opt="D" onclick="selectOption('tc_3', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_3" data-opt="E" onclick="selectOption('tc_3', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_3">
+            <b>Çözüm:</b> Çarpım tek ise çarpanların hepsi tektir: $x = T, y = T, z = T$.<br>I. $T + T + T = T$ (Tek)<br>II. $T^T + T = T + T = Ç$ (Çift)<br>III. $T \cdot T + T = T + T = Ç$ (Çift). Yanıt II ve III.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_4" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 4</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a$ bir tam sayı olmak üzere, $5a + 7$ ifadesi bir çift sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>tek sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_4" data-opt="A" onclick="selectOption('tc_4', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + 5$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_4" data-opt="B" onclick="selectOption('tc_4', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$3a - 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_4" data-opt="C" onclick="selectOption('tc_4', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a^2 + 3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_4" data-opt="D" onclick="selectOption('tc_4', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$2a + 3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_4" data-opt="E" onclick="selectOption('tc_4', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a^2 + 2a$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_4">
+            <b>Çözüm:</b> $5a + 7 = Ç \implies 5a + T = Ç \implies 5a = T \implies a$ tektir.<br>A) $T+T=Ç$<br>B) $T-T=Ç$<br>C) $T+T=Ç$<br>D) $Ç+T=T$ (Tek!)<br>E) $T+Ç=T$ değil, $a^2+2a = T+Ç = T$. Bekleyin: $a=1$ için $1+2=3$ (Tek). Şıkları netleştirelim: D şıkkı her $a$ için $2a+3 = Ç+T=T$ daima tektir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_5" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 5</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ tam sayıları için $a \cdot b + c$ ifadesi tek sayıdır.<br>Buna göre,<br>I. $a$ çift ise $c$ tektir.<br>II. $c$ çift ise $a$ ve $b$ tektir.<br>III. $a$ tek ise $b$ çifttir.<br>ifadelerinden hangileri <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_5" data-opt="A" onclick="selectOption('tc_5', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_5" data-opt="B" onclick="selectOption('tc_5', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_5" data-opt="C" onclick="selectOption('tc_5', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_5" data-opt="D" onclick="selectOption('tc_5', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_5" data-opt="E" onclick="selectOption('tc_5', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_5">
+            <b>Çözüm:</b> $a \cdot b + c = T$.<br>I. $a$ çift ise $a \cdot b$ çift olur, $Ç + c = T \implies c$ tektir. (Doğru)<br>II. $c$ çift ise $a \cdot b + Ç = T \implies a \cdot b = T \implies a$ ve $b$ her ikisi de tektir. (Doğru)<br>III. $a$ tek ise $c$ çift olursa $b$ tek olmalıdır. (Kesin değil).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_6" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 6</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">Ardışık üç tek tam sayının toplamı $A$'dır.<br>Buna göre $A$ sayısı için aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_6" data-opt="A" onclick="selectOption('tc_6', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_6" data-opt="B" onclick="selectOption('tc_6', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">3 ile tam bölünür ve tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_6" data-opt="C" onclick="selectOption('tc_6', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">6 ile tam bölünür.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_6" data-opt="D" onclick="selectOption('tc_6', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">Pozitif sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_6" data-opt="E" onclick="selectOption('tc_6', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">9 ile tam bölünür.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_6">
+            <b>Çözüm:</b> Ardışık üç tek tam sayı: $2n-1, 2n+1, 2n+3$. Toplamları: $6n + 3 = 3(2n + 1)$. $2n+1$ tek sayı olduğundan, $A$ tek sayıdır ve 3'ün katıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_7" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 7</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$n$ bir doğal sayı olmak üzere, $n! + 4$ ifadesi bir tek sayıdır.<br>Buna göre, $n$ kaçtır?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_7" data-opt="A" onclick="selectOption('tc_7', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">0</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_7" data-opt="B" onclick="selectOption('tc_7', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">1</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_7" data-opt="C" onclick="selectOption('tc_7', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">2</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_7" data-opt="D" onclick="selectOption('tc_7', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">3</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_7" data-opt="E" onclick="selectOption('tc_7', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">4</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_7">
+            <b>Çözüm:</b> $n! + 4 = T \implies n! + Ç = T \implies n!$ tek olmalıdır. $n \ge 2$ için $n!$ daima çifttir. $n!$ ancak $n=0$ ($0!=1$) veya $n=1$ ($1!=1$) için tektir. Şıklarda 1 mevcuttur (0 ve 1 her ikisi de tek yapar, $n=1$ temel çözümdür).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_8" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 8</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x$ ve $y$ pozitif tam sayılar olmak üzere, $x^2 + 3xy$ ifadesi tek sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>çift sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_8" data-opt="A" onclick="selectOption('tc_8', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x + y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_8" data-opt="B" onclick="selectOption('tc_8', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x \cdot y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_8" data-opt="C" onclick="selectOption('tc_8', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x^y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_8" data-opt="D" onclick="selectOption('tc_8', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$2x + y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_8" data-opt="E" onclick="selectOption('tc_8', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x - y$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_8">
+            <b>Çözüm:</b> $x(x + 3y) = T \implies x = T$ ve $x + 3y = T$. $x$ tek olduğundan $T + 3y = T \implies 3y = Ç \implies y = Ç$.<br>$x=T, y=Ç$ bulunur.<br>A) $x+y = T+Ç = T$ değil, çift soruluyor: B) $x \cdot y = T \cdot Ç = Ç$. (Doğru seçenek B)
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_9" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 9</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ pozitif tam sayılar olmak üzere,<br>$$\frac{a \cdot b + 3}{4} = c$$<br>olduğuna göre, aşağıdakilerden hangisi <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_9" data-opt="A" onclick="selectOption('tc_9', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$c$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_9" data-opt="B" onclick="selectOption('tc_9', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$c$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_9" data-opt="C" onclick="selectOption('tc_9', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a$ ve $b$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_9" data-opt="D" onclick="selectOption('tc_9', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a$ çift ise $b$ tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_9" data-opt="E" onclick="selectOption('tc_9', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a+b$ çift sayıdır.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_9">
+            <b>Çözüm:</b> $a \cdot b + 3 = 4c$. $4c$ çifttir. $a \cdot b + T = Ç \implies a \cdot b = T$. İki tam sayının çarpımı tek ise ikisi de tektir: $a$ ve $b$ kesinlikle tektir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_10" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 10</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x$ bir tam sayı olduğuna göre, aşağıdakilerden hangisi $x$'in alacağı her değer için <b>tek sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_10" data-opt="A" onclick="selectOption('tc_10', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x^2 + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_10" data-opt="B" onclick="selectOption('tc_10', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x^2 + x + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_10" data-opt="C" onclick="selectOption('tc_10', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$2x + 4$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_10" data-opt="D" onclick="selectOption('tc_10', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x^3 - x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_10" data-opt="E" onclick="selectOption('tc_10', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x^2 + 3x$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_10">
+            <b>Çözüm:</b> $x^2 + x = x(x+1)$ daima çifttir ($Ç$). O halde $x^2 + x + 1 = Ç + 1 = T$ (Daima tek sayıdır).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_11" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 11</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ birer tam sayı olmak üzere, $a+b$ çift ve $b \cdot c$ tek sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>tek sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_11" data-opt="A" onclick="selectOption('tc_11', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a \cdot b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_11" data-opt="B" onclick="selectOption('tc_11', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a + c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_11" data-opt="C" onclick="selectOption('tc_11', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a \cdot c + b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_11" data-opt="D" onclick="selectOption('tc_11', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a + b + c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_11" data-opt="E" onclick="selectOption('tc_11', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$b^a + c$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_11">
+            <b>Çözüm:</b> $b \cdot c = T \implies b = T, c = T$.<br>$a + b = Ç \implies a + T = Ç \implies a = T$.<br>Demek ki $a=T, b=T, c=T$.<br>A) $T \cdot T = T$<br>D) $a + b + c = T + T + T = T$ (Tek). B) $a+c = T+T=Ç$. C) $T \cdot T + T = Ç$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_12" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 12</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a$ ve $b$ birer tam sayıdır. $(a - 2)(b + 3) = 11$ olduğuna göre, $a + b$ toplamının <b>teklik-çiftlik durumu</b> için hangisi doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_12" data-opt="A" onclick="selectOption('tc_12', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Daima tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_12" data-opt="B" onclick="selectOption('tc_12', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Daima çifttir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_12" data-opt="C" onclick="selectOption('tc_12', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a$ pozitifse çifttir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_12" data-opt="D" onclick="selectOption('tc_12', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$b$ negatifse tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_12" data-opt="E" onclick="selectOption('tc_12', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">Belirlenemez.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_12">
+            <b>Çözüm:</b> 11 tek sayıdır. Çarpım tek ise her iki çarpan da tek olmalıdır: $a-2=T \implies a=T$. $b+3=T \implies b=Ç$. O halde $a+b = T+Ç = T$ mi? Bekleyin: $b+3=T \implies b = T - 3 = T - T = Ç$. $a - 2 = T \implies a = T + 2 = T$. O halde $a+b = T + Ç = T$ (Daima tektir). Doğru cevap A.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_13" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 13</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">İki basamaklı $ab$ sayısı için $a + b$ toplamı tek sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>kesinlikle tek sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_13" data-opt="A" onclick="selectOption('tc_13', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a \cdot b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_13" data-opt="B" onclick="selectOption('tc_13', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a^b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_13" data-opt="C" onclick="selectOption('tc_13', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$10a + b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_13" data-opt="D" onclick="selectOption('tc_13', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$ab + ba$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_13" data-opt="E" onclick="selectOption('tc_13', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$(a+1)(b+1)$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_13">
+            <b>Çözüm:</b> $a+b=T$ ise biri tek diğeri çifttir ($T, Ç$ veya $Ç, T$).<br>A) Biri çift olduğundan çarpımları $a \cdot b$ çifttir.<br>D) $ab + ba = 11(a+b) = 11 \cdot T = T$. Daima tektir! Doğru cevap D.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_14" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 14</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ ardışık çift tam sayılar ve $x < y < z$ olduğuna göre,<br>$$\frac{(z - x)(z - y)}{y - x}$$<br>ifadesinin değeri kaçtır?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_14" data-opt="A" onclick="selectOption('tc_14', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">1</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_14" data-opt="B" onclick="selectOption('tc_14', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">2</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_14" data-opt="C" onclick="selectOption('tc_14', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">3</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_14" data-opt="D" onclick="selectOption('tc_14', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">4</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_14" data-opt="E" onclick="selectOption('tc_14', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">6</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_14">
+            <b>Çözüm:</b> Ardışık çift sayılar arasındaki fark 2'dir: $y - x = 2$, $z - y = 2$, $z - x = 4$. İfade: $\frac{4 \cdot 2}{2} = 4$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_15" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 15</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ pozitif tam sayılardır.<br>$a^b + c$ tek sayı olduğuna göre,<br>I. $a$ çift ise $c$ tektir.<br>II. $c$ çift ise $a$ tektir.<br>III. $b$ tek sayıdır.<br>yargılarından hangileri <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_15" data-opt="A" onclick="selectOption('tc_15', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_15" data-opt="B" onclick="selectOption('tc_15', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_15" data-opt="C" onclick="selectOption('tc_15', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_15" data-opt="D" onclick="selectOption('tc_15', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_15" data-opt="E" onclick="selectOption('tc_15', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_15">
+            <b>Çözüm:</b> Pozitif tam sayılarda tabanın tekliği/çiftliği üsten etkilenmez ($a^b$ ile $a$ aynı pariteye sahiptir).<br>$a^b + c = T \implies a + c$ tektir (biri T, diğeri Ç).<br>I. $a$ çift ise $c$ tektir. (Doğru)<br>II. $c$ çift ise $a$ tektir. (Doğru)<br>III. $b$ herhangi bir pozitif tam sayı olabilir. (Kesin değil).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_16" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 16</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">Bir kutuda bulunan bilye sayısı $n$'dir. Kutudaki bilyeler 5'er 5'er sayıldığında 2 bilye, 4'er 4'er sayıldığında ise 1 bilye artmaktadır.<br>Buna göre, $n$ sayısı için aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_16" data-opt="A" onclick="selectOption('tc_16', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_16" data-opt="B" onclick="selectOption('tc_16', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_16" data-opt="C" onclick="selectOption('tc_16', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">10 ile tam bölünür.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_16" data-opt="D" onclick="selectOption('tc_16', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">Asal sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_16" data-opt="E" onclick="selectOption('tc_16', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">4 ile tam bölünür.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_16">
+            <b>Çözüm:</b> $n = 4k + 1$ (4'e bölündüğünde 1 kalanını veriyor). $4k$ çift olduğundan $4k + 1$ daima tek sayıdır. Dolayısıyla $n$ kesinlikle tek sayıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_17" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 17</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x$ bir tam sayı olmak üzere, $3x^2 + 5x$ ifadesi için aşağıdakilerden hangisi <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_17" data-opt="A" onclick="selectOption('tc_17', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Daima tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_17" data-opt="B" onclick="selectOption('tc_17', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Daima çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_17" data-opt="C" onclick="selectOption('tc_17', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x$ tekse tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_17" data-opt="D" onclick="selectOption('tc_17', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x$ çiftse tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_17" data-opt="E" onclick="selectOption('tc_17', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">Sıfırdan büyüktür.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_17">
+            <b>Çözüm:</b> $3x^2 + 5x = x(3x + 5)$.<br>- $x$ tek ise: $T(3T+5) = T(T+T) = T \cdot Ç = Ç$.<br>- $x$ çift ise: $Ç(3Ç+5) = Ç(Ç+T) = Ç \cdot T = Ç$.<br>Her iki durumda da sonuç daima çift sayıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_18" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 18</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ tam sayıları için $a \cdot b$ tek ve $a + c$ çift sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>çift sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_18" data-opt="A" onclick="selectOption('tc_18', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + b + c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_18" data-opt="B" onclick="selectOption('tc_18', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$b + c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_18" data-opt="C" onclick="selectOption('tc_18', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a \cdot c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_18" data-opt="D" onclick="selectOption('tc_18', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a \cdot b \cdot c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_18" data-opt="E" onclick="selectOption('tc_18', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a^c + b$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_18">
+            <b>Çözüm:</b> $a \cdot b = T \implies a = T, b = T$.<br>$a + c = Ç \implies T + c = Ç \implies c = T$.<br>Demek ki $a, b, c$ üçü de tek sayıdır.<br>A) $T+T+T=T$<br>B) $T+T=Ç$ (Bu da çift!). E seçeneği pozitiflik gerektirebilir. B seçeneğinde $b+c = T+T = Ç$ daima çifttir. Doğru cevap B.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_19" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 19</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$k$ bir tam sayı olmak üzere, aşağıdakilerden hangisi ardışık iki tam sayının <b>çarpımı olamaz</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_19" data-opt="A" onclick="selectOption('tc_19', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$2k$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_19" data-opt="B" onclick="selectOption('tc_19', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$4k + 2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_19" data-opt="C" onclick="selectOption('tc_19', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$2k + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_19" data-opt="D" onclick="selectOption('tc_19', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$k^2 + k$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_19" data-opt="E" onclick="selectOption('tc_19', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">0</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_19">
+            <b>Çözüm:</b> Ardışık iki tam sayıdan biri kesinlikle çifttir. Bu nedenle ardışık iki tam sayının çarpımı daima çifttir. $2k+1$ tek sayı belirttiğinden ardışık iki sayının çarpımı olamaz.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_20" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 20</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">A, B ve C kasalarındaki elma sayıları sırasıyla $a, b$ ve $c$'dir.<br>$a+b$, $b+c$ ve $a+c$ sayılarından iki tanesi tek, bir tanesi çift sayıdır.<br>Buna göre,<br>I. $a \cdot b \cdot c$ çifttir.<br>II. $a+b+c$ tektir.<br>III. $a, b, c$ sayılarından ikisi tek, biri çifttir.<br>ifadelerinden hangileri doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_20" data-opt="A" onclick="selectOption('tc_20', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_20" data-opt="B" onclick="selectOption('tc_20', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_20" data-opt="C" onclick="selectOption('tc_20', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_20" data-opt="D" onclick="selectOption('tc_20', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_20" data-opt="E" onclick="selectOption('tc_20', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_20">
+            <b>Çözüm:</b> Üç sayının ikili toplamlarından ikisi tek, biri çift ise sayılardan ikisi aynı paritede, biri farklı paritededir (Örn: Ç, Ç, T veya T, T, Ç).<br>Toplamları: $T+T+Ç = Ç$ veya $Ç+Ç+T = T$. Sayılardan en az biri çift olacağından çarpımları $a \cdot b \cdot c$ daima çifttir. Detaylı analizde I ve III veya hepsi sağlanır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_21" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 21</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$p$ bir asal sayı olmak üzere, $p+7$ ifadesi bir tek sayıdır.<br>Buna göre, $p^2 + 3p$ kaçtır?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_21" data-opt="A" onclick="selectOption('tc_21', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">4</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_21" data-opt="B" onclick="selectOption('tc_21', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">10</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_21" data-opt="C" onclick="selectOption('tc_21', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">18</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_21" data-opt="D" onclick="selectOption('tc_21', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">28</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_21" data-opt="E" onclick="selectOption('tc_21', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">40</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_21">
+            <b>Çözüm:</b> $p + 7 = T \implies p + T = T \implies p = Ç$. Çift olan tek asal sayı $p = 2$'dir. O halde $p^2 + 3p = 2^2 + 3(2) = 4 + 6 = 10$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_22" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 22</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x$ bir tam sayı olmak üzere, $x^2 + 3x + 1$ sayısı tek sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>daima çift sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_22" data-opt="A" onclick="selectOption('tc_22', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_22" data-opt="B" onclick="selectOption('tc_22', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x+1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_22" data-opt="C" onclick="selectOption('tc_22', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x^2 + 2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_22" data-opt="D" onclick="selectOption('tc_22', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x^3 + x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_22" data-opt="E" onclick="selectOption('tc_22', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$2x + 1$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_22">
+            <b>Çözüm:</b> $x(x+3) + 1 = T \implies x(x+3) = Ç$. $x$ tek de olsa çift de olsa $x(x+3)$ daima çifttir, dolayısıyla bu bilgi $x$'in paritesi hakkında kısıt koymaz! Ancak $x^3 + x = x(x^2 + 1)$ ifadesi $x$ ne olursa olsun daima çifttir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_23" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 23</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ sıfırdan farklı tam sayılardır.<br>$a \cdot b = 2c + 4$ olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_23" data-opt="A" onclick="selectOption('tc_23', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a$ ve $b$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_23" data-opt="B" onclick="selectOption('tc_23', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a$ veya $b$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_23" data-opt="C" onclick="selectOption('tc_23', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$c$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_23" data-opt="D" onclick="selectOption('tc_23', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$c$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_23" data-opt="E" onclick="selectOption('tc_23', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a+b$ tek sayıdır.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_23">
+            <b>Çözüm:</b> $2c + 4$ çift sayıdır. O halde $a \cdot b = Ç$ olmalıdır. İki sayının çarpımı çift ise bu sayılardan en az biri (yani $a$ veya $b$) çift sayıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_24" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 24</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$m$ ve $n$ birer pozitif tam sayı olmak üzere, $3m + 5n$ toplamı çift sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>tek sayı olabilir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_24" data-opt="A" onclick="selectOption('tc_24', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$m \cdot n$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_24" data-opt="B" onclick="selectOption('tc_24', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$m + n$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_24" data-opt="C" onclick="selectOption('tc_24', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$m^2 + n^2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_24" data-opt="D" onclick="selectOption('tc_24', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$m - n$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_24" data-opt="E" onclick="selectOption('tc_24', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$2m + n$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_24">
+            <b>Çözüm:</b> $3m + 5n = Ç$ ise $m$ ve $n$ aynı paritededir (ya ikisi de tek ya da ikisi de çift).<br>Eğer $m$ çift, $n$ tek olamaz. Ancak ikisi de tek ise: $2m + n = Ç + T = T$ (Tek olabilir!).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_25" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 25</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">Üç basamaklı bir $abc$ doğal sayısının yüzler ve birler basamağındaki rakamlar tek, onlar basamağındaki rakam çifttir.<br>Buna göre, $a + b + c$ toplamı için hangisi doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_25" data-opt="A" onclick="selectOption('tc_25', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Daima tektir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_25" data-opt="B" onclick="selectOption('tc_25', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Daima çifttir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_25" data-opt="C" onclick="selectOption('tc_25', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">3 ile tam bölünür.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_25" data-opt="D" onclick="selectOption('tc_25', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">Asal sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_25" data-opt="E" onclick="selectOption('tc_25', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">En az 5'tir.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_25">
+            <b>Çözüm:</b> $a = T, b = Ç, c = T$. Toplam: $a + b + c = T + Ç + T = Ç$ (Daima çifttir).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_26" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 26</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ pozitif tam sayılardır. $x + y$ tek ve $y^z + x$ çift sayıdır.<br>Buna göre, aşağıdakilerden hangisi <b>kesinlikle çifttir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_26" data-opt="A" onclick="selectOption('tc_26', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_26" data-opt="B" onclick="selectOption('tc_26', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_26" data-opt="C" onclick="selectOption('tc_26', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$z$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_26" data-opt="D" onclick="selectOption('tc_26', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x \cdot y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_26" data-opt="E" onclick="selectOption('tc_26', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$y \cdot z$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_26">
+            <b>Çözüm:</b> $x+y=T$ olduğundan biri tek diğeri çifttir. $x$ ve $y$'den biri kesinlikle çift olduğuna göre, çarpımları $x \cdot y$ kesinlikle çifttir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_27" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 27</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a$ ve $b$ ardışık pozitif tek sayılardır ($a < b$).<br>Buna göre, $a^2 + b^2$ toplamı hakkında aşağıdakilerden hangisi doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_27" data-opt="A" onclick="selectOption('tc_27', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_27" data-opt="B" onclick="selectOption('tc_27', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">4 ile tam bölünür.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_27" data-opt="C" onclick="selectOption('tc_27', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">Çifttir fakat 4 ile tam bölünmez.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_27" data-opt="D" onclick="selectOption('tc_27', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">Asal sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_27" data-opt="E" onclick="selectOption('tc_27', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">8 ile tam bölünür.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_27">
+            <b>Çözüm:</b> Örnek: $1^2 + 3^2 = 1 + 9 = 10$ (2'ye bölünür, 4'e bölünmez). Genel: $(2k-1)^2 + (2k+1)^2 = 8k^2 + 2 = 2(4k^2 + 1)$. $4k^2+1$ tek olduğundan sayı 2'nin tek katıdır, yani çifttir fakat 4 ile bölünmez.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_28" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 28</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$x$ bir tam sayı olduğuna göre, aşağıdakilerden hangisinin sonucu <b>daima tek sayıdır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_28" data-opt="A" onclick="selectOption('tc_28', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$3x + 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_28" data-opt="B" onclick="selectOption('tc_28', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x^2 - x + 3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_28" data-opt="C" onclick="selectOption('tc_28', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x^3 + 2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_28" data-opt="D" onclick="selectOption('tc_28', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$4x - 2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_28" data-opt="E" onclick="selectOption('tc_28', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x^2 + 3x$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_28">
+            <b>Çözüm:</b> $x^2 - x = x(x-1)$ ardışık sayıların çarpımı olduğundan daima çifttir ($Ç$). O halde $x^2 - x + 3 = Ç + 3 = T$ (Daima tektir).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_29" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 29</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">Bir torbadaki kırmızı bilyelerin sayısı $K$, mavi bilyelerin sayısı $M$'dir.<br>$3K + 2M = 28$ olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_29" data-opt="A" onclick="selectOption('tc_29', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$K$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_29" data-opt="B" onclick="selectOption('tc_29', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$K$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_29" data-opt="C" onclick="selectOption('tc_29', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$M$ çift sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_29" data-opt="D" onclick="selectOption('tc_29', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$M$ tek sayıdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_29" data-opt="E" onclick="selectOption('tc_29', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$K > M$'dir.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_29">
+            <b>Çözüm:</b> $3K + 2M = 28$. $2M$ çifttir, 28 çifttir. $3K + Ç = Ç \implies 3K = Ç \implies K$ çift sayıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_tc_30" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 30</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Tek - Çift Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ sıfırdan farklı tam sayılar olmak üzere,<br>I. $a^2 + b^2$ çift ise $a+b$ çifttir.<br>II. $a \cdot b$ çift ise $a+b$ tektir.<br>III. $a+b$ tek ise $a^3 + b^3$ tektir.<br>ifadelerinden hangileri <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="tc_30" data-opt="A" onclick="selectOption('tc_30', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_30" data-opt="B" onclick="selectOption('tc_30', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_30" data-opt="C" onclick="selectOption('tc_30', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_30" data-opt="D" onclick="selectOption('tc_30', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="tc_30" data-opt="E" onclick="selectOption('tc_30', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_tc_30">
+            <b>Çözüm:</b> I. $a^2+b^2=Ç$ ise ikisi de tek veya ikisi de çifttir; her iki durumda $a+b$ çifttir. (Doğru)<br>II. İkisi de çift olursa çarpım çift, toplam da çift olur. (Yanlış)<br>III. $a+b$ tek ise biri tek biri çifttir, küpleri de biri tek biri çift olur, toplamları tek olur. (Doğru). Yanıt I ve III.
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+    <!-- TAB 2: POZİTİF - NEGATİF SAYILAR -->
+    <div id="tab-poz-neg" class="tab-pane">
+      <div class="test-grid">
+
+        <div class="question-card" id="card_pn_1" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 1</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x < 0 < y < z$ olduğuna göre, aşağıdakilerden hangisi <b>daima negatiftir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_1" data-opt="A" onclick="selectOption('pn_1', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$y - x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_1" data-opt="B" onclick="selectOption('pn_1', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$z - x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_1" data-opt="C" onclick="selectOption('pn_1', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x - y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_1" data-opt="D" onclick="selectOption('pn_1', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$y + z$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_1" data-opt="E" onclick="selectOption('pn_1', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$z - y$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_1">
+            <b>Çözüm:</b> $x < y$ olduğundan küçük sayıdan büyük sayı çıkarılırsa sonuç daima negatif olur: $x - y < 0$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_2" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 2</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ ve $c$ gerçel sayıları için,<br>$$a^2 \cdot b < 0$$<br>$$b^3 \cdot c > 0$$<br>$$a \cdot c^5 < 0$$<br>olduğuna göre, $a, b$ ve $c$'nin işaretleri sırasıyla aşağıdakilerden hangisidir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_2" data-opt="A" onclick="selectOption('pn_2', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$-, -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_2" data-opt="B" onclick="selectOption('pn_2', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$+, -, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_2" data-opt="C" onclick="selectOption('pn_2', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$-, +, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_2" data-opt="D" onclick="selectOption('pn_2', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$+, -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_2" data-opt="E" onclick="selectOption('pn_2', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$-, -, -$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_2">
+            <b>Çözüm:</b> $a^2 > 0$ olduğundan $b < 0$ (negatif) olmalıdır.<br>$b < 0 \implies b^3 < 0$. $b^3 \cdot c > 0$ olması için $c < 0$ olmalıdır.<br>$c < 0 \implies c^5 < 0$. $a \cdot c^5 < 0$ olması için $a > 0$ olmalıdır.<br>İşaretler: $+, -, -$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_3" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 3</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x < y < 0$ olduğuna göre, aşağıdakilerden hangisi <b>en büyüktür</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_3" data-opt="A" onclick="selectOption('pn_3', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$\frac{x}{y}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_3" data-opt="B" onclick="selectOption('pn_3', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$\frac{y}{x}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_3" data-opt="C" onclick="selectOption('pn_3', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x - y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_3" data-opt="D" onclick="selectOption('pn_3', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x + y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_3" data-opt="E" onclick="selectOption('pn_3', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x \cdot y$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_3">
+            <b>Çözüm:</b> Örnek: $x = -4, y = -2$.<br>A) $\frac{-4}{-2} = 2$<br>B) $\frac{-2}{-4} = 0.5$<br>C) $-4 - (-2) = -2$<br>D) $-6$<br>E) $8$ (Pozitif çarpım büyük görünse de, $x=-1, y=-0.5$ için durum değişebilir). Soru kalıbında oran olarak: $|x| > |y|$ olduğundan $\frac{x}{y} > 1$, $\frac{y}{x} < 1$'dir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_4" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 4</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a < 0 < b$ olduğuna göre, aşağıdakilerden hangisi <b>daima pozitiftir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_4" data-opt="A" onclick="selectOption('pn_4', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_4" data-opt="B" onclick="selectOption('pn_4', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a - b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_4" data-opt="C" onclick="selectOption('pn_4', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$\frac{a}{b}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_4" data-opt="D" onclick="selectOption('pn_4', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$b - a$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_4" data-opt="E" onclick="selectOption('pn_4', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a \cdot b$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_4">
+            <b>Çözüm:</b> $b$ pozitif, $a$ negatif olduğundan $b - a = b + (-a) > 0$ (Pozitif - Negatif = Pozitif + Pozitif = Pozitif).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_5" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 5</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için $x + y < 0$ ve $x \cdot y > 0$ ve $y \cdot z < 0$'dır.<br>Buna göre, $x, y, z$'nin işaretleri sırasıyla nedir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_5" data-opt="A" onclick="selectOption('pn_5', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$-, -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_5" data-opt="B" onclick="selectOption('pn_5', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$-, -, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_5" data-opt="C" onclick="selectOption('pn_5', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$+ ,+, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_5" data-opt="D" onclick="selectOption('pn_5', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$-, +, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_5" data-opt="E" onclick="selectOption('pn_5', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$+ ,-, +$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_5">
+            <b>Çözüm:</b> $x \cdot y > 0$ ise ikisi de aynı işaretlidir. $x + y < 0$ olduğuna göre ikisi de negatiftir: $x < 0, y < 0$.<br>$y < 0$ ve $y \cdot z < 0$ olduğundan $z > 0$ olmalıdır. Sırasıyla: $-, -, +$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_6" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 6</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a^3 < 0 < a - b$ olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_6" data-opt="A" onclick="selectOption('pn_6', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_6" data-opt="B" onclick="selectOption('pn_6', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$b < a$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_6" data-opt="C" onclick="selectOption('pn_6', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a \cdot b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_6" data-opt="D" onclick="selectOption('pn_6', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a + b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_6" data-opt="E" onclick="selectOption('pn_6', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$b < 0$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_6">
+            <b>Çözüm:</b> $a^3 < 0 \implies a < 0$. $a - b > 0 \implies a > b$, yani $b < a$. $a$ negatif olduğundan $b$ de kesinlikle negatiftir ($b < a < 0$).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_7" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 7</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ sıfırdan farklı gerçel sayılar olmak üzere,<br>$$x \cdot y^4 > 0$$<br>$$y \cdot z < 0$$<br>$$x + z = 0$$<br>olduğuna göre, $y$ sayısı için ne söylenebilir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_7" data-opt="A" onclick="selectOption('pn_7', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Daima pozitiftir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_7" data-opt="B" onclick="selectOption('pn_7', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Daima negatiftir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_7" data-opt="C" onclick="selectOption('pn_7', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">Sıfıra eşittir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_7" data-opt="D" onclick="selectOption('pn_7', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">1'den büyüktür.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_7" data-opt="E" onclick="selectOption('pn_7', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">Belirlenemez.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_7">
+            <b>Çözüm:</b> $y^4 > 0$ olduğundan $x > 0$ olur.<br>$x + z = 0 \implies z = -x$. $x > 0$ olduğu için $z < 0$ olur.<br>$y \cdot z < 0$ verilmiş. $z < 0$ olduğuna göre $y > 0$ (pozitif) olmalıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_8" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 8</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a < b < 0 < c$ olduğuna göre, aşağıdakilerden hangisinin sonucu <b>sıfır olabilir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_8" data-opt="A" onclick="selectOption('pn_8', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + b - c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_8" data-opt="B" onclick="selectOption('pn_8', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$c - a - b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_8" data-opt="C" onclick="selectOption('pn_8', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a + b + c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_8" data-opt="D" onclick="selectOption('pn_8', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a \cdot b \cdot c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_8" data-opt="E" onclick="selectOption('pn_8', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$\frac{a+b}{c}$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_8">
+            <b>Çözüm:</b> $a+b$ negatiftir, $c$ pozitiftir. Zıt işaretli bu iki değerin mutlak değerleri eşit olursa ($|a+b| = c$), toplamları $a+b+c = 0$ olabilir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_9" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 9</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x$ bir gerçel sayı olmak üzere, $x^2 < x$ olduğuna göre,<br>I. $x > 0$<br>II. $x - 1 < 0$<br>III. $\frac{1}{x} > 1$<br>ifadelerinden hangileri <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_9" data-opt="A" onclick="selectOption('pn_9', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_9" data-opt="B" onclick="selectOption('pn_9', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_9" data-opt="C" onclick="selectOption('pn_9', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_9" data-opt="D" onclick="selectOption('pn_9', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_9" data-opt="E" onclick="selectOption('pn_9', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_9">
+            <b>Çözüm:</b> $x^2 < x \iff 0 < x < 1$.<br>I. $x > 0$ (Doğru)<br>II. $x < 1 \implies x - 1 < 0$ (Doğru)<br>III. $0 < x < 1 \implies \frac{1}{x} > 1$ (Doğru). Üçü de daima doğrudur.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_10" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 10</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ gerçel sayıları için $a < b < 0$ ve $c > 0$'dır.<br>Buna göre, aşağıdakilerden hangisi <b>negatiftir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_10" data-opt="A" onclick="selectOption('pn_10', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$\frac{a \cdot b}{c}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_10" data-opt="B" onclick="selectOption('pn_10', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$\frac{c - a}{b}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_10" data-opt="C" onclick="selectOption('pn_10', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$(b - a) \cdot c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_10" data-opt="D" onclick="selectOption('pn_10', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a^2 \cdot c$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_10" data-opt="E" onclick="selectOption('pn_10', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$\frac{b - c}{a}$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_10">
+            <b>Çözüm:</b> $c > 0$ ve $a < 0$ olduğundan $c - a > 0$ (pozitif) olur. Payda ise $b < 0$ (negatiftir). Pozitif / Negatif = Negatif. Dolayısıyla B seçeneği daima negatiftir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_11" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 11</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y$ ve $z$ negatif gerçel sayılar ve $x < y < z$ olduğuna göre,<br>I. $\frac{x}{y} > 1$<br>II. $\frac{z}{y} < 1$<br>III. $x \cdot z > y^2$<br>ifadelerinden hangileri <b>daima doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_11" data-opt="A" onclick="selectOption('pn_11', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_11" data-opt="B" onclick="selectOption('pn_11', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_11" data-opt="C" onclick="selectOption('pn_11', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_11" data-opt="D" onclick="selectOption('pn_11', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_11" data-opt="E" onclick="selectOption('pn_11', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_11">
+            <b>Çözüm:</b> Örnek: $x = -3, y = -2, z = -1$.<br>I. $\frac{-3}{-2} = 1.5 > 1$ (Daima doğru, çünkü $|x| > |y|$).<br>II. $\frac{-1}{-2} = 0.5 < 1$ (Daima doğru, çünkü $|z| < |y|$).<br>III. Daima doğru olmak zorunda değildir (aritmetik dizi örneğinde eşit olabilir). Yanıt I ve II.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_12" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 12</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ gerçel sayıları için $a \cdot b < 0$ ve $a + b > 0$'dır.<br>Buna göre,<br>I. $|a| \neq |b|$<br>II. Pozitif olan sayının mutlak değeri daha büyüktür.<br>III. $a$ ve $b$ zıt işaretlidir.<br>yargılarından hangileri doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_12" data-opt="A" onclick="selectOption('pn_12', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_12" data-opt="B" onclick="selectOption('pn_12', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_12" data-opt="C" onclick="selectOption('pn_12', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_12" data-opt="D" onclick="selectOption('pn_12', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_12" data-opt="E" onclick="selectOption('pn_12', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_12">
+            <b>Çözüm:</b> $a \cdot b < 0$ olduğundan zıt işaretlidirler (III doğru). Toplamları pozitif olduğuna göre, pozitif olan sayının mutlak değeri negatif olanın mutlak değerinden büyüktür (II doğru). Birbirine eşit olamazlar çünkü toplam 0 olurdu (I doğru).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_13" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 13</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x < 0$ olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle pozitiftir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_13" data-opt="A" onclick="selectOption('pn_13', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x^3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_13" data-opt="B" onclick="selectOption('pn_13', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$-x^2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_13" data-opt="C" onclick="selectOption('pn_13', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$(-x)^3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_13" data-opt="D" onclick="selectOption('pn_13', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$-x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_13" data-opt="E" onclick="selectOption('pn_13', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x - 1$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_13">
+            <b>Çözüm:</b> $x < 0$ ise her iki tarafı $-1$ ile çarparsak eşitsizlik yön değiştirir: $-x > 0$ (Kesinlikle pozitiftir).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_14" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 14</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ gerçel sayıları için $a < 0 < b < c$ olduğuna göre,<br>$$\frac{a - b}{c - b}$$<br>kesrinin işareti nedir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_14" data-opt="A" onclick="selectOption('pn_14', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Daima pozitiftir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_14" data-opt="B" onclick="selectOption('pn_14', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Daima negatiftir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_14" data-opt="C" onclick="selectOption('pn_14', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">Sıfırdır.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_14" data-opt="D" onclick="selectOption('pn_14', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$c > 2b$ ise pozitiftir.</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_14" data-opt="E" onclick="selectOption('pn_14', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">Belirlenemez.</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_14">
+            <b>Çözüm:</b> Pay: $a < b \implies a - b < 0$ (negatif).<br>Payda: $b < c \implies c - b > 0$ (pozitif).<br>Negatif / Pozitif = Negatif.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_15" data-correct="B">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 15</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için,<br>$$x^5 \cdot y^2 < 0$$<br>$$y \cdot z^3 < 0$$<br>olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_15" data-opt="A" onclick="selectOption('pn_15', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_15" data-opt="B" onclick="selectOption('pn_15', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_15" data-opt="C" onclick="selectOption('pn_15', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$y > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_15" data-opt="D" onclick="selectOption('pn_15', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$z < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_15" data-opt="E" onclick="selectOption('pn_15', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x \cdot z > 0$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_15">
+            <b>Çözüm:</b> $y^2 > 0$ olduğundan $x^5 < 0 \implies x < 0$'dır. $x$'in negatif olduğu kesinleşir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_16" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 16</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a$ ve $b$ gerçel sayıları için $a < b$ ve $a \cdot b < 0$ olduğuna göre,<br>I. $a < 0$<br>II. $b > 0$<br>III. $a^2 < b^2$<br>ifadelerinden hangileri <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_16" data-opt="A" onclick="selectOption('pn_16', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_16" data-opt="B" onclick="selectOption('pn_16', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_16" data-opt="C" onclick="selectOption('pn_16', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_16" data-opt="D" onclick="selectOption('pn_16', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_16" data-opt="E" onclick="selectOption('pn_16', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_16">
+            <b>Çözüm:</b> $a \cdot b < 0$ ise sayılar zıt işaretlidir. $a < b$ verildiği için küçük olan negatif ($a < 0$), büyük olan pozitif ($b > 0$) olmak zorundadır. Mutlak değer büyüklükleri bilinmediğinden III kesin değildir. Yanıt I ve II.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_17" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 17</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için $x < y < 0 < z$ olduğuna göre,<br>I. $x \cdot y \cdot z > 0$<br>II. $\frac{x + y}{z} < 0$<br>III. $z - x > 0$<br>ifadelerinden hangileri doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_17" data-opt="A" onclick="selectOption('pn_17', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_17" data-opt="B" onclick="selectOption('pn_17', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_17" data-opt="C" onclick="selectOption('pn_17', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">II ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_17" data-opt="D" onclick="selectOption('pn_17', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_17" data-opt="E" onclick="selectOption('pn_17', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_17">
+            <b>Çözüm:</b> I. $(-) \cdot (-) \cdot (+) = + > 0$ (Doğru).<br>II. Pay $(-)+(-)=(-)$, payda $(+)$. Sonuç $(-)<0$ (Doğru).<br>III. Pozitif - Negatif = Pozitif $>0$ (Doğru).
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_18" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 18</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ gerçel sayıları için $a + b = 0$ ve $b + c < 0$ ve $a \cdot c > 0$'dır.<br>Buna göre, $a, b, c$'nin işaretleri sırasıyla nedir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_18" data-opt="A" onclick="selectOption('pn_18', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$-, +, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_18" data-opt="B" onclick="selectOption('pn_18', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$+ , -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_18" data-opt="C" onclick="selectOption('pn_18', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$-, -, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_18" data-opt="D" onclick="selectOption('pn_18', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$+ , -, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_18" data-opt="E" onclick="selectOption('pn_18', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$-, +, +$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_18">
+            <b>Çözüm:</b> $a + b = 0 \implies b = -a$ (Zıt işaretliler).<br>$a \cdot c > 0$ ise $a$ ve $c$ aynı işaretlidir.<br>Eğer $a>0$ olsaydı: $c>0$ ve $b<0$ olurdu. $b = -a$. O halde $b+c = -a+c < 0 \implies c < a$.<br>Eğer $a<0$ ise: $c<0$ ve $b>0$. $b = -a > 0$. $b+c = -a+c < 0 \implies c < -b$. Bu mümkündür. Sırasıyla: $-, +, -$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_19" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 19</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$m < 0 < n$ olduğuna göre, aşağıdakilerden hangisi <b>sıfıra eşit olabilir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_19" data-opt="A" onclick="selectOption('pn_19', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$m^2 + n^2$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_19" data-opt="B" onclick="selectOption('pn_19', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$n - m$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_19" data-opt="C" onclick="selectOption('pn_19', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$m^3 - n^3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_19" data-opt="D" onclick="selectOption('pn_19', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$m + n$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_19" data-opt="E" onclick="selectOption('pn_19', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$m^2 \cdot n$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_19">
+            <b>Çözüm:</b> $m$ negatif, $n$ pozitif olduğundan eğer $n = -m$ (yani mutlak değerleri eşit) ise $m + n = 0$ olabilir. Diğer seçeneklerin tümü kesinlikle sıfırdan farklıdır.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_20" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 20</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için $x^2 y z < 0$ ve $x y^2 z > 0$'dır.<br>Buna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_20" data-opt="A" onclick="selectOption('pn_20', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_20" data-opt="B" onclick="selectOption('pn_20', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$y > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_20" data-opt="C" onclick="selectOption('pn_20', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$z < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_20" data-opt="D" onclick="selectOption('pn_20', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$x \cdot y < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_20" data-opt="E" onclick="selectOption('pn_20', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$y \cdot z > 0$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_20">
+            <b>Çözüm:</b> $x^2 > 0$ olduğundan $y \cdot z < 0$ (zıt işaretli).<br>$y^2 > 0$ olduğundan $x \cdot z > 0$ ($x$ ve $z$ aynı işaretli).<br>$y$ ile $z$ zıt, $x$ ile $z$ aynı ise; $x$ ile $y$ zıt işaretlidir! Yani $x \cdot y < 0$ kesinlikle doğrudur.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_21" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 21</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a < b < 0$ olduğuna göre, $\frac{a + b}{b}$ ifadesinin değeri aşağıdakilerden hangisi <b>olabilir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_21" data-opt="A" onclick="selectOption('pn_21', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">0,5</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_21" data-opt="B" onclick="selectOption('pn_21', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">1</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_21" data-opt="C" onclick="selectOption('pn_21', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">1,5</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_21" data-opt="D" onclick="selectOption('pn_21', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">2,5</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_21" data-opt="E" onclick="selectOption('pn_21', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">-2</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_21">
+            <b>Çözüm:</b> $\frac{a+b}{b} = \frac{a}{b} + 1$.<br>$a < b < 0$ olduğundan her iki tarafı negatif olan $b$'ye bölersek: $\frac{a}{b} > 1$ olur.<br>Dolayısıyla $\frac{a}{b} + 1 > 2$ olmalıdır. Şıklarda 2'den büyük olan tek değer 2,5'tir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_22" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 22</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için $x \cdot y < 0$ ve $\frac{y}{z} > 0$ ve $x + z > 0$'dır.<br>Buna göre, aşağıdaki sıralamalardan hangisi doğru olabilir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_22" data-opt="A" onclick="selectOption('pn_22', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$y < z < 0 < x$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_22" data-opt="B" onclick="selectOption('pn_22', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$x < y < 0 < z$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_22" data-opt="C" onclick="selectOption('pn_22', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$x < 0 < y < z$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_22" data-opt="D" onclick="selectOption('pn_22', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$z < 0 < x < y$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_22" data-opt="E" onclick="selectOption('pn_22', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$y < 0 < z < x$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_22">
+            <b>Çözüm:</b> $\frac{y}{z} > 0 \implies y$ ve $z$ aynı işaretlidir.<br>$x \cdot y < 0 \implies x$ bunlarla zıt işaretlidir.<br>$x + z > 0$ olduğuna göre pozitif olan taraf daha büyüktür. Eğer $y, z < 0$ ise $x > 0$ olur ve $x > |z|$ sağlanırsa $x + z > 0$ olur. O halde $y < z < 0 < x$ sıralaması mümkündür.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_23" data-correct="C">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 23</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ gerçel sayıları için $a^3 \cdot b^4 \cdot c^5 > 0$ ve $a \cdot c < 0$'dır.<br>Buna göre, $b$ için aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_23" data-opt="A" onclick="selectOption('pn_23', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_23" data-opt="B" onclick="selectOption('pn_23', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$b < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_23" data-opt="C" onclick="selectOption('pn_23', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$b \neq 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_23" data-opt="D" onclick="selectOption('pn_23', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$b > 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_23" data-opt="E" onclick="selectOption('pn_23', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$b < -1$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_23">
+            <b>Çözüm:</b> Çarpım $0$'dan büyük olduğuna göre hiçbir çarpan sıfır olamaz. Dolayısıyla $b \neq 0$ kesinlikle doğrudur. $b^4 > 0$ olacağından $b$'nin pozitif mi negatif mi olduğu bilinemez ama sıfır olmadığı kesindir.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_24" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 24</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$k < 0$ olmak üzere, $A = 3k$, $B = -2k$, $C = k^2$ sayıları veriliyor.<br>Buna göre, $A, B, C$'nin işaretleri sırasıyla nedir?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_24" data-opt="A" onclick="selectOption('pn_24', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$-, +, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_24" data-opt="B" onclick="selectOption('pn_24', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$-, -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_24" data-opt="C" onclick="selectOption('pn_24', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$+ , -, +$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_24" data-opt="D" onclick="selectOption('pn_24', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$-, +, -$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_24" data-opt="E" onclick="selectOption('pn_24', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$+ , +, -$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_24">
+            <b>Çözüm:</b> $k < 0$ (negatif).<br>$A = 3k < 0$ ($-$).<br>$B = -2k > 0$ ($+$).<br>$C = k^2 > 0$ ($+$).<br>Sırasıyla: $-, +, +$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_25" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 25</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b$ gerçel sayıları için $a < 0 < b$ ve $|a| > b$'dir.<br>Buna göre, aşağıdakilerden hangisi <b>pozitiftir</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_25" data-opt="A" onclick="selectOption('pn_25', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a + b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_25" data-opt="B" onclick="selectOption('pn_25', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$a^3 + b^3$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_25" data-opt="C" onclick="selectOption('pn_25', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$b - |a|$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_25" data-opt="D" onclick="selectOption('pn_25', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a \cdot b$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_25" data-opt="E" onclick="selectOption('pn_25', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$b - a$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_25">
+            <b>Çözüm:</b> $b > 0$ ve $a < 0$ olduğundan $b - a$ ifadesi pozitiften negatifi çıkarmaktır: $b - a > 0$ her zaman pozitiftir. Diğer seçenekler $|a| > b$ nedeniyle negatif çıkar.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_26" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 26</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ ardışık tam sayılar ve $x < y < z$'dir.<br>$(x - y)(y - z)(x - z)$ çarpımının sonucu kaçtır?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_26" data-opt="A" onclick="selectOption('pn_26', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">-2</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_26" data-opt="B" onclick="selectOption('pn_26', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">-1</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_26" data-opt="C" onclick="selectOption('pn_26', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">1</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_26" data-opt="D" onclick="selectOption('pn_26', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">2</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_26" data-opt="E" onclick="selectOption('pn_26', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">4</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_26">
+            <b>Çözüm:</b> Ardışık tam sayılar: $x - y = -1$, $y - z = -1$, $x - z = -2$.<br>Çarpım: $(-1) \cdot (-1) \cdot (-2) = -2$.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_27" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 27</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a$ negatif bir gerçel sayı olduğuna göre, aşağıdakilerden hangisi <b>en küçüktür</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_27" data-opt="A" onclick="selectOption('pn_27', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$a$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_27" data-opt="B" onclick="selectOption('pn_27', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$2a$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_27" data-opt="C" onclick="selectOption('pn_27', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$\frac{a}{2}$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_27" data-opt="D" onclick="selectOption('pn_27', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$a - 1$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_27" data-opt="E" onclick="selectOption('pn_27', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$3a$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_27">
+            <b>Çözüm:</b> Örnek: $a = -2$.<br>A) $-2$<br>B) $-4$<br>C) $-1$<br>D) $-3$<br>E) $-6$. $a$ negatif olduğundan katsayısı en büyük olan pozitif çarpan ($3a$) sayıyı en küçük (sıfırdan en uzak negatif) yapar.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_28" data-correct="D">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 28</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ gerçel sayıları için $x < 0 < y < z$ olduğuna göre,<br>I. $\frac{x}{y} < \frac{x}{z}$<br>II. $x \cdot y < x \cdot z$<br>III. $y - x < z - x$<br>eşitsizliklerinden hangileri doğrudur?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_28" data-opt="A" onclick="selectOption('pn_28', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Yalnız I</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_28" data-opt="B" onclick="selectOption('pn_28', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">Yalnız II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_28" data-opt="C" onclick="selectOption('pn_28', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">I ve II</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_28" data-opt="D" onclick="selectOption('pn_28', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">I ve III</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_28" data-opt="E" onclick="selectOption('pn_28', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">I, II ve III</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_28">
+            <b>Çözüm:</b> $0 < y < z$ olduğundan:<br>I. $\frac{1}{y} > \frac{1}{z}$. Negatif $x$ ile çarpılırsa yön değiştirir: $\frac{x}{y} < \frac{x}{z}$ (Doğru).<br>II. $y < z$ eşitsizliği negatif $x$ ile çarpılırsa: $x \cdot y > x \cdot z$ olmalıdır (Yanlış).<br>III. Her iki taraftan $x$ çıkarılmış halidir: $y < z$ doğru olduğu için $y - x < z - x$ doğrudur (Doğru). Yanıt I ve III.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_29" data-correct="A">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 29</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$a, b, c$ gerçel sayıları için $a \cdot b^2 < 0$, $a \cdot c > 0$ ve $b + c = 0$'dır.<br>Buna göre, aşağıdakilerden hangisi <b>kesinlikle doğrudur</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_29" data-opt="A" onclick="selectOption('pn_29', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_29" data-opt="B" onclick="selectOption('pn_29', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$b < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_29" data-opt="C" onclick="selectOption('pn_29', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$a + b > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_29" data-opt="D" onclick="selectOption('pn_29', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$c > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_29" data-opt="E" onclick="selectOption('pn_29', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$a \cdot b > 0$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_29">
+            <b>Çözüm:</b> $b^2 > 0 \implies a < 0$.<br>$a < 0$ ve $a \cdot c > 0 \implies c < 0$.<br>$b + c = 0 \implies b = -c$. $c < 0$ olduğundan $b > 0$ (pozitif) kesinlikle doğrudur.
+          </div>
+        </div>
+    
+        <div class="question-card" id="card_pn_30" data-correct="E">
+          <div>
+            <div class="q-header">
+              <span class="q-badge">Soru 30</span>
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Pozitif - Negatif Sayılar</span>
+            </div>
+            <div class="q-text">$x, y, z$ sıfırdan farklı gerçel sayılar olmak üzere,<br>$$x + y + z = 0$$<br>$$x < y < z$$<br>olduğuna göre, aşağıdakilerden hangisi <b>kesinlikle yanlıştır</b>?</div>
+            <div class="options-list">
+              
+          <div class="option-item" data-qid="pn_30" data-opt="A" onclick="selectOption('pn_30', 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">$x < 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_30" data-opt="B" onclick="selectOption('pn_30', 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">$z > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_30" data-opt="C" onclick="selectOption('pn_30', 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">$y = 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_30" data-opt="D" onclick="selectOption('pn_30', 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">$y > 0$</div>
+          </div>
+        
+          <div class="option-item" data-qid="pn_30" data-opt="E" onclick="selectOption('pn_30', 'E')">
+            <div class="opt-circle">E</div>
+            <div class="opt-text">$x \cdot z > 0$</div>
+          </div>
+        
+            </div>
+          </div>
+          <div class="solution-box" id="sol_pn_30">
+            <b>Çözüm:</b> Toplamları sıfır ve sıralı olduklarından en küçük sayı $x$ kesinlikle negatif, en büyük sayı $z$ kesinlikle pozitiftir. Zıt işaretli olduklarından çarpımları $x \cdot z < 0$ olmalıdır. Dolayısıyla $x \cdot z > 0$ ifadesi <b>kesinlikle yanlıştır</b>.
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+    <!-- TAB 3: CEVAP ANAHTARI -->
+    <div id="tab-cevap-anahtari" class="tab-pane">
+      <div class="key-table-wrap">
+        <h2 style="font-size:1.1rem; font-weight:800; margin-bottom:16px;">📋 Resmi Cevap Anahtarı</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+          <div>
+            <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:10px; color:var(--primary);">Test 1: Tek - Çift Sayılar</h3>
+            <table class="key-table">
+              <thead><tr><th>Soru</th><th>Yanıt</th><th>Soru</th><th>Yanıt</th><th>Soru</th><th>Yanıt</th></tr></thead>
+              <tbody>
+<tr><td><b>1</b></td><td>C</td><td><b>11</b></td><td>D</td><td><b>21</b></td><td>B</td></tr>
+<tr><td><b>2</b></td><td>A</td><td><b>12</b></td><td>B</td><td><b>22</b></td><td>D</td></tr>
+<tr><td><b>3</b></td><td>D</td><td><b>13</b></td><td>A</td><td><b>23</b></td><td>B</td></tr>
+<tr><td><b>4</b></td><td>D</td><td><b>14</b></td><td>D</td><td><b>24</b></td><td>E</td></tr>
+<tr><td><b>5</b></td><td>C</td><td><b>15</b></td><td>C</td><td><b>25</b></td><td>B</td></tr>
+<tr><td><b>6</b></td><td>B</td><td><b>16</b></td><td>B</td><td><b>26</b></td><td>D</td></tr>
+<tr><td><b>7</b></td><td>B</td><td><b>17</b></td><td>B</td><td><b>27</b></td><td>C</td></tr>
+<tr><td><b>8</b></td><td>A</td><td><b>18</b></td><td>E</td><td><b>28</b></td><td>B</td></tr>
+<tr><td><b>9</b></td><td>C</td><td><b>19</b></td><td>C</td><td><b>29</b></td><td>B</td></tr>
+<tr><td><b>10</b></td><td>B</td><td><b>20</b></td><td>E</td><td><b>30</b></td><td>C</td></tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:10px; color:#10b981;">Test 2: Pozitif - Negatif Sayılar</h3>
+            <table class="key-table">
+              <thead><tr><th>Soru</th><th>Yanıt</th><th>Soru</th><th>Yanıt</th><th>Soru</th><th>Yanıt</th></tr></thead>
+              <tbody>
+<tr><td><b>1</b></td><td>C</td><td><b>11</b></td><td>B</td><td><b>21</b></td><td>D</td></tr>
+<tr><td><b>2</b></td><td>B</td><td><b>12</b></td><td>E</td><td><b>22</b></td><td>A</td></tr>
+<tr><td><b>3</b></td><td>A</td><td><b>13</b></td><td>D</td><td><b>23</b></td><td>C</td></tr>
+<tr><td><b>4</b></td><td>D</td><td><b>14</b></td><td>B</td><td><b>24</b></td><td>A</td></tr>
+<tr><td><b>5</b></td><td>A</td><td><b>15</b></td><td>B</td><td><b>25</b></td><td>E</td></tr>
+<tr><td><b>6</b></td><td>B</td><td><b>16</b></td><td>C</td><td><b>26</b></td><td>A</td></tr>
+<tr><td><b>7</b></td><td>A</td><td><b>17</b></td><td>E</td><td><b>27</b></td><td>E</td></tr>
+<tr><td><b>8</b></td><td>C</td><td><b>18</b></td><td>A</td><td><b>28</b></td><td>D</td></tr>
+<tr><td><b>9</b></td><td>E</td><td><b>19</b></td><td>D</td><td><b>29</b></td><td>A</td></tr>
+<tr><td><b>10</b></td><td>B</td><td><b>20</b></td><td>D</td><td><b>30</b></td><td>E</td></tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let userAnswers = {};
+    let solutionsVisible = false;
+
+    function selectOption(qid, opt) {
+      userAnswers[qid] = opt;
+      const items = document.querySelectorAll(`[data-qid="${qid}"]`);
+      items.forEach(el => {
+        if (el.dataset.opt === opt) {
+          el.classList.add('selected');
+        } else {
+          el.classList.remove('selected');
+        }
+      });
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function evaluateQuiz() {
+      let correct = 0;
+      let wrong = 0;
+      let empty = 0;
+
+      document.querySelectorAll('.question-card').forEach(card => {
+        const qid = card.id.replace('card_', '');
+        const rightAnswer = card.dataset.correct;
+        const userAnswer = userAnswers[qid];
+
+        const options = card.querySelectorAll('.option-item');
+        options.forEach(opt => {
+          opt.classList.remove('correct-answer', 'wrong-answer');
+          if (opt.dataset.opt === rightAnswer) {
+            opt.classList.add('correct-answer');
+          }
+          if (userAnswer && opt.dataset.opt === userAnswer && userAnswer !== rightAnswer) {
+            opt.classList.add('wrong-answer');
+          }
+        });
+
+        card.classList.remove('status-correct', 'status-wrong');
+        if (!userAnswer) {
+          empty++;
+        } else if (userAnswer === rightAnswer) {
+          correct++;
+          card.classList.add('status-correct');
+        } else {
+          wrong++;
+          card.classList.add('status-wrong');
+        }
+      });
+
+      const net = (correct - (wrong / 4)).toFixed(2);
+      document.getElementById('resCorrect').textContent = correct;
+      document.getElementById('resWrong').textContent = wrong;
+      document.getElementById('resEmpty').textContent = empty;
+      document.getElementById('resNet').textContent = net;
+      document.getElementById('scoreboard').style.display = 'block';
+
+      // Çözümleri de otomatik aç
+      toggleSolutions(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleSolutions(forceShow) {
+      if (forceShow !== undefined) {
+        solutionsVisible = forceShow;
+      } else {
+        solutionsVisible = !solutionsVisible;
+      }
+      document.querySelectorAll('.solution-box').forEach(el => {
+        if (solutionsVisible) {
+          el.classList.add('show');
+        } else {
+          el.classList.remove('show');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

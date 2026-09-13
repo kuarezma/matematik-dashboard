@@ -115,6 +115,9 @@
       <button onclick="selectGrade('8')" id="gradePill-8" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800">
         8. Sınıf (LGS)
       </button>
+      <button onclick="selectGrade('tyt')" id="gradePill-tyt" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-rose-400 hover:text-white hover:bg-slate-800">
+        🎯 TYT / YKS
+      </button>
     </div>
 
     <!-- Active Grade Context Info -->
@@ -594,10 +597,14 @@
         excelAllData = await resExcel.json();
         folderTreeData = await resTree.json();
 
-        // Load all 4 grades
-        for (const g of [5, 6, 7, 8]) {
-          const res = await fetch(`data/grade-${g}.json`);
-          gradesData[g] = await res.json();
+        // Load all grades including TYT
+        for (const g of [5, 6, 7, 8, 'tyt']) {
+          try {
+            const res = await fetch(`data/grade-${g}.json`);
+            if (res.ok) {
+              gradesData[g] = await res.json();
+            }
+          } catch(e) {}
         }
       } catch (err) {
         console.error("Veri yükleme hatası:", err);
@@ -647,6 +654,10 @@
       if (grade === "all") {
         tabOverviewLabel.textContent = "Master Genel Bakış";
         switchTab('overview');
+      } else if (grade === "tyt") {
+        tabOverviewLabel.textContent = "TYT Matematik & Geometri";
+        renderDocumentsView();
+        switchTab('documents');
       } else {
         tabOverviewLabel.textContent = `${grade}. Sınıf Genel Bakış`;
         document.getElementById("analyticsGradeSelect").value = grade;

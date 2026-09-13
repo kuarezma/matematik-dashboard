@@ -1,0 +1,148 @@
+{
+  "grade": "tyt",
+  "name": "TYT / YKS Matematik",
+  "title": "Temel Yeterlilik Testi (TYT Matematik & Geometri)",
+  "folder": "TYT",
+  "slug": "tyt",
+  "color": "rose",
+  "accent": "#f43f5e",
+  "week": "YKS 2026 Hazırlık",
+  "files_count": 6,
+  "expected_count": 6,
+  "completion": 100,
+  "size": 1673703,
+  "size_str": "1.6 MB",
+  "latest_mtime": 1789298585.4265983,
+  "latest_mtime_str": "13.09.2026 14:23",
+  "teachers": [
+    {
+      "id": "zumre",
+      "name": "Uğur YAŞAYAN & Demet GÜRHAN YAŞAYAN",
+      "school": "Matematik Zümresi Ortak Yayını",
+      "principal": "Mustafa ÖZKAN & Ali Rıza HACIOĞLU",
+      "role": "TYT / YKS Koordinatörlüğü",
+      "folder": "TYT",
+      "total_size": 1673703,
+      "total_size_str": "1.6 MB",
+      "files_count": 6,
+      "expected_count": 6,
+      "completion": 100,
+      "documents": [
+        {
+          "id": "tyt_tek_cift_pdf",
+          "title": "Tek ve Çift Sayılar Testi (30 Soru)",
+          "desc": "ÖSYM standardı 2 sütunlu yaprak test, optik cevap anahtarlı",
+          "badge": "TYT Yaprak Test",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "TYT_Matematik_Tek_ve_Cift_Sayilar_Testi.pdf",
+              "rel_path": "files/TYT/TYT_Matematik_Tek_ve_Cift_Sayilar_Testi.pdf",
+              "size": 350378,
+              "size_str": "342 KB",
+              "mtime": 1789298517.604787,
+              "mtime_str": "13.09.2026 14:21"
+            }
+          ]
+        },
+        {
+          "id": "tyt_poz_neg_pdf",
+          "title": "Pozitif ve Negatif Sayılar Testi (30 Soru)",
+          "desc": "ÖSYM standardı 2 sütunlu yaprak test, optik cevap anahtarlı",
+          "badge": "TYT Yaprak Test",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "TYT_Matematik_Pozitif_ve_Negatif_Sayilar_Testi.pdf",
+              "rel_path": "files/TYT/TYT_Matematik_Pozitif_ve_Negatif_Sayilar_Testi.pdf",
+              "size": 325501,
+              "size_str": "318 KB",
+              "mtime": 1789298519.7565126,
+              "mtime_str": "13.09.2026 14:21"
+            }
+          ]
+        },
+        {
+          "id": "tyt_fasikul_pdf",
+          "title": "60 Soruluk Çözümlü Test Fasikülü",
+          "desc": "Tek-Çift ve Pozitif-Negatif tüm 60 sorunun ayrıntılı pedagojik çözümleri",
+          "badge": "Çözümlü Fasikül",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "TYT_Matematik_60_Soru_TekCift_PozitifNegatif_Cozumlu_Fasikul.pdf",
+              "rel_path": "files/TYT/TYT_Matematik_60_Soru_TekCift_PozitifNegatif_Cozumlu_Fasikul.pdf",
+              "size": 607122,
+              "size_str": "593 KB",
+              "mtime": 1789298521.7140343,
+              "mtime_str": "13.09.2026 14:22"
+            }
+          ]
+        },
+        {
+          "id": "tyt_cizelge_pdf",
+          "title": "TYT Konu & Kazanım Takip Çizelgesi",
+          "desc": "A4 tek sayfa, tüm TYT Matematik ve Geometri alt başlıkları tik atılabilir",
+          "badge": "Takip Çizelgesi",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "TYT_Matematik_Konu_ve_Kazanim_Takip_Cizelgesi.pdf",
+              "rel_path": "files/TYT/TYT_Matematik_Konu_ve_Kazanim_Takip_Cizelgesi.pdf",
+              "size": 203115,
+              "size_str": "198 KB",
+              "mtime": 1789298523.5214477,
+              "mtime_str": "13.09.2026 14:22"
+            }
+          ]
+        },
+        {
+          "id": "tyt_test_html",
+          "title": "İnteraktif Sınav Modu & Net Hesaplama",
+          "desc": "60 soruluk online şık işaretleme, net hesaplama ve anlık çözüm",
+          "badge": "İnteraktif Uygulama",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "tyt_tek_cift_pozitif_negatif_testi.html",
+              "rel_path": "files/TYT/tyt_tek_cift_pozitif_negatif_testi.html",
+              "size": 136919,
+              "size_str": "134 KB",
+              "mtime": 1789298585.4265983,
+              "mtime_str": "13.09.2026 14:23"
+            }
+          ]
+        },
+        {
+          "id": "tyt_cizelge_html",
+          "title": "Kalıcı Hafızalı İnteraktif Konu Takip Uygulaması",
+          "desc": "150 alt kazanım, localStorage kayıtlı canlı progress bar",
+          "badge": "Web Takip Paneli",
+          "folder": "TYT",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "tyt_matematik_takip.html",
+              "rel_path": "files/TYT/tyt_matematik_takip.html",
+              "size": 50668,
+              "size_str": "49 KB",
+              "mtime": 1789298585.4262471,
+              "mtime_str": "13.09.2026 14:23"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

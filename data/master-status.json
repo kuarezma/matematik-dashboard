@@ -1,9 +1,9 @@
 {
   "overall_completion": 100,
-  "grand_expected_files": 168,
-  "grand_existing_files": 168,
-  "grand_size_bytes": 11587542,
-  "grand_size_str": "11.1 MB",
+  "grand_expected_files": 174,
+  "grand_existing_files": 174,
+  "grand_size_bytes": 13261245,
+  "grand_size_str": "12.6 MB",
   "latest_update_ts": 1789261088.8955152,
   "latest_update_str": "13.09.2026 03:58",
   "week": "7-13 Eylül Haftası",
@@ -67,6 +67,21 @@
       "size_bytes": 2903552,
       "size_str": "2.8 MB",
       "latest_mtime": 1789260642.4985867
+    },
+    {
+      "grade": "tyt",
+      "name": "TYT Matematik",
+      "title": "Temel Yeterlilik Testi (YKS)",
+      "folder": "TYT",
+      "slug": "tyt",
+      "color": "rose",
+      "accent": "#f43f5e",
+      "files_count": 6,
+      "expected_count": 6,
+      "completion": 100,
+      "size_bytes": 1673703,
+      "size_str": "1.6 MB",
+      "latest_mtime": 1789298585.4265983
     }
   ]
 }

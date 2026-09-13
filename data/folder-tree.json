@@ -1944,6 +1944,64 @@
           ]
         }
       ]
+    },
+    {
+      "name": "TYT",
+      "rel_path": "files/TYT",
+      "is_dir": true,
+      "size": 0,
+      "size_str": "",
+      "ext": "folder",
+      "children": [
+        {
+          "name": "TYT_Matematik_60_Soru_TekCift_PozitifNegatif_Cozumlu_Fasikul.pdf",
+          "rel_path": "files/TYT/TYT_Matematik_60_Soru_TekCift_PozitifNegatif_Cozumlu_Fasikul.pdf",
+          "is_dir": false,
+          "size": 607122,
+          "size_str": "593 KB",
+          "ext": "pdf"
+        },
+        {
+          "name": "TYT_Matematik_Konu_ve_Kazanim_Takip_Cizelgesi.pdf",
+          "rel_path": "files/TYT/TYT_Matematik_Konu_ve_Kazanim_Takip_Cizelgesi.pdf",
+          "is_dir": false,
+          "size": 203115,
+          "size_str": "198 KB",
+          "ext": "pdf"
+        },
+        {
+          "name": "TYT_Matematik_Pozitif_ve_Negatif_Sayilar_Testi.pdf",
+          "rel_path": "files/TYT/TYT_Matematik_Pozitif_ve_Negatif_Sayilar_Testi.pdf",
+          "is_dir": false,
+          "size": 325501,
+          "size_str": "318 KB",
+          "ext": "pdf"
+        },
+        {
+          "name": "TYT_Matematik_Tek_ve_Cift_Sayilar_Testi.pdf",
+          "rel_path": "files/TYT/TYT_Matematik_Tek_ve_Cift_Sayilar_Testi.pdf",
+          "is_dir": false,
+          "size": 350378,
+          "size_str": "342 KB",
+          "ext": "pdf"
+        },
+        {
+          "name": "tyt_matematik_takip.html",
+          "rel_path": "files/TYT/tyt_matematik_takip.html",
+          "is_dir": false,
+          "size": 50668,
+          "size_str": "49 KB",
+          "ext": "html"
+        },
+        {
+          "name": "tyt_tek_cift_pozitif_negatif_testi.html",
+          "rel_path": "files/TYT/tyt_tek_cift_pozitif_negatif_testi.html",
+          "is_dir": false,
+          "size": 136919,
+          "size_str": "134 KB",
+          "ext": "html"
+        }
+      ]
     }
   ]
 }
