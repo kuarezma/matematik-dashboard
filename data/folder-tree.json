@@ -184,6 +184,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/5_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 47520,
+                  "size_str": "46 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_Basari_Belgesi/5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129913,
+                  "size_str": "127 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_Basari_Belgesi/5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156509,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/5_sinif/Demet_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -216,6 +260,24 @@
                   "size": 30680,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/5_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39533,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -288,6 +350,60 @@
                   "size": 10608,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi/5_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38974,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni/5_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40953,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/5_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi/5_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39789,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -530,6 +646,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/5_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 47507,
+                  "size_str": "46 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Basari_Belgesi/5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129528,
+                  "size_str": "126 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Basari_Belgesi/5_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156536,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -562,6 +722,24 @@
                   "size": 30670,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/5_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39525,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -634,6 +812,60 @@
                   "size": 10601,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi/5_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38964,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni/5_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40953,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi/5_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39796,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -886,6 +1118,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/6_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 45664,
+                  "size_str": "45 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_Basari_Belgesi/6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129739,
+                  "size_str": "127 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_Basari_Belgesi/6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156697,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/6_sinif/Demet_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -922,6 +1198,24 @@
               ]
             },
             {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/6_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39417,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
               "name": "EBA_Portfolyo_Gelisim",
               "rel_path": "files/6_sinif/Demet_Hoca/EBA_Portfolyo_Gelisim",
               "is_dir": true,
@@ -933,7 +1227,7 @@
                   "name": "6_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Demet_Gurhan_Yasayan.xlsx",
                   "rel_path": "files/6_sinif/Demet_Hoca/EBA_Portfolyo_Gelisim/6_Sinif_Matematik_1_Hafta_EBA_Portfolyo_Gelisim_Raporu_Demet_Gurhan_Yasayan.xlsx",
                   "is_dir": false,
-                  "size": 7708,
+                  "size": 7705,
                   "size_str": "8 KB",
                   "ext": "xlsx"
                 }
@@ -990,6 +1284,60 @@
                   "size": 9768,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi/6_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38973,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni/6_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40874,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/6_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi/6_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39837,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -1232,6 +1580,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/6_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 45651,
+                  "size_str": "45 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Basari_Belgesi/6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129354,
+                  "size_str": "126 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Basari_Belgesi/6_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156645,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -1264,6 +1656,24 @@
                   "size": 30221,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/6_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39407,
+                  "size_str": "38 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -1336,6 +1746,60 @@
                   "size": 9763,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi/6_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38964,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni/6_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40875,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi/6_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39844,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -1588,6 +2052,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/7_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 45483,
+                  "size_str": "44 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_Basari_Belgesi/7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129623,
+                  "size_str": "127 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_Basari_Belgesi/7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156330,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/7_sinif/Demet_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -1620,6 +2128,24 @@
                   "size": 30424,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/7_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39351,
+                  "size_str": "38 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -1692,6 +2218,60 @@
                   "size": 9989,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi/7_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38971,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni/7_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40986,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/7_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi/7_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39796,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -1934,6 +2514,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/7_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 45470,
+                  "size_str": "44 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Basari_Belgesi/7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129238,
+                  "size_str": "126 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Basari_Belgesi/7_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 156269,
+                  "size_str": "153 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -1966,6 +2590,24 @@
                   "size": 30414,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/7_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39341,
+                  "size_str": "38 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -2038,6 +2680,60 @@
                   "size": 9984,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi/7_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38963,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni/7_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40986,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi/7_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39801,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -2290,6 +2986,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/8_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 46142,
+                  "size_str": "45 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_Basari_Belgesi/8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.html",
+                  "is_dir": false,
+                  "size": 129246,
+                  "size_str": "126 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_Basari_Belgesi/8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 155727,
+                  "size_str": "152 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/8_sinif/Demet_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -2322,6 +3062,24 @@
                   "size": 30805,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/8_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39461,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -2394,6 +3152,60 @@
                   "size": 10057,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_Veli_Bilgilendirme_Rehberi/8_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38962,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_Zumre_Paylasim_Bulteni/8_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40940,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/8_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/EBA_eMufredat_Toplanti_Tutanagi/8_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39799,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -2636,6 +3448,50 @@
               ]
             },
             {
+              "name": "EBA_Akilli_Tahta_Ders_Sunusu",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Akilli_Tahta_Ders_Sunusu/8_Sinif_Matematik_1_Hafta_EBA_Akilli_Tahta_Ders_Sunusu_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 46129,
+                  "size_str": "45 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Basari_Belgesi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Basari_Belgesi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Basari_Belgesi/8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.html",
+                  "is_dir": false,
+                  "size": 128861,
+                  "size_str": "126 KB",
+                  "ext": "html"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Basari_Belgesi/8_Sinif_Matematik_1_Hafta_EBA_Basari_Belgesi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 155743,
+                  "size_str": "152 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
               "name": "EBA_Ders_Calisma_Gorevi",
               "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Ders_Calisma_Gorevi",
               "is_dir": true,
@@ -2668,6 +3524,24 @@
                   "size": 30795,
                   "size_str": "30 KB",
                   "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi/8_Sinif_Matematik_1_Hafta_EBA_MEB_Senaryolu_Ortak_Sinav_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39453,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },
@@ -2740,6 +3614,60 @@
                   "size": 10048,
                   "size_str": "10 KB",
                   "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Veli_Bilgilendirme_Rehberi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Veli_Bilgilendirme_Rehberi/8_Sinif_Matematik_1_Hafta_EBA_Veli_Bilgilendirme_Rehberi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38953,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_Zumre_Paylasim_Bulteni",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_Zumre_Paylasim_Bulteni/8_Sinif_Matematik_1_Hafta_EBA_Zumre_Paylasim_Bulteni_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40940,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                }
+              ]
+            },
+            {
+              "name": "EBA_eMufredat_Toplanti_Tutanagi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/EBA_eMufredat_Toplanti_Tutanagi/8_Sinif_Matematik_1_Hafta_EBA_eMufredat_Toplanti_Tutanagi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39807,
+                  "size_str": "39 KB",
+                  "ext": "docx"
                 }
               ]
             },

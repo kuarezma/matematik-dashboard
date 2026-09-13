@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Sınıf Matematik - Maarif Dijital Başarı Belgesi (Demet GÜRHAN YAŞAYAN)</title>
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA7C11;
+      --gold-light: #FBF6E9;
+      --navy: #1F4E79;
+      --navy-dark: #0F2D4A;
+      --blue: #0078D4;
+      --text-dark: #1A202C;
+      --text-muted: #4A5568;
+      --bg: #0F172A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Georgia", "Times New Roman", -apple-system, BlinkMacSystemFont, serif; }
+    body { background-color: var(--bg); color: var(--text-dark); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+    
+    .top-controls {
+      width: 100%;
+      max-width: 1040px;
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .control-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .control-label { color: #94A3B8; font-size: 13px; font-weight: 600; }
+    .select-student, .input-student {
+      background: #0F172A;
+      border: 1px solid #475569;
+      color: #F8FAFC;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
+    .select-student:focus, .input-student:focus { border-color: var(--blue); }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .btn-print { background: #2563EB; color: white; }
+    .btn-print:hover { background: #1D4ED8; transform: translateY(-1px); }
+    .btn-bulk { background: #0D9488; color: white; }
+    .btn-bulk:hover { background: #0F766E; }
+    .btn-copy { background: #334155; color: #E2E8F0; border: 1px solid #475569; }
+    .btn-copy:hover { background: #475569; color: white; }
+
+    .cert-sheet {
+      width: 1040px;
+      height: 735px;
+      background: #FFFFFF;
+      background-image: radial-gradient(#F8FAFC 20%, transparent 20%), radial-gradient(#F1F5F9 20%, transparent 20%);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .cert-frame {
+      width: 100%;
+      height: 100%;
+      border: 5px double var(--gold);
+      padding: 10px;
+      position: relative;
+      box-shadow: inset 0 0 15px rgba(212,175,55,0.15);
+    }
+    .cert-inner-frame {
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--navy);
+      padding: 20px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .cert-inner-frame::before, .cert-inner-frame::after {
+      content: "♦";
+      position: absolute;
+      color: var(--gold);
+      font-size: 16px;
+    }
+    .cert-inner-frame::before { top: 6px; left: 8px; }
+    .cert-inner-frame::after { bottom: 6px; right: 8px; }
+
+    .cert-header { text-align: center; }
+    .cert-flag { font-size: 22px; line-height: 1; margin-bottom: 4px; }
+    .cert-ministry { font-size: 13px; font-weight: 800; color: var(--navy); letter-spacing: 2.5px; text-transform: uppercase; }
+    .cert-school { font-size: 17px; font-weight: 800; color: var(--text-dark); margin-top: 3px; letter-spacing: 1px; }
+    .cert-subhead { font-size: 11px; font-weight: 600; color: var(--gold-dark); letter-spacing: 3px; margin-top: 5px; text-transform: uppercase; }
+    .cert-main-title {
+      font-size: 25px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+    }
+    .gold-divider { color: var(--gold); font-size: 12px; margin-top: 4px; letter-spacing: 2px; }
+
+    .cert-body { text-align: center; margin: 10px 0; }
+    .cert-intro { font-size: 12px; color: var(--text-muted); font-style: italic; max-width: 720px; margin: 0 auto; line-height: 1.4; }
+    .student-name-container { margin: 10px 0 6px 0; }
+    .student-name-val {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #CBD5E0;
+      padding: 0 35px 4px 35px;
+      display: inline-block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .cert-after-name { font-size: 12px; color: var(--text-muted); font-style: italic; }
+
+    .cert-badge-box {
+      background: linear-gradient(135deg, rgba(31,78,121,0.06) 0%, rgba(0,120,212,0.1) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 8px 18px;
+      margin: 12px auto 0 auto;
+      max-width: 620px;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.12);
+    }
+    .cert-badge-title { font-size: 14px; font-weight: 800; color: var(--navy); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .cert-badge-desc { font-size: 10.5px; color: var(--text-muted); margin-top: 3px; font-style: italic; }
+
+    .cert-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 20px 4px 20px;
+    }
+    .sig-box { text-align: center; width: 220px; }
+    .sig-line { height: 1px; background: #CBD5E0; width: 160px; margin: 0 auto 8px auto; }
+    .sig-name { font-size: 13px; font-weight: 800; color: var(--text-dark); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .sig-role { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .sig-inst { font-size: 10px; color: #718096; margin-top: 1px; }
+
+    .verify-box { text-align: center; }
+    .qr-code-img { width: 52px; height: 52px; margin-bottom: 4px; }
+    .verify-code { font-size: 9px; font-weight: 800; color: var(--blue); letter-spacing: 0.5px; font-family: monospace; }
+    .verify-date { font-size: 9px; color: #718096; margin-top: 1px; }
+    .verify-eba { font-size: 9px; font-weight: 700; color: #15803D; margin-top: 2px; }
+
+    #bulkContainer { display: none; }
+
+    @media print {
+      body { background: transparent !important; padding: 0 !important; }
+      .top-controls { display: none !important; }
+      @page { size: A4 landscape; margin: 0; }
+      .cert-sheet {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        page-break-after: always;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body.bulk-active #singleCertificate { display: none !important; }
+      body.bulk-active #bulkContainer { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-controls">
+    <div class="control-group">
+      <span class="control-label">👩‍🎓 Öğrenci Seç:</span>
+      <select id="studentSelect" class="select-student" onchange="onStudentSelect(this.value)">
+        <option value="Ahmet YILMAZ">101 - Ahmet YILMAZ</option>
+<option value="Ayşe KAYA">102 - Ayşe KAYA</option>
+<option value="Mehmet DEMİR">103 - Mehmet DEMİR</option>
+<option value="Fatma ÇELİK">104 - Fatma ÇELİK</option>
+<option value="Ali ŞAHİN">105 - Ali ŞAHİN</option>
+<option value="Zeynep YILDIZ">106 - Zeynep YILDIZ</option>
+<option value="Mustafa ÖZTÜRK">107 - Mustafa ÖZTÜRK</option>
+<option value="Emine AYDIN">108 - Emine AYDIN</option>
+<option value="Hüseyin ARSLAN">109 - Hüseyin ARSLAN</option>
+<option value="Hatice POLAT">110 - Hatice POLAT</option>
+<option value="İbrahim DOĞAN">111 - İbrahim DOĞAN</option>
+<option value="Elif KILIÇ">112 - Elif KILIÇ</option>
+<option value="Yusuf ASLAN">113 - Yusuf ASLAN</option>
+<option value="Meryem KOÇ">114 - Meryem KOÇ</option>
+<option value="Ömer KURT">115 - Ömer KURT</option>
+<option value="Büşra ÇETİN">116 - Büşra ÇETİN</option>
+<option value="Murat GÜNEŞ">117 - Murat GÜNEŞ</option>
+<option value="Sümeyye ÖZDEMİR">118 - Sümeyye ÖZDEMİR</option>
+<option value="Burak YAVUZ">119 - Burak YAVUZ</option>
+<option value="Esra TEKİN">120 - Esra TEKİN</option>
+<option value="Enes BULUT">121 - Enes BULUT</option>
+<option value="Kübra AKSOY">122 - Kübra AKSOY</option>
+<option value="Fatih KESKİN">123 - Fatih KESKİN</option>
+<option value="Sema ŞEN">124 - Sema ŞEN</option>
+<option value="Eren YÜCEL">125 - Eren YÜCEL</option>
+<option value="Tuğba TAŞ">126 - Tuğba TAŞ</option>
+<option value="Harun KORKMAZ">127 - Harun KORKMAZ</option>
+<option value="Ceren AKTAŞ">128 - Ceren AKTAŞ</option>
+      </select>
+      <input type="text" id="studentInput" class="input-student" placeholder="Veya özel isim yazınız..." oninput="onCustomName(this.value)" />
+    </div>
+
+    <div class="control-group">
+      <button onclick="window.print()" class="btn btn-print">
+        <span>🖨️</span>
+        <span>Bu Belgeyi Yazdır / PDF</span>
+      </button>
+      <button onclick="printBulkClass()" class="btn btn-bulk">
+        <span>👥</span>
+        <span>28 Kişiyi Toplu Yazdır</span>
+      </button>
+      <button onclick="copyEbaCode()" class="btn btn-copy" title="EBA Doğrulama Kodunu Kopyala">
+        <span>📋</span>
+        <span>EBA Kodunu Kopyala</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="singleCertificate" class="cert-sheet">
+    <div class="cert-frame">
+      <div class="cert-inner-frame">
+        <div class="cert-header">
+          <div class="cert-flag">🇹🇷</div>
+          <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+          <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+          <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+          <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+          <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+        </div>
+        
+        <div class="cert-body">
+          <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+          <div class="student-name-container">
+            <span class="student-name-val" id="singleStudentName">Ahmet YILMAZ</span>
+          </div>
+          <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+          
+          <div class="cert-badge-box">
+            <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+            <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+          </div>
+        </div>
+
+        <div class="cert-footer">
+          <div class="sig-box">
+            <div class="sig-line"></div>
+            <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+            <div class="sig-role">Matematik Matematik Öğretmeni</div>
+            <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+          </div>
+          <div class="verify-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+            <div class="verify-code" id="verifyCodeText">EBA-MF-2026-5-DEMET-101</div>
+            <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+            <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+          </div>
+          <div class="sig-box">
+            <div class="sig-line"></div>
+            <div class="sig-name">Ali Rıza HACIOĞLU</div>
+            <div class="sig-role">Okul Müdürü</div>
+            <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bulkContainer">
+    
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Ahmet YILMAZ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-101</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Ayşe KAYA</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-102</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Mehmet DEMİR</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-103</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Fatma ÇELİK</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-104</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Ali ŞAHİN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-105</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Zeynep YILDIZ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-106</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Mustafa ÖZTÜRK</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-107</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Emine AYDIN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-108</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Hüseyin ARSLAN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-109</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Hatice POLAT</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-110</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">İbrahim DOĞAN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-111</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Elif KILIÇ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-112</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Yusuf ASLAN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-113</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Meryem KOÇ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-114</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Ömer KURT</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-115</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Büşra ÇETİN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-116</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Murat GÜNEŞ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-117</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Sümeyye ÖZDEMİR</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-118</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Burak YAVUZ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-119</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Esra TEKİN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-120</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Enes BULUT</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-121</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Kübra AKSOY</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-122</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Fatih KESKİN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-123</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Sema ŞEN</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-124</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Eren YÜCEL</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-125</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Tuğba TAŞ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-126</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Harun KORKMAZ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-127</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-sheet cert-sheet-print">
+          <div class="cert-frame">
+            <div class="cert-inner-frame">
+              <div class="cert-header">
+                <div class="cert-flag">🇹🇷</div>
+                <div class="cert-ministry">T.C. MİLLÎ EĞİTİM BAKANLIĞI</div>
+                <div class="cert-school">YAVUZ SELIM ORTAOKULU MÜDÜRLÜĞÜ</div>
+                <div class="cert-subhead">TÜRKİYE YÜZYILI MAARİF MODELİ</div>
+                <h1 class="cert-main-title">MATEMATİK DİJİTAL BAŞARI SERTİFİKASI</h1>
+                <div class="gold-divider"><span>♦</span> <span>───</span> <span>♦</span> <span>───</span> <span>♦</span></div>
+              </div>
+              
+              <div class="cert-body">
+                <p class="cert-intro">Bu belge, 2026-2027 Eğitim Öğretim Yılı 1. Döneminde matematik dersinde gösterdiği üstün gayret, süreç odaklı akıl yürütme ve problem çözme becerisinden dolayı</p>
+                <div class="student-name-container">
+                  <span class="student-name-val">Ceren AKTAŞ</span>
+                </div>
+                <p class="cert-after-name">öğrencimize takdim edilmiştir.</p>
+                
+                <div class="cert-badge-box">
+                  <div class="cert-badge-title">🎖️ Bölükler & Çok Basamaklı Sayılar Ustası 🎖️</div>
+                  <div class="cert-badge-desc">5. Sınıf "Çok Basamaklı Doğal Sayılar & Bölükler" öğrenme alanındaki tüm Maarif modelleme basamaklarını başarıyla tamamlamıştır.</div>
+                </div>
+              </div>
+
+              <div class="cert-footer">
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Demet GÜRHAN YAŞAYAN</div>
+                  <div class="sig-role">Matematik Matematik Öğretmeni</div>
+                  <div class="sig-inst">Yavuz Selim Ortaokulu</div>
+                </div>
+                <div class="verify-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADmElEQVR4nO2dwW3cQAxF7cCFTEfpJwWkn3SkTtZXHUJ4CH6O/On3bl7Is7P6oAhySOr99Xq9wffm19MbgK9BJAMQyYCP+x/r9x/5F1z//v53/ejzyprRNVmya3bfNyzJAEQyAJHcfNLJZ/rOczy6fiV9W8XnZem4b1iSAYhkACI5+6Q7Wf+RpeJ7VtIP7cQ6qt+rWgdLMgCRDECkKT5JxY6PyeblViHeun9+Mi+XBUsyAJEMQCQDjvqkyrN+bfiS6JrK+qpYsAKWZAAiGYBIU3xSx7M4m4uLyPqhSoyVRXXfsCQDEMkARHL2SU/lrLI5vavwuep7u+8blmQAIhmASAa8n+xPUp397NBdn30SLMkARDIAkZz7k7J1ZR113t3nQKuwzwo7+6E/yQxEMgCRnOOkSv4qWkf1jF4F36CqfVDdB2rBh4BIBiDSlDipErt01NRFVOKhSq1Elqxvw5IMQCQDEGnieVKlF7UyE2iJ4pVozYjsfrLgk4aASAYg0pR5d6rcVMdsujvZurhKTZ2q53dnfSzJAEQyAJGmnCdFVOogdq45OePnjurcSOWPsSQDEMkARHLzSZX+G1X/UMTVEG+pZhdl4TxpIIhkACIZ0B4nRWuqfMx6KJ7b+S7VmROWZAAiGYBIE/uTVO+DyM78vgpnP6r3IXXMbiBOGgIiGYBIE2cLnaxZiPZzFWaHq2biVeYVZcGSDEAkAxDJzSepcmXd50kRqjq6CNWa2d+OJRmASAYg0pQ4KRv3ZOOM6H939nMVfIlqTusOnCcNB5EMQKSfWuPQPX9oPdRv292fFIElGYBIBiCScy14lu7endVcp17Zc8f6d7AkAxDJAEQyoP08KUt2tndENs/W0VdLLfgPApEMQKTp8+5U9QtP5esiuud8Z9fBkgxAJAMQaUrurpJn2+GpHN062IdEnDQcRDIAkSbm7irXdL/zovtdGKpYKusLsSQDEMkARJoyF7yC6nyoI247+b6JSi4RSzIAkQxAJOf+JNUzemfNytnMJZrLEO2nO3bcAUsyAJEMQCRnn/TUnNOTc1evBr/b0beLJRmASAYg0hSfpKI7P3anUv/dUdNR6S/GkgxAJAMQyYCjPkl1lrOSuT7VbLqdPXT8dizJAEQyAJEmvtNvh4467AhVvdzJ+nVmCw0EkQxApInvqqhQqT1byRmsHT280fo7VM7bsCQDEMkARJo4xwHOgyUZgEgGINLb9+cTIrwAmsw0YVcAAAAASUVORK5CYII=" alt="QR Doğrulama" class="qr-code-img"/>
+                  <div class="verify-code">EBA-MF-2026-5-DEMET-128</div>
+                  <div class="verify-date">13 Eylül 2026 • 1. Hafta</div>
+                  <div class="verify-eba">EBA Portfolyo & e-Okul Onaylıdır</div>
+                </div>
+                <div class="sig-box">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Ali Rıza HACIOĞLU</div>
+                  <div class="sig-role">Okul Müdürü</div>
+                  <div class="sig-inst">[ Resmî Mühür / e-İmza ]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+  </div>
+
+  <script>
+    function onStudentSelect(val) {
+      document.getElementById('singleStudentName').textContent = val;
+      document.getElementById('studentInput').value = '';
+    }
+    function onCustomName(val) {
+      if (val.trim()) {
+        document.getElementById('singleStudentName').textContent = val;
+      } else {
+        document.getElementById('singleStudentName').textContent = document.getElementById('studentSelect').value;
+      }
+    }
+    function copyEbaCode() {
+      const code = document.getElementById('verifyCodeText').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('✔ EBA Doğrulama Kodu panoya kopyalandı:\n' + code);
+      }).catch(() => {
+        prompt('EBA Doğrulama Kodu:', code);
+      });
+    }
+    function printBulkClass() {
+      document.body.classList.add('bulk-active');
+      window.print();
+      setTimeout(() => {
+        document.body.classList.remove('bulk-active');
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

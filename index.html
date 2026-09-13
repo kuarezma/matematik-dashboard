@@ -120,9 +120,12 @@
       </button>
     </div>
 
-    <!-- Active Grade Context Info -->
+    <!-- Active Grade Context Info & EBA Action -->
     <div class="flex items-center gap-2 text-xs">
-      <span class="text-slate-400">Aktif Hafta:</span>
+      <button onclick="copyEbaAssignmentText()" class="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border border-amber-500/30 transition shadow-sm cursor-pointer">
+        <span>📋</span> EBA Ödev Metnini Kopyala
+      </button>
+      <span class="text-slate-400 hidden sm:inline">Aktif Hafta:</span>
       <span class="bg-slate-800 text-blue-300 font-semibold px-2.5 py-0.5 rounded-lg border border-slate-700/80">7-13 Eylül Haftası</span>
     </div>
   </div>
@@ -1090,6 +1093,57 @@
           </div>
         `;
       });
+    }
+
+    function copyEbaAssignmentText() {
+      const g = (selectedGrade && selectedGrade !== 'all') ? selectedGrade : "5";
+      
+      const gradeConfigs = {
+        "5": { title: "Çok Basamaklı Doğal Sayılar & Bölükler", pages: "Sayfa 12 - 28", badge: "🎖️ Bölükler & Çok Basamaklı Sayılar Ustası" },
+        "6": { title: "Doğal Sayılarla İşlemler & Üslü İfadeler", pages: "Sayfa 10 - 24", badge: "⚡ Üslü Sayılar & İşlem Önceliği Dehası" },
+        "7": { title: "Tam Sayılarla Toplama ve Çıkarma İşlemleri", pages: "Sayfa 8 - 26", badge: "🧭 Tam Sayılar & Sayı Doğrusu Kâşifi" },
+        "8": { title: "Çarpanlar ve Katlar / Asal Çarpanlar", pages: "Sayfa 10 - 28", badge: "🏆 Asal Çarpanlar & EBOB-EKOK Lideri" },
+        "tyt": { title: "TYT Matematik Tek ve Çift / Pozitif ve Negatif Sayılar", pages: "Fasikül Sayfa 1 - 16", badge: "🎯 TYT Temel Kavramlar Ustası" }
+      };
+
+      const c = gradeConfigs[String(g)] || gradeConfigs["5"];
+      
+      const text = `📌 DERS: ${g.toUpperCase()}. Sınıf Matematik
+🎯 HAFTANIN KONUSU: ${c.title}
+📅 ÇALIŞMA HAFTASI: 7 - 13 Eylül 2026 (1. Dönem 1. Hafta)
+📖 MEB DERS KİTABI / FASİKÜL: ${c.pages} arasındaki konu ve alıştırmalar
+🎖️ HEDEFLENEN BAŞARI ROZETİ: ${c.badge}
+⏱️ SON TESLİM TARİHİ: 13 Eylül 2026 Pazar, Saat 23:59
+
+📝 SEVGİLİ ÖĞRENCİLERİM,
+Bu hafta dersimizde işlediğimiz konuyu pekiştirmek için aşağıdaki görevleri tamamlayınız:
+1. EBA'ya yüklenen interaktif SCORM oyununu oynayarak en az %70 skor elde ediniz.
+2. Ders kitabımızdaki belirtilen sayfalardaki etkinlikleri yapınız.
+3. Cuma günü dağıtılan süreç odaklı çalışma kağıdı ve çıkış biletini tamamlayıp pazartesi günü derse getiriniz.
+4. Anlamakta güçlük çektiğiniz basamaklar için EBA Video Telafi Radarı'ndaki konu anlatım videolarını izleyebilirsiniz.
+
+Hepinize başarılar ve keyifli çalışmalar dilerim!
+Matematik Zümre Başkanlığı`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert(`✅ ${g.toUpperCase()}. Sınıf EBA Ödev Metni panoya kopyalandı!\n\nEBA 'Çalışma Gönder' alanına doğrudan yapıştırabilirsiniz.`);
+        }).catch(() => {
+          fallbackCopyText(text, g);
+        });
+      } else {
+        fallbackCopyText(text, g);
+      }
+    }
+
+    function fallbackCopyText(text, grade) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      alert(`✅ ${grade.toUpperCase()}. Sınıf EBA Ödev Metni panoya kopyalandı!`);
     }
   </script>
 </body>
