@@ -1,0 +1,1949 @@
+{
+  "root": "OKUL_MATERYALLERI",
+  "tree": [
+    {
+      "name": "5_sinif",
+      "rel_path": "files/5_sinif",
+      "is_dir": true,
+      "size": 0,
+      "size_str": "",
+      "ext": "folder",
+      "children": [
+        {
+          "name": "Demet_Hoca",
+          "rel_path": "files/5_sinif/Demet_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/5_sinif/Demet_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Akilli_Tahta_Oyunu/5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42301,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40203,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106679,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41430,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 110897,
+                  "size_str": "108 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39513,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106359,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40135,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107212,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39513,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106390,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40187,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107418,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38159,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98321,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39077,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99243,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/5_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu/5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20631,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/5_sinif/Demet_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Mobil_Optik_Okuyucu/5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/5_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41179,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107531,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ugur_Hoca",
+          "rel_path": "files/5_sinif/Ugur_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42301,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40192,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106533,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41416,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 110784,
+                  "size_str": "108 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39511,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106331,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40125,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107187,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39511,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106364,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40177,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107397,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38154,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98231,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39071,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99148,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu/5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20591,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu/5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41153,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/5_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107416,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6_sinif",
+      "rel_path": "files/6_sinif",
+      "is_dir": true,
+      "size": 0,
+      "size_str": "",
+      "ext": "folder",
+      "children": [
+        {
+          "name": "Demet_Hoca",
+          "rel_path": "files/6_sinif/Demet_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/6_sinif/Demet_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Akilli_Tahta_Oyunu/6_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42217,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39642,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105828,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40735,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 109831,
+                  "size_str": "107 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38907,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105814,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39907,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106870,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38848,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105881,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39494,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106470,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/6_sinif/Demet_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38135,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99469,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38904,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 100299,
+                  "size_str": "98 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/6_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu/6_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20236,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/6_sinif/Demet_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Mobil_Optik_Okuyucu/6_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/6_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41023,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107410,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ugur_Hoca",
+          "rel_path": "files/6_sinif/Ugur_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/6_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42217,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39633,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105638,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40722,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 109724,
+                  "size_str": "107 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38905,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105749,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39899,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106840,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38846,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105820,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39486,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Calisma_Kagidi/6_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106396,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38127,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99373,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38897,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Cikis_Bileti/6_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 100197,
+                  "size_str": "98 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu/6_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20190,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu/6_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/6_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40999,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/6_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/6_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107292,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7_sinif",
+      "rel_path": "files/7_sinif",
+      "is_dir": true,
+      "size": 0,
+      "size_str": "",
+      "ext": "folder",
+      "children": [
+        {
+          "name": "Demet_Hoca",
+          "rel_path": "files/7_sinif/Demet_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/7_sinif/Demet_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Akilli_Tahta_Oyunu/7_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42225,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39711,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104613,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40792,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 108470,
+                  "size_str": "106 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38994,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104555,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40010,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105413,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38732,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104198,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39149,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104194,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/7_sinif/Demet_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38021,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98152,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38758,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98624,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/7_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu/7_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20238,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/7_sinif/Demet_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Mobil_Optik_Okuyucu/7_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/7_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40991,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107009,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ugur_Hoca",
+          "rel_path": "files/7_sinif/Ugur_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/7_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42225,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39702,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104423,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40779,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 108358,
+                  "size_str": "106 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38992,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104490,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40000,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105359,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38730,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104132,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39139,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Calisma_Kagidi/7_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 104132,
+                  "size_str": "102 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38012,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98056,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38750,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Cikis_Bileti/7_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98517,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu/7_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20192,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu/7_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/7_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40965,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/7_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/7_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106897,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "8_sinif",
+      "rel_path": "files/8_sinif",
+      "is_dir": true,
+      "size": 0,
+      "size_str": "",
+      "ext": "folder",
+      "children": [
+        {
+          "name": "Demet_Hoca",
+          "rel_path": "files/8_sinif/Demet_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/8_sinif/Demet_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Akilli_Tahta_Oyunu/8_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42423,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39528,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106502,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40888,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 111051,
+                  "size_str": "108 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38792,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106412,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40113,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 108056,
+                  "size_str": "106 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38698,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105461,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39412,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106270,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/8_sinif/Demet_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38088,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98254,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38936,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99532,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/8_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu/8_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20274,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/8_sinif/Demet_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Mobil_Optik_Okuyucu/8_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/8_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41102,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 108449,
+                  "size_str": "106 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ugur_Hoca",
+          "rel_path": "files/8_sinif/Ugur_Hoca",
+          "is_dir": true,
+          "size": 0,
+          "size_str": "",
+          "ext": "folder",
+          "children": [
+            {
+              "name": "Akilli_Tahta_Oyunu",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/8_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+                  "is_dir": false,
+                  "size": 42423,
+                  "size_str": "41 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Calisma_Kagidi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39519,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106310,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40873,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 110943,
+                  "size_str": "108 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38789,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106340,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 40107,
+                  "size_str": "39 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 107986,
+                  "size_str": "105 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38695,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 105390,
+                  "size_str": "103 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 39403,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Calisma_Kagidi/8_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 106205,
+                  "size_str": "104 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Cikis_Bileti",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Cikis_Bileti",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38077,
+                  "size_str": "37 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 98103,
+                  "size_str": "96 KB",
+                  "ext": "pdf"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 38923,
+                  "size_str": "38 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Cikis_Bileti/8_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 99431,
+                  "size_str": "97 KB",
+                  "ext": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Kazanim_Analiz_Tablosu",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu/8_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+                  "is_dir": false,
+                  "size": 20230,
+                  "size_str": "20 KB",
+                  "ext": "xlsx"
+                }
+              ]
+            },
+            {
+              "name": "Mobil_Optik_Okuyucu",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu/8_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+                  "is_dir": false,
+                  "size": 84075,
+                  "size_str": "82 KB",
+                  "ext": "html"
+                }
+              ]
+            },
+            {
+              "name": "Surec_Degerlendirme_Rubrigi",
+              "rel_path": "files/8_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi",
+              "is_dir": true,
+              "size": 0,
+              "size_str": "",
+              "ext": "folder",
+              "children": [
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+                  "is_dir": false,
+                  "size": 41077,
+                  "size_str": "40 KB",
+                  "ext": "docx"
+                },
+                {
+                  "name": "8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "rel_path": "files/8_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/8_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+                  "is_dir": false,
+                  "size": 108337,
+                  "size_str": "106 KB",
+                  "ext": "pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>7. Sınıf Matematik Maarif Modeli - Tam Sayılar Kutup Arenası</title>
+  <style>
+    :root {
+      --primary: #1F4E79;
+      --primary-dark: #153755;
+      --secondary: #2B6CB0;
+      --accent: #C53030;
+      --success: #276749;
+      --warning: #D69E2E;
+      --bg-main: #0F172A;
+      --bg-card: #1E293B;
+      --bg-card-light: #334155;
+      --text-light: #F8FAFC;
+      --text-muted: #94A3B8;
+      --gold: #F6AD55;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* --- TOP HEADER & TEACHER SWITCHER --- */
+    header {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border-bottom: 2px solid #334155;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .school-badge {
+      background: var(--primary);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .title-group h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #60A5FA, #93C5FD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .title-group p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .teacher-pill {
+      background: #334155;
+      border: 1px solid #475569;
+      border-radius: 30px;
+      padding: 4px 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .teacher-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .teacher-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(31, 78, 121, 0.6);
+    }
+
+    .sound-btn {
+      background: #334155;
+      border: 1px solid #475569;
+      color: var(--text-light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .sound-btn:hover {
+      background: #475569;
+    }
+
+    /* --- GAME MODE SELECTOR TABS --- */
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      padding: 14px 20px 0;
+      background: #0F172A;
+      gap: 14px;
+    }
+
+    .tab-btn {
+      background: #1E293B;
+      color: var(--text-muted);
+      border: 2px solid #334155;
+      border-bottom: none;
+      padding: 12px 28px;
+      border-radius: 12px 12px 0 0;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-light);
+      background: #283548;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-card);
+      color: #60A5FA;
+      border-color: #60A5FA;
+      box-shadow: 0 -4px 12px rgba(96, 165, 250, 0.15);
+    }
+
+    /* --- MAIN GAME STAGE --- */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .game-panel {
+      background: var(--bg-card);
+      border: 2px solid #334155;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+    }
+
+    .game-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top Mission Bar */
+    .mission-bar {
+      background: linear-gradient(135deg, #1E293B 0%, #293548 100%);
+      border-left: 5px solid #60A5FA;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mission-text h2 {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .mission-text p {
+      font-size: 0.95rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .mission-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-badge {
+      background: #0F172A;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #475569;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #93C5FD;
+    }
+
+    /* --- GAME 1: BÖLÜK TRENİ STYLES --- */
+    .train-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 0 40px;
+      overflow-x: auto;
+      min-height: 240px;
+    }
+
+    .locomotive {
+      background: linear-gradient(145deg, #C53030, #9B2C2C);
+      border: 3px solid #E53E3E;
+      border-radius: 16px 8px 6px 6px;
+      width: 140px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+
+    .chimney {
+      position: absolute;
+      top: -24px;
+      left: 20px;
+      width: 28px;
+      height: 26px;
+      background: #742A2A;
+      border: 2px solid #E53E3E;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .smoke {
+      position: absolute;
+      top: -45px;
+      left: 24px;
+      font-size: 1.4rem;
+      animation: puff 2s infinite ease-out;
+    }
+
+    @keyframes puff {
+      0% { opacity: 0.3; transform: scale(0.8) translateY(0); }
+      50% { opacity: 0.8; transform: scale(1.2) translateY(-10px); }
+      100% { opacity: 0; transform: scale(1.6) translateY(-20px); }
+    }
+
+    .loco-window {
+      background: #FEFCBF;
+      border: 2px solid #D69E2E;
+      border-radius: 8px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .loco-wheels {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: -22px;
+    }
+
+    .wheel {
+      width: 32px;
+      height: 32px;
+      background: #2D3748;
+      border: 4px solid #A0AEC0;
+      border-radius: 50%;
+      animation: spin 3s linear infinite;
+    }
+
+    .wagon {
+      background: linear-gradient(145deg, #2B6CB0, #1F4E79);
+      border: 3px dashed #63B3ED;
+      border-radius: 12px;
+      width: 180px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .wagon.milyonlar {
+      border-color: #90CDF4;
+      background: linear-gradient(145deg, #2B6CB0, #1E3A8A);
+    }
+
+    .wagon.binler {
+      border-color: #68D391;
+      background: linear-gradient(145deg, #2F855A, #1C4532);
+    }
+
+    .wagon.birler {
+      border-color: #F6AD55;
+      background: linear-gradient(145deg, #DD6B20, #7B341E);
+    }
+
+    .wagon-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-align: center;
+      background: rgba(0,0,0,0.3);
+      padding: 4px 6px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .wagon-dropzone {
+      height: 65px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #FEFCBF;
+      letter-spacing: 3px;
+      border: 2px dashed rgba(255,255,255,0.25);
+    }
+
+    .wagon-dropzone.filled {
+      border: 2px solid #68D391;
+      background: rgba(47, 133, 90, 0.4);
+    }
+
+    /* Blocks Dock */
+    .blocks-dock {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .dock-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .blocks-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .number-block {
+      background: linear-gradient(145deg, #3B82F6, #1D4ED8);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+      border: 2px solid #93C5FD;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .number-block:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.6);
+    }
+
+    .number-block:active {
+      transform: scale(0.96);
+    }
+
+    .number-block.used {
+      opacity: 0.3;
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+
+    /* --- GAME 2: HÂRİZMÎ'NİN ŞİFRELİ KASASI STYLES --- */
+    .vault-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 0;
+    }
+
+    .vault-clues {
+      background: #0F172A;
+      border: 2px solid #D69E2E;
+      border-radius: 12px;
+      padding: 18px 24px;
+      width: 100%;
+      max-width: 850px;
+    }
+
+    .vault-clues h3 {
+      font-size: 1rem;
+      color: #ECC94B;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .clue-item {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #E2E8F0;
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .clue-item::before {
+      content: "🗝️";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Safe Door */
+    .safe-door {
+      background: radial-gradient(circle, #334155 0%, #1E293B 100%);
+      border: 8px solid #475569;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8), 0 15px 35px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .period-labels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      max-width: 680px;
+      margin-bottom: 8px;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .period-tag {
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 6px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .period-tag.p-milyon { background: rgba(59, 130, 246, 0.2); color: #93C5FD; border: 1px solid #3B82F6; }
+    .period-tag.p-bin { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border: 1px solid #10B981; }
+    .period-tag.p-bir { background: rgba(245, 158, 11, 0.2); color: #FCD34D; border: 1px solid #F59E0B; }
+
+    .tumblers-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tumbler-period {
+      display: flex;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.7);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .tumbler {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tumbler-btn {
+      background: #475569;
+      color: white;
+      border: none;
+      width: 38px;
+      height: 32px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .tumbler-btn:hover {
+      background: #64748B;
+    }
+
+    .tumbler-btn:active {
+      transform: scale(0.92);
+    }
+
+    .tumbler-digit {
+      background: linear-gradient(180deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+      color: #F8FAFC;
+      border: 2px solid #64748B;
+      border-radius: 8px;
+      width: 38px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      font-weight: 900;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.8);
+      font-family: monospace;
+    }
+
+    .tumbler-digit.fixed {
+      background: #1E293B;
+      color: #94A3B8;
+      border-color: #334155;
+    }
+
+    /* --- ACTION BUTTONS & FEEDBACK --- */
+    .actions-bar {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: var(--text-light);
+      border: 1px solid #475569;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Feedback Modal / Overlay */
+    .feedback-box {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: none;
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .feedback-box.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.2);
+      border: 2px solid #10B981;
+      color: #6EE7B7;
+    }
+
+    .feedback-box.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.2);
+      border: 2px solid #EF4444;
+      color: #FCA5A5;
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Footer */
+    footer {
+      background: #0B1120;
+      border-top: 1px solid #1E293B;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer a {
+      color: #60A5FA;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .header-left, .header-right { width: 100%; justify-content: space-between; }
+      .train-container { justify-content: flex-start; }
+      .period-labels { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- TOP HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="school-badge" id="schoolBadge">ALPARSLAN ORTAOKULU</div>
+      <div class="title-group">
+        <h1>5. Sınıf Matematik Maarif Oyun Arenası</h1>
+        <p>1. Hafta: Tam Sayılarla İşlemler (Toplama ve Çıkarma) • Akıllı Tahta & Mobil Uyumlu</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <!-- DUAL TEACHER SELECTOR -->
+      <div class="teacher-pill">
+        <button id="btnUgur" class="teacher-btn active" onclick="setTeacher('Uğur YAŞAYAN')">Uğur YAŞAYAN</button>
+        <button id="btnDemet" class="teacher-btn" onclick="setTeacher('Demet GÜRHAN YAŞAYAN')">Demet GÜRHAN YAŞAYAN</button>
+      </div>
+      <button class="sound-btn" id="soundToggle" onclick="toggleSound()" title="Sesi Aç/Kapat">🔊</button>
+    </div>
+  </header>
+
+  <!-- GAME TABS -->
+  <div class="tabs-container">
+    <button class="tab-btn active" id="tab1" onclick="switchGame(1)">
+      <span>🚂</span> Bölük Treni (Vagon Eşleme)
+    </button>
+    <button class="tab-btn" id="tab2" onclick="switchGame(2)">
+      <span>🔐</span> Hârizmî'nin Şifreli Kasası
+    </button>
+  </div>
+
+  <main>
+    <!-- ============================================== -->
+    <!-- OYUN 1: BÖLÜK TRENİ -->
+    <!-- ============================================== -->
+    <div class="game-panel active" id="game1">
+      <div class="mission-bar">
+        <div class="mission-text">
+          <h2 id="trainQuestionTitle">Bölükleri Doğru Vagonlara Yükleyiniz!</h2>
+          <p id="trainQuestionTarget">Hedef Sayı: «Seksen dört milyon elli altı bin üç yüz on iki»</p>
+        </div>
+        <div class="mission-stats">
+          <div class="stat-badge" id="trainLevelBadge">Seviye: 1 / 4</div>
+          <div class="stat-badge" id="trainScoreBadge">Puan: 0</div>
+        </div>
+      </div>
+
+      <!-- TRAIN VISUAL -->
+      <div class="train-container">
+        <!-- Locomotive -->
+        <div class="locomotive">
+          <div class="chimney">
+            <div class="smoke">💨</div>
+          </div>
+          <div class="loco-window">🚂</div>
+          <div style="font-size:0.75rem; font-weight:800; text-align:center;">MAARİF EKSPRESİ</div>
+          <div class="loco-wheels">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+        <!-- Wagon 1: Milyonlar -->
+        <div class="wagon milyonlar" onclick="wagonClicked('milyonlar')">
+          <div class="wagon-title">Milyonlar Bölüğü</div>
+          <div class="wagon-dropzone" id="zoneMilyonlar">?</div>
+          <div style="font-size:0.68rem; text-align:center; color:#CBD5E0;">(İlk 1-3 basamak)</div>
+          <div class="loco-wheels">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+        <!-- Wagon 2: Binler -->
+        <div class="wagon binler" onclick="wagonClicked('binler')">
+          <div class="wagon-title">Binler Bölüğü</div>
+          <div class="wagon-dropzone" id="zoneBinler">?</div>
+          <div style="font-size:0.68rem; text-align:center; color:#CBD5E0;">(Orta 3 basamak)</div>
+          <div class="loco-wheels">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+        <!-- Wagon 3: Birler -->
+        <div class="wagon birler" onclick="wagonClicked('birler')">
+          <div class="wagon-title">Birler Bölüğü</div>
+          <div class="wagon-dropzone" id="zoneBirler">?</div>
+          <div style="font-size:0.68rem; text-align:center; color:#CBD5E0;">(Son 3 basamak)</div>
+          <div class="loco-wheels">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCKS TO PLACE -->
+      <div class="blocks-dock">
+        <div class="dock-title">Vagona yüklemek istediğiniz bloğa dokununuz veya tıklayınız:</div>
+        <div class="blocks-list" id="blocksDock"></div>
+      </div>
+
+      <div class="feedback-box" id="trainFeedback"></div>
+
+      <div class="actions-bar">
+        <button class="btn-primary" onclick="checkTrainAnswer()">✅ Vagonları Kontrol Et & Treni Kaldır</button>
+        <button class="btn-secondary" onclick="resetCurrentTrainLevel()">🔄 Vagonları Boşalt</button>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- OYUN 2: HÂRİZMÎ'NİN ŞİFRELİ KASASI -->
+    <!-- ============================================== -->
+    <div class="game-panel" id="game2">
+      <div class="mission-bar">
+        <div class="mission-text">
+          <h2 id="vaultTitle">Akıllı Kasanın 9 Basamaklı Şifresini Çözünüz!</h2>
+          <p id="vaultSubtitle">Büyük Türk-İslam Bilgini El-Hârizmî'nin Sıfır ve Basamak Sistemi Kuralı</p>
+        </div>
+        <div class="mission-stats">
+          <div class="stat-badge" id="vaultLevelBadge">Kasa: 1 / 3</div>
+          <div class="stat-badge" id="vaultScoreBadge">Puan: 0</div>
+        </div>
+      </div>
+
+      <div class="vault-wrapper">
+        <!-- Clues Box -->
+        <div class="vault-clues">
+          <h3>📜 Kasa Açma İpuçları (Mantıksal Çıkarım Yapınız):</h3>
+          <div id="vaultCluesList">
+            <div class="clue-item"><b>Birler Bölüğü:</b> Üç basamaklı en küçük tek doğal sayıdır.</div>
+            <div class="clue-item"><b>Binler Bölüğü:</b> Birler bölüğündeki sayının 4 katıdır.</div>
+            <div class="clue-item"><b>Milyonlar Bölüğü:</b> Binler bölüğü rakamları toplamının 5 katıdır.</div>
+          </div>
+        </div>
+
+        <!-- Safe Door Panel -->
+        <div class="safe-door">
+          <!-- Period Labels -->
+          <div class="period-labels">
+            <div class="period-tag p-milyon">SONUÇ BÖLÜĞÜ</div>
+            <div class="period-tag p-bin">İŞLEM BÖLÜĞÜ</div>
+            <div class="period-tag p-bir">PUL BÖLÜĞÜ</div>
+          </div>
+
+          <!-- 9 Tumblers (3 periods of 3 digits) -->
+          <div class="tumblers-group">
+            <!-- Milyonlar -->
+            <div class="tumbler-period">
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(0, 1)">▲</button><div class="tumbler-digit" id="t0">0</div><button class="tumbler-btn" onclick="spinTumbler(0, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(1, 1)">▲</button><div class="tumbler-digit" id="t1">0</div><button class="tumbler-btn" onclick="spinTumbler(1, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(2, 1)">▲</button><div class="tumbler-digit" id="t2">0</div><button class="tumbler-btn" onclick="spinTumbler(2, -1)">▼</button></div>
+            </div>
+
+            <!-- Binler -->
+            <div class="tumbler-period">
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(3, 1)">▲</button><div class="tumbler-digit" id="t3">0</div><button class="tumbler-btn" onclick="spinTumbler(3, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(4, 1)">▲</button><div class="tumbler-digit" id="t4">0</div><button class="tumbler-btn" onclick="spinTumbler(4, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(5, 1)">▲</button><div class="tumbler-digit" id="t5">0</div><button class="tumbler-btn" onclick="spinTumbler(5, -1)">▼</button></div>
+            </div>
+
+            <!-- Birler -->
+            <div class="tumbler-period">
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(6, 1)">▲</button><div class="tumbler-digit" id="t6">0</div><button class="tumbler-btn" onclick="spinTumbler(6, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(7, 1)">▲</button><div class="tumbler-digit" id="t7">0</div><button class="tumbler-btn" onclick="spinTumbler(7, -1)">▼</button></div>
+              <div class="tumbler"><button class="tumbler-btn" onclick="spinTumbler(8, 1)">▲</button><div class="tumbler-digit" id="t8">0</div><button class="tumbler-btn" onclick="spinTumbler(8, -1)">▼</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-box" id="vaultFeedback"></div>
+
+        <div class="actions-bar">
+          <button class="btn-primary" onclick="checkVaultCode()">🔓 KASAYI AÇ VE KONTROL ET</button>
+          <button class="btn-secondary" onclick="resetTumblers()">🔄 Çarkları Sıfırla</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <b><span id="schoolFooter">Alparslan Ortaokulu</span> Matematik Zümresi</b> • <span id="currentTeacherLabel">Öğretmen: Uğur YAŞAYAN</span>
+    </div>
+    <div>
+      Eğitim Portalımız: <a href="https://www.ugurhoca.com" target="_blank">www.ugurhoca.com</a>
+    </div>
+  </footer>
+
+  <script>
+    // --- GLOBAL AUDIO SYNTHESIZER (No external files needed) ---
+    let soundEnabled = true;
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return audioCtx;
+    }
+
+    function playSound(type) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (ctx.state === 'suspended') ctx.resume();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        const now = ctx.currentTime;
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(300, now + 0.05);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } else if (type === 'spin') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(400, now);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.04);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'success') {
+          // Arpeggio Fanfare
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+          notes.forEach((freq, idx) => {
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.connect(g);
+            g.connect(ctx.destination);
+            o.type = 'triangle';
+            o.frequency.setValueAtTime(freq, now + idx * 0.09);
+            g.gain.setValueAtTime(0.25, now + idx * 0.09);
+            g.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.09 + 0.25);
+            o.start(now + idx * 0.09);
+            o.stop(now + idx * 0.09 + 0.25);
+          });
+        } else if (type === 'error') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.linearRampToValueAtTime(120, now + 0.25);
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        }
+      } catch (e) {
+        console.log("Audio not supported yet:", e);
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('soundToggle').textContent = soundEnabled ? '🔊' : '🔇';
+    }
+
+    // --- TEACHER SELECTOR ---
+    let activeTeacher = "Uğur YAŞAYAN";
+    function setTeacher(name) {
+      activeTeacher = name;
+      const isDemet = name.includes("Demet");
+      document.getElementById('btnUgur').classList.toggle('active', !isDemet);
+      document.getElementById('btnDemet').classList.toggle('active', isDemet);
+      document.getElementById('currentTeacherLabel').textContent = `Öğretmen: ${name}`;
+      const badge = document.getElementById('schoolBadge');
+      const footer = document.getElementById('schoolFooter');
+      if (badge) badge.textContent = isDemet ? "YAVUZ SELİM ORTAOKULU" : "ALPARSLAN ORTAOKULU";
+      if (footer) footer.textContent = isDemet ? "Yavuz Selim Ortaokulu" : "Alparslan Ortaokulu";
+      playSound('click');
+    }
+
+    // --- TAB SWITCHER ---
+    function switchGame(tabNum) {
+      document.getElementById('tab1').classList.toggle('active', tabNum === 1);
+      document.getElementById('tab2').classList.toggle('active', tabNum === 2);
+      document.getElementById('game1').classList.toggle('active', tabNum === 1);
+      document.getElementById('game2').classList.toggle('active', tabNum === 2);
+      playSound('click');
+    }
+
+    // ========================================================
+    // OYUN 1: BÖLÜK TRENİ LOGIC
+    // ========================================================
+        const TRAIN_LEVELS = [
+      {
+        level: 1,
+        title: "Zıt İşaretli Sayılar ve Nötr Çiftler!",
+        targetText: "Hedef İşlem: (+8) + (-5)",
+        correct: { milyonlar: "+3", binler: "5 Nötr", birler: "3 (+)" },
+        blocks: ["+3", "5 Nötr", "3 (+)", "-3", "13"]
+      },
+      {
+        level: 2,
+        title: "Çıkarmayı Toplamaya Çevirme!",
+        targetText: "Hedef İşlem: (+12) - (-6)",
+        correct: { milyonlar: "+18", binler: "12 + 6", birler: "+18" },
+        blocks: ["+18", "12 + 6", "+18", "+6", "-6"]
+      },
+      {
+        level: 3,
+        title: "Derin Dondurucu Sıcaklık Farkı!",
+        targetText: "Hedef Problem: Gece -15°C, Gündüz +5°C. Fark: (+5) - (-15)",
+        correct: { milyonlar: "20°C", binler: "5 + 15", birler: "+20" },
+        blocks: ["20°C", "5 + 15", "+20", "10°C", "-20°C"]
+      },
+      {
+        level: 4,
+        title: "İki Negatif Sayının Toplamı!",
+        targetText: "Hedef İşlem: (-9) + (-7)",
+        correct: { milyonlar: "-16", binler: "Borç+Borç", birler: "16 (-)" },
+        blocks: ["-16", "Borç+Borç", "16 (-)", "+2", "-2"]
+      }
+    ];
+
+    let currentTrainLevelIdx = 0;
+    let trainScore = 0;
+    let selectedWagon = null;
+    let trainState = { milyonlar: null, binler: null, birler: null };
+
+    function loadTrainLevel(idx) {
+      const lvl = TRAIN_LEVELS[idx];
+      document.getElementById('trainQuestionTitle').textContent = lvl.title;
+      document.getElementById('trainQuestionTarget').textContent = lvl.targetText;
+      document.getElementById('trainLevelBadge').textContent = `Seviye: ${lvl.level} / ${TRAIN_LEVELS.length}`;
+      document.getElementById('trainScoreBadge').textContent = `Puan: ${trainScore}`;
+      document.getElementById('trainFeedback').className = 'feedback-box';
+      document.getElementById('trainFeedback').style.display = 'none';
+
+      trainState = { milyonlar: null, binler: null, birler: null };
+      updateWagonVisuals();
+
+      // Render Dock Blocks
+      const dock = document.getElementById('blocksDock');
+      dock.innerHTML = '';
+      // Shuffle blocks
+      const shuffled = [...lvl.blocks].sort(() => Math.random() - 0.5);
+      shuffled.forEach(bVal => {
+        const btn = document.createElement('div');
+        btn.className = 'number-block';
+        btn.textContent = bVal;
+        btn.onclick = () => blockClicked(bVal, btn);
+        dock.appendChild(btn);
+      });
+    }
+
+    function updateWagonVisuals() {
+      const zM = document.getElementById('zoneMilyonlar');
+      const zB = document.getElementById('zoneBinler');
+      const zU = document.getElementById('zoneBirler');
+
+      zM.textContent = trainState.milyonlar || '?';
+      zM.className = `wagon-dropzone ${trainState.milyonlar ? 'filled' : ''}`;
+
+      zB.textContent = trainState.binler || '?';
+      zB.className = `wagon-dropzone ${trainState.binler ? 'filled' : ''}`;
+
+      zU.textContent = trainState.birler || '?';
+      zU.className = `wagon-dropzone ${trainState.birler ? 'filled' : ''}`;
+    }
+
+    function blockClicked(val, el) {
+      playSound('click');
+      // Find first empty wagon
+      if (!trainState.milyonlar) {
+        trainState.milyonlar = val;
+      } else if (!trainState.binler) {
+        trainState.binler = val;
+      } else if (!trainState.birler) {
+        trainState.birler = val;
+      } else {
+        return; // all filled
+      }
+      el.classList.add('used');
+      updateWagonVisuals();
+    }
+
+    function wagonClicked(wagonName) {
+      if (trainState[wagonName]) {
+        playSound('click');
+        const removedVal = trainState[wagonName];
+        trainState[wagonName] = null;
+        updateWagonVisuals();
+        // Re-enable dock block
+        const blocks = document.querySelectorAll('.number-block');
+        blocks.forEach(b => {
+          if (b.textContent === removedVal && b.classList.contains('used')) {
+            b.classList.remove('used');
+          }
+        });
+      }
+    }
+
+    function resetCurrentTrainLevel() {
+      playSound('click');
+      trainState = { milyonlar: null, binler: null, birler: null };
+      updateWagonVisuals();
+      const blocks = document.querySelectorAll('.number-block');
+      blocks.forEach(b => b.classList.remove('used'));
+      document.getElementById('trainFeedback').style.display = 'none';
+    }
+
+    function checkTrainAnswer() {
+      const cur = TRAIN_LEVELS[currentTrainLevelIdx];
+      const fb = document.getElementById('trainFeedback');
+
+      if (!trainState.milyonlar || !trainState.binler || !trainState.birler) {
+        playSound('error');
+        fb.className = 'feedback-box error';
+        fb.textContent = "⚠️ Lütfen 3 vagonu da doldurunuz (Milyonlar, Binler ve Birler Bölüğü)!";
+        return;
+      }
+
+      const isCorrect = (
+        trainState.milyonlar === cur.correct.milyonlar &&
+        trainState.binler === cur.correct.binler &&
+        trainState.birler === cur.correct.birler
+      );
+
+      if (isCorrect) {
+        playSound('success');
+        triggerConfetti();
+        trainScore += 25;
+        document.getElementById('trainScoreBadge').textContent = `Puan: ${trainScore}`;
+        fb.className = 'feedback-box success';
+        fb.innerHTML = `🎉 <b>HARİKA! DOĞRU CEVAP!</b><br/>Oluşan Sayı: <b>${trainState.milyonlar} ${trainState.binler} ${trainState.birler}</b>. Vagonlar tam kuralına uygun bağlandı!`;
+
+        setTimeout(() => {
+          if (currentTrainLevelIdx + 1 < TRAIN_LEVELS.length) {
+            currentTrainLevelIdx++;
+            loadTrainLevel(currentTrainLevelIdx);
+          } else {
+            fb.className = 'feedback-box success';
+            fb.innerHTML = `🏆 <b>TEBRİKLER! BÖLÜK TRENİ TÜM SEVİYELERİ TAMAMLANDI!</b><br/>Toplam Puan: <b>${trainScore} / 100</b>. ${activeTeacher} sizi tebrik eder!`;
+          }
+        }, 2200);
+      } else {
+        playSound('error');
+        fb.className = 'feedback-box error';
+        fb.innerHTML = `❌ <b>BİR VAGONDA HATA VAR!</b><br/>İpucu: Sayının bölüklerini sağdan sola üçerli gruplayarak tekrar kontrol ediniz. (Doğru kural: Milyonlar -> Binler -> Birler)`;
+      }
+    }
+
+    // ========================================================
+    // OYUN 2: HÂRİZMÎ'NİN ŞİFRELİ KASASI LOGIC
+    // ========================================================
+    const VAULT_LEVELS = [
+      {
+        level: 1,
+        title: "Kasa #1: Akıllı Laboratuvar Kasası",
+        subtitle: "Bölükler Arası Mantıksal Kat İlişkisi",
+        clues: [
+          "<b>Birler Bölüğü:</b> Üç basamaklı en küçük tek doğal sayıdır (101).",
+          "<b>Binler Bölüğü:</b> Birler bölüğündeki sayının 4 katıdır (101 × 4 = 404).",
+          "<b>Milyonlar Bölüğü:</b> Binler bölüğü rakamları toplamının 5 katıdır. (4+0+4=8 => 8×5=40 => '040')"
+        ],
+        targetCode: "040404101",
+        explanation: "Şifre: 040 404 101. Milyonlar: 40, Binler: 404, Birler: 101!"
+      },
+      {
+        level: 2,
+        title: "Kasa #2: Mekanik Su Arıtma Sayacı",
+        subtitle: "Silinen Rakamları Bulma ve Sıralama",
+        clues: [
+          "Sayaç 8 basamaklıdır (İlk basamak 0 ile doldurulmuştur: 0 ■ 8 5 ▲ 2 1 0).",
+          "<b>Milyonlar bölüğü (0 ■):</b> Rakamlar toplamı 11'dir => ■ = 7.",
+          "<b>Binler bölüğü (8 5 ▲):</b> En küçük basamak değerli rakam 3'tür => ▲ = 3.",
+          "<b>Şifre:</b> 0 7 8 5 3 2 1 0"
+        ],
+        targetCode: "078532100", // using 9 tumblers: 078 532 100 or matching challenge
+        explanation: "Şifre: 078 532 100 (Silinen rakamlar: ■=7 ve ▲=3)!"
+      },
+      {
+        level: 3,
+        title: "Kasa #3: Maarif Kütüphane Fonu",
+        subtitle: "Basamak Çözümlemesinden Şifre Kurma",
+        clues: [
+          "<b>Çözümleme:</b> (8×10.000.000) + (5×1.000.000) + (6×10.000) + (4×100) + (9×1)",
+          "Milyonlar: 85, Binler: 060, Birler: 409.",
+          "<b>Hedef Şifre:</b> 0 8 5 0 6 0 4 0 9"
+        ],
+        targetCode: "085060409",
+        explanation: "Şifre: 085 060 409 («Seksen beş milyon altmış bin dört yüz dokuz»)!"
+      }
+    ];
+
+    let currentVaultLevelIdx = 0;
+    let vaultScore = 0;
+    let tumblerValues = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    function loadVaultLevel(idx) {
+      const cur = VAULT_LEVELS[idx];
+      document.getElementById('vaultTitle').textContent = cur.title;
+      document.getElementById('vaultSubtitle').textContent = cur.subtitle;
+      document.getElementById('vaultLevelBadge').textContent = `Kasa: ${cur.level} / ${VAULT_LEVELS.length}`;
+      document.getElementById('vaultScoreBadge').textContent = `Puan: ${vaultScore}`;
+      document.getElementById('vaultFeedback').style.display = 'none';
+
+      // Clues
+      const cList = document.getElementById('vaultCluesList');
+      cList.innerHTML = '';
+      cur.clues.forEach(cTxt => {
+        const d = document.createElement('div');
+        d.className = 'clue-item';
+        d.innerHTML = cTxt;
+        cList.appendChild(d);
+      });
+
+      resetTumblers();
+    }
+
+    function spinTumbler(tIdx, dir) {
+      playSound('spin');
+      tumblerValues[tIdx] = (tumblerValues[tIdx] + dir + 10) % 10;
+      document.getElementById(`t${tIdx}`).textContent = tumblerValues[tIdx];
+    }
+
+    function resetTumblers() {
+      playSound('click');
+      tumblerValues = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+      for (let i = 0; i < 9; i++) {
+        document.getElementById(`t${i}`).textContent = '0';
+      }
+      document.getElementById('vaultFeedback').style.display = 'none';
+    }
+
+    function checkVaultCode() {
+      const cur = VAULT_LEVELS[currentVaultLevelIdx];
+      const enteredCode = tumblerValues.join('');
+      const fb = document.getElementById('vaultFeedback');
+
+      if (enteredCode === cur.targetCode) {
+        playSound('success');
+        triggerConfetti();
+        vaultScore += 35;
+        document.getElementById('vaultScoreBadge').textContent = `Puan: ${vaultScore}`;
+        fb.className = 'feedback-box success';
+        fb.innerHTML = `🎉 <b>KASA KİLİDİ AÇILDI! ŞİFRE DOĞRU!</b><br/>${cur.explanation}`;
+
+        setTimeout(() => {
+          if (currentVaultLevelIdx + 1 < VAULT_LEVELS.length) {
+            currentVaultLevelIdx++;
+            loadVaultLevel(currentVaultLevelIdx);
+          } else {
+            fb.className = 'feedback-box success';
+            fb.innerHTML = `🏆 <b>TEBRİKLER! HÂRİZMÎ'NİN TÜM KASALARI ÇÖZÜLDÜ!</b><br/>Toplam Kasa Puanı: <b>${vaultScore}</b>. Sayı basamaklarındaki mantıksal kavrayışınız tam puan aldı!`;
+          }
+        }, 2400);
+      } else {
+        playSound('error');
+        fb.className = 'feedback-box error';
+        fb.innerHTML = `❌ <b>ŞİFRE YANLIŞ! KASA AÇILMADI.</b><br/>İpuçlarını dikkatlice tekrar okuyunuz. Bölüklerdeki çarpma ve toplam kurallarını adım adım hesaplayınız.`;
+      }
+    }
+
+    // ========================================================
+    // CANVAS CONFETTI PARTICLE SYSTEM (Pure Vanilla JS)
+    // ========================================================
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function triggerConfetti() {
+      particles = [];
+      const colors = ['#60A5FA', '#34D399', '#FBBF24', '#F87171', '#A78BFA', '#F472B6'];
+      for (let i = 0; i < 120; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.8) * 16,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 10,
+          life: 1.0
+        });
+      }
+      requestAnimationFrame(renderConfetti);
+    }
+
+    function renderConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35; // gravity
+        p.rotation += p.rotSpeed;
+        p.life -= 0.012;
+
+        if (p.life > 0) {
+          alive = true;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.life;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+          ctx.restore();
+        }
+      });
+
+      if (alive) {
+        requestAnimationFrame(renderConfetti);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    // Initialize Game on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadTrainLevel(0);
+      loadVaultLevel(0);
+    });
+  </script>
+</body>
+</html>

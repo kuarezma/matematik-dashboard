@@ -1,0 +1,72 @@
+{
+  "overall_completion": 100,
+  "grand_expected_files": 168,
+  "grand_existing_files": 168,
+  "grand_size_bytes": 11587542,
+  "grand_size_str": "11.1 MB",
+  "latest_update_ts": 1789261088.8955152,
+  "latest_update_str": "13.09.2026 03:58",
+  "week": "7-13 Eylül Haftası",
+  "grades": [
+    {
+      "grade": 5,
+      "name": "5. Sınıf",
+      "title": "Çok Basamaklı Doğal Sayılar & Bölükler",
+      "folder": "5. Sınıf",
+      "slug": "5_sinif",
+      "color": "blue",
+      "accent": "#3b82f6",
+      "files_count": 42,
+      "expected_count": 42,
+      "completion": 100,
+      "size_bytes": 2912121,
+      "size_str": "2.8 MB",
+      "latest_mtime": 1789261088.8955152
+    },
+    {
+      "grade": 6,
+      "name": "6. Sınıf",
+      "title": "Doğal Sayılarla İşlemler & Üslü İfadeler",
+      "folder": "6. Sınıf",
+      "slug": "6_sinif",
+      "color": "teal",
+      "accent": "#14b8a6",
+      "files_count": 42,
+      "expected_count": 42,
+      "completion": 100,
+      "size_bytes": 2899020,
+      "size_str": "2.8 MB",
+      "latest_mtime": 1789260642.4975886
+    },
+    {
+      "grade": 7,
+      "name": "7. Sınıf",
+      "title": "Tam Sayılarla İşlemler",
+      "folder": "7. Sınıf",
+      "slug": "7_sinif",
+      "color": "purple",
+      "accent": "#a855f7",
+      "files_count": 42,
+      "expected_count": 42,
+      "completion": 100,
+      "size_bytes": 2872849,
+      "size_str": "2.7 MB",
+      "latest_mtime": 1789260642.498216
+    },
+    {
+      "grade": 8,
+      "name": "8. Sınıf (LGS)",
+      "title": "Çarpanlar ve Katlar / EBOB-EKOK",
+      "folder": "8. Sınıf",
+      "slug": "8_sinif",
+      "color": "amber",
+      "accent": "#f59e0b",
+      "files_count": 42,
+      "expected_count": 42,
+      "completion": 100,
+      "size_bytes": 2903552,
+      "size_str": "2.8 MB",
+      "latest_mtime": 1789260642.4985867
+    }
+  ]
+}

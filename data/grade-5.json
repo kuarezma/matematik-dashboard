@@ -1,0 +1,685 @@
+{
+  "grade": 5,
+  "name": "5. Sınıf",
+  "title": "Çok Basamaklı Doğal Sayılar & Bölükler",
+  "folder": "5. Sınıf",
+  "slug": "5_sinif",
+  "color": "blue",
+  "accent": "#3b82f6",
+  "week": "7-13 Eylül Haftası",
+  "files_count": 42,
+  "expected_count": 42,
+  "completion": 100,
+  "size": 2912121,
+  "size_str": "2.8 MB",
+  "latest_mtime": 1789261088.8955152,
+  "latest_mtime_str": "13.09.2026 03:58",
+  "teachers": [
+    {
+      "id": "ugur",
+      "name": "Uğur YAŞAYAN",
+      "school": "Alparslan Ortaokulu",
+      "principal": "Mustafa ÖZKAN",
+      "role": "Matematik Zümre Başkanı",
+      "folder": "Uğur Hoca",
+      "total_size": 1455668,
+      "total_size_str": "1.4 MB",
+      "files_count": 21,
+      "expected_count": 21,
+      "completion": 100,
+      "documents": [
+        {
+          "id": "std_student",
+          "title": "Standart Çalışma Kağıdı (Öğrenci)",
+          "desc": "12 soru, 2 sayfa A4, MEB Maarif Modeli, optik kodlama alanı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Standart Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.pdf",
+              "size": 106533,
+              "size_str": "104 KB",
+              "mtime": 1789261088.1639562,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Ugur_Yasayan.docx",
+              "size": 40192,
+              "size_str": "39 KB",
+              "mtime": 1789261088.16407,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "std_teacher",
+          "title": "Standart Çalışma Kağıdı (Öğretmen)",
+          "desc": "Adım adım pedagojik çözümlü, dolu optik formlu, cevap anahtarlı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Standart Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.pdf",
+              "size": 110784,
+              "size_str": "108 KB",
+              "mtime": 1789261088.2345326,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Ugur_Yasayan.docx",
+              "size": 41416,
+              "size_str": "40 KB",
+              "mtime": 1789261088.2346885,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_a_student",
+          "title": "Grup A Çalışma Kağıdı / Mini Sınav (Öğrenci)",
+          "desc": "Kopya önleyici paralel Grup A yaprak test (Öğrenci)",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup A Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.pdf",
+              "size": 106331,
+              "size_str": "104 KB",
+              "mtime": 1789261088.5341728,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Ugur_Yasayan.docx",
+              "size": 39511,
+              "size_str": "39 KB",
+              "mtime": 1789261088.5573208,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_a_teacher",
+          "title": "Grup A Çalışma Kağıdı / Mini Sınav (Öğretmen)",
+          "desc": "Grup A detaylı çözüm adımları ve cevap anahtarı bandı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup A Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.pdf",
+              "size": 107187,
+              "size_str": "105 KB",
+              "mtime": 1789261088.5848613,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Ugur_Yasayan.docx",
+              "size": 40125,
+              "size_str": "39 KB",
+              "mtime": 1789261088.6085653,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_b_student",
+          "title": "Grup B Çalışma Kağıdı / Mini Sınav (Öğrenci)",
+          "desc": "Kopya önleyici paralel Grup B yaprak test (Öğrenci)",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup B Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.pdf",
+              "size": 106364,
+              "size_str": "104 KB",
+              "mtime": 1789261088.6319022,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Ugur_Yasayan.docx",
+              "size": 39511,
+              "size_str": "39 KB",
+              "mtime": 1789261088.6539233,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_b_teacher",
+          "title": "Grup B Çalışma Kağıdı / Mini Sınav (Öğretmen)",
+          "desc": "Grup B detaylı çözüm adımları ve cevap anahtarı bandı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup B Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.pdf",
+              "size": 107397,
+              "size_str": "105 KB",
+              "mtime": 1789261088.68185,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Ugur_Yasayan.docx",
+              "size": 40177,
+              "size_str": "39 KB",
+              "mtime": 1789261088.7050006,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "exit_student",
+          "title": "Ders Çıkış Biletleri (Öğrenci - 4'lü Kart)",
+          "desc": "A4 tek sayfada 4 adet kesilebilir mikro format",
+          "folder": "Çıkış Bileti",
+          "badge": "Çıkış Bileti Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.pdf",
+              "size": 98231,
+              "size_str": "96 KB",
+              "mtime": 1789259008.7962272,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Ugur_Yasayan.docx",
+              "size": 38154,
+              "size_str": "37 KB",
+              "mtime": 1789259008.8104115,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "exit_teacher",
+          "title": "Ders Çıkış Biletleri (Öğretmen - Çözümlü)",
+          "desc": "4'lü biletler için pedagojik öğretmen çözümleri",
+          "folder": "Çıkış Bileti",
+          "badge": "Çıkış Bileti Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.pdf",
+              "size": 99148,
+              "size_str": "97 KB",
+              "mtime": 1789259008.826826,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Ugur_Yasayan.docx",
+              "size": 39071,
+              "size_str": "38 KB",
+              "mtime": 1789259008.8405485,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "analytics_excel",
+          "title": "Akıllı Optik Analiz & Teşhis Tablosu (.xlsx)",
+          "desc": "3 sayfalı otomatik formüllü, grafikli, 28-30 kişilik optik değerlendirme",
+          "folder": "Kazanım Analiz Tablosu",
+          "badge": "Excel Teşhis",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Kazanim_Analiz_Tablosu/5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx",
+              "size": 20591,
+              "size_str": "20 KB",
+              "mtime": 1789259009.1229408,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "rubric",
+          "title": "Süreç Odaklı Rubrik & Gözlem Çizelgesi",
+          "desc": "2 sayfalık resmî analitik rubrik ve 28-30 kişilik matris",
+          "folder": "Süreç Değerlendirme Rubriği",
+          "badge": "Süreç Rubriği",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.pdf",
+              "size": 107416,
+              "size_str": "105 KB",
+              "mtime": 1789259009.3724442,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Ugur_Yasayan.docx",
+              "size": 41153,
+              "size_str": "40 KB",
+              "mtime": 1789259009.461989,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "title": "Akıllı Tahta İnteraktif Oyunu (HTML5)",
+          "desc": "Dokunmatik akıllı tahta uyumlu offline HTML5 oyunu",
+          "folder": "Akıllı Tahta Oyunu",
+          "badge": "Akıllı Tahta",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+              "size": 42301,
+              "size_str": "41 KB",
+              "mtime": 1789257511.907772,
+              "mtime_str": "13.09.2026 02:58"
+            }
+          ]
+        },
+        {
+          "id": "optik_pwa",
+          "title": "Mobil Optik Okuyucu (PWA Kamera Tarayıcı)",
+          "desc": "Telefon/tablet kamerasından optik tarama ve Excel'e canlı kayıt",
+          "folder": "Mobil Optik Okuyucu",
+          "badge": "Mobil Optik",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+              "rel_path": "files/5_sinif/Ugur_Hoca/Mobil_Optik_Okuyucu/5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+              "size": 84075,
+              "size_str": "82 KB",
+              "mtime": 1789260642.4969172,
+              "mtime_str": "13.09.2026 03:50"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demet",
+      "name": "Demet GÜRHAN YAŞAYAN",
+      "school": "Yavuz Selim Ortaokulu",
+      "principal": "Ali Rıza HACIOĞLU",
+      "role": "Matematik Öğretmeni",
+      "folder": "Demet Hoca",
+      "total_size": 1456453,
+      "total_size_str": "1.4 MB",
+      "files_count": 21,
+      "expected_count": 21,
+      "completion": 100,
+      "documents": [
+        {
+          "id": "std_student",
+          "title": "Standart Çalışma Kağıdı (Öğrenci)",
+          "desc": "12 soru, 2 sayfa A4, MEB Maarif Modeli, optik kodlama alanı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Standart Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "size": 106679,
+              "size_str": "104 KB",
+              "mtime": 1789261088.2599044,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "size": 40203,
+              "size_str": "39 KB",
+              "mtime": 1789261088.2987115,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "std_teacher",
+          "title": "Standart Çalışma Kağıdı (Öğretmen)",
+          "desc": "Adım adım pedagojik çözümlü, dolu optik formlu, cevap anahtarlı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Standart Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "size": 110897,
+              "size_str": "108 KB",
+              "mtime": 1789261088.3298788,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Calisma_Kagidi_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "size": 41430,
+              "size_str": "40 KB",
+              "mtime": 1789261088.36739,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_a_student",
+          "title": "Grup A Çalışma Kağıdı / Mini Sınav (Öğrenci)",
+          "desc": "Kopya önleyici paralel Grup A yaprak test (Öğrenci)",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup A Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "size": 106359,
+              "size_str": "104 KB",
+              "mtime": 1789261088.7280028,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "size": 39513,
+              "size_str": "39 KB",
+              "mtime": 1789261088.7496192,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_a_teacher",
+          "title": "Grup A Çalışma Kağıdı / Mini Sınav (Öğretmen)",
+          "desc": "Grup A detaylı çözüm adımları ve cevap anahtarı bandı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup A Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "size": 107212,
+              "size_str": "105 KB",
+              "mtime": 1789261088.7765627,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_A_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "size": 40135,
+              "size_str": "39 KB",
+              "mtime": 1789261088.7995257,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_b_student",
+          "title": "Grup B Çalışma Kağıdı / Mini Sınav (Öğrenci)",
+          "desc": "Kopya önleyici paralel Grup B yaprak test (Öğrenci)",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup B Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "size": 106390,
+              "size_str": "104 KB",
+              "mtime": 1789261088.823499,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "size": 39513,
+              "size_str": "39 KB",
+              "mtime": 1789261088.8450387,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "grup_b_teacher",
+          "title": "Grup B Çalışma Kağıdı / Mini Sınav (Öğretmen)",
+          "desc": "Grup B detaylı çözüm adımları ve cevap anahtarı bandı",
+          "folder": "Çalışma Kağıdı",
+          "badge": "Grup B Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "size": 107418,
+              "size_str": "105 KB",
+              "mtime": 1789261088.872609,
+              "mtime_str": "13.09.2026 03:58"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Calisma_Kagidi/5_Sinif_Matematik_1_Hafta_Grup_B_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "size": 40187,
+              "size_str": "39 KB",
+              "mtime": 1789261088.8955152,
+              "mtime_str": "13.09.2026 03:58"
+            }
+          ]
+        },
+        {
+          "id": "exit_student",
+          "title": "Ders Çıkış Biletleri (Öğrenci - 4'lü Kart)",
+          "desc": "A4 tek sayfada 4 adet kesilebilir mikro format",
+          "folder": "Çıkış Bileti",
+          "badge": "Çıkış Bileti Öğrenci",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.pdf",
+              "size": 98321,
+              "size_str": "96 KB",
+              "mtime": 1789259008.853746,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogrenci_Demet_Gurhan_Yasayan.docx",
+              "size": 38159,
+              "size_str": "37 KB",
+              "mtime": 1789259008.8682394,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "exit_teacher",
+          "title": "Ders Çıkış Biletleri (Öğretmen - Çözümlü)",
+          "desc": "4'lü biletler için pedagojik öğretmen çözümleri",
+          "folder": "Çıkış Bileti",
+          "badge": "Çıkış Bileti Çözümlü",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.pdf",
+              "size": 99243,
+              "size_str": "97 KB",
+              "mtime": 1789259008.8862615,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Cikis_Bileti/5_Sinif_Matematik_1_Hafta_Cikis_Bileti_Ogretmen_Demet_Gurhan_Yasayan.docx",
+              "size": 39077,
+              "size_str": "38 KB",
+              "mtime": 1789259008.9002814,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "analytics_excel",
+          "title": "Akıllı Optik Analiz & Teşhis Tablosu (.xlsx)",
+          "desc": "3 sayfalı otomatik formüllü, grafikli, 28-30 kişilik optik değerlendirme",
+          "folder": "Kazanım Analiz Tablosu",
+          "badge": "Excel Teşhis",
+          "formats": [
+            {
+              "ext": "xlsx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Kazanim_Analiz_Tablosu/5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx",
+              "size": 20631,
+              "size_str": "20 KB",
+              "mtime": 1789259009.213737,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "rubric",
+          "title": "Süreç Odaklı Rubrik & Gözlem Çizelgesi",
+          "desc": "2 sayfalık resmî analitik rubrik ve 28-30 kişilik matris",
+          "folder": "Süreç Değerlendirme Rubriği",
+          "badge": "Süreç Rubriği",
+          "formats": [
+            {
+              "ext": "pdf",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+              "rel_path": "files/5_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.pdf",
+              "size": 107531,
+              "size_str": "105 KB",
+              "mtime": 1789259009.4846337,
+              "mtime_str": "13.09.2026 03:23"
+            },
+            {
+              "ext": "docx",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+              "rel_path": "files/5_sinif/Demet_Hoca/Surec_Degerlendirme_Rubrigi/5_Sinif_Matematik_1_Hafta_Surec_Degerlendirme_Rubrigi_Demet_Gurhan_Yasayan.docx",
+              "size": 41179,
+              "size_str": "40 KB",
+              "mtime": 1789259009.573505,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "title": "Akıllı Tahta İnteraktif Oyunu (HTML5)",
+          "desc": "Dokunmatik akıllı tahta uyumlu offline HTML5 oyunu",
+          "folder": "Akıllı Tahta Oyunu",
+          "badge": "Akıllı Tahta",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+              "rel_path": "files/5_sinif/Demet_Hoca/Akilli_Tahta_Oyunu/5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html",
+              "size": 42301,
+              "size_str": "41 KB",
+              "mtime": 1789259009.5869455,
+              "mtime_str": "13.09.2026 03:23"
+            }
+          ]
+        },
+        {
+          "id": "optik_pwa",
+          "title": "Mobil Optik Okuyucu (PWA Kamera Tarayıcı)",
+          "desc": "Telefon/tablet kamerasından optik tarama ve Excel'e canlı kayıt",
+          "folder": "Mobil Optik Okuyucu",
+          "badge": "Mobil Optik",
+          "formats": [
+            {
+              "ext": "html",
+              "exists": true,
+              "filename": "5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+              "rel_path": "files/5_sinif/Demet_Hoca/Mobil_Optik_Okuyucu/5_Sinif_Matematik_1_Hafta_Mobil_Optik_Okuyucu.html",
+              "size": 84075,
+              "size_str": "82 KB",
+              "mtime": 1789260642.4971442,
+              "mtime_str": "13.09.2026 03:50"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>5. Sınıf Matematik • Mobil Optik Okuyucu & Analiz</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1F4E79">
+  <!-- SheetJS for Client-Side Excel Generation -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    :root {
+      --primary: #1F4E79;
+      --primary-dark: #163857;
+      --secondary: #2B6CB0;
+      --accent: #C53030;
+      --success: #276749;
+      --success-bg: #F0FFF4;
+      --warning: #D69E2E;
+      --warning-bg: #FEFCBF;
+      --danger: #E53E3E;
+      --danger-bg: #FFF5F5;
+      --bg-light: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border: #CBD5E0;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --radius: 14px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: #F1F5F9;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 95px;
+    }
+
+    /* Top Navigation Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s;
+    }
+
+    .hdr-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hdr-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .teacher-badge-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .teacher-badge-btn:active {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .hdr-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .group-selector {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      padding: 5px 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      outline: none;
+    }
+
+    .group-selector option {
+      color: var(--text);
+      background: white;
+    }
+
+    /* Tab Switcher */
+    .tab-bar {
+      display: flex;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 4px;
+      margin: 10px 14px 0 14px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 9px 4px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 6px rgba(31, 78, 121, 0.25);
+    }
+
+    /* Main Container */
+    main {
+      padding: 12px 14px;
+      flex: 1;
+    }
+
+    /* Student Card */
+    .student-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .stu-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .stu-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .stu-arrow:active {
+      background: #E2E8F0;
+    }
+
+    .stu-info {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stu-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .stu-no {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .stu-dropdown-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .stu-select-dropdown {
+      flex: 1;
+      padding: 6px 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-light);
+      color: var(--text);
+      outline: none;
+    }
+
+    .btn-quick-edit-roster {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    /* Camera Viewport */
+    .camera-card {
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #cameraVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #cameraCanvas {
+      display: none;
+    }
+
+    .scanner-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scan-guide-box {
+      width: 86%;
+      height: 78%;
+      border: 2px dashed #38BDF8;
+      border-radius: 12px;
+      box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .corner {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: #38BDF8;
+      border-style: solid;
+    }
+    .corner-tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+    .corner-tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; }
+    .corner-bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; }
+    .corner-br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
+
+    .laser-line {
+      position: absolute;
+      left: 4%; right: 4%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #38BDF8, #EF4444, #38BDF8, transparent);
+      box-shadow: 0 0 8px #38BDF8;
+      animation: scanSweep 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scanSweep {
+      0% { top: 8%; opacity: 0.2; }
+      50% { top: 90%; opacity: 0.9; }
+      100% { top: 8%; opacity: 0.2; }
+    }
+
+    .guide-hint {
+      position: absolute;
+      bottom: 8px;
+      background: rgba(15, 23, 42, 0.75);
+      color: white;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Camera Action Bar */
+    .cam-ctrls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-cam-action {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.2s;
+    }
+
+    .btn-capture {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      flex: 2;
+    }
+
+    .btn-capture:active {
+      transform: scale(0.98);
+    }
+
+    .btn-cam-tool {
+      background: white;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    /* Upload Card */
+    .upload-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      border: 2px dashed #CBD5E0;
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    .upload-icon {
+      font-size: 36px;
+      margin-bottom: 6px;
+    }
+
+    .upload-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .upload-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Optical Bubble Grid */
+    .optical-sheet-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .sheet-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #EDF2F7;
+    }
+
+    .sheet-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .score-badge {
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .score-yetkin { background: #C6F6D5; color: #22543D; }
+    .score-yeterli { background: #BEE3F8; color: #2A4365; }
+    .score-gelismeli { background: #FEEBC8; color: #7B341E; }
+    .score-baslangic { background: #FED7D7; color: #742A2A; }
+
+    .bubble-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+    }
+
+    .q-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 6px;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border: 1px solid #EDF2F7;
+    }
+
+    .q-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      width: 24px;
+    }
+
+    .q-options {
+      display: flex;
+      gap: 5px;
+    }
+
+    .bubble {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid #CBD5E0;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .bubble:active {
+      transform: scale(0.92);
+    }
+
+    .bubble.correct {
+      background: #276749 !important;
+      color: white !important;
+      border-color: #276749 !important;
+    }
+
+    .bubble.wrong {
+      background: #C53030 !important;
+      color: white !important;
+      border-color: #C53030 !important;
+    }
+
+    .bubble.key-hint {
+      border-color: #276749;
+      color: #276749;
+      background: #F0FFF4;
+      font-weight: 800;
+    }
+
+    .q-status-icon {
+      font-size: 12px;
+      width: 14px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .icon-correct { color: #276749; }
+    .icon-wrong { color: #C53030; }
+    .icon-empty { color: #A0AEC0; }
+
+    /* Diagnostic Box */
+    .diagnostic-box {
+      background: #FFFDF5;
+      border: 1px solid #ECC94B;
+      border-left: 4px solid #D69E2E;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: #744210;
+      line-height: 1.4;
+    }
+
+    .diag-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Floating Bottom Action Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-action {
+      flex: 2;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-sync-excel {
+      background: linear-gradient(135deg, #276749 0%, #2F855A 100%);
+      color: white;
+      box-shadow: 0 3px 12px rgba(39, 103, 73, 0.35);
+    }
+
+    .btn-sync-excel:active {
+      transform: scale(0.98);
+      background: #276749;
+    }
+
+    .btn-action-sec {
+      flex: 1;
+      background: var(--bg-light);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    /* Teacher Gateway Modal */
+    .gateway-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gateway-card {
+      background: white;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .gateway-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .gateway-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .teacher-btn-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--bg-light);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .teacher-btn-card:hover, .teacher-btn-card:active {
+      border-color: var(--secondary);
+      background: #EBF8FF;
+      transform: translateY(-2px);
+    }
+
+    .teacher-avatar {
+      font-size: 32px;
+    }
+
+    .teacher-name-txt {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .teacher-school-txt {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* PIN Gate Overlay */
+    .pin-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0F172A;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .pin-card {
+      background: white;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .pin-input {
+      width: 160px;
+      padding: 10px;
+      font-size: 24px;
+      letter-spacing: 8px;
+      text-align: center;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      margin: 16px 0;
+      outline: none;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 200;
+      display: none;
+      align-items: flex-end;
+    }
+
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-height: 85vh;
+      border-radius: 20px 20px 0 0;
+      padding: 16px;
+      overflow-y: auto;
+      animation: slideUp 0.25s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .modal-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title { font-size: 15px; font-weight: 700; color: var(--primary); }
+    .btn-close { background: #EDF2F7; border: none; border-radius: 50%; width: 28px; height: 28px; font-weight: bold; cursor: pointer; }
+    
+    .roster-list { margin-top: 10px; }
+    .roster-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid #F1F5F9; font-size: 13px; cursor: pointer; }
+    .roster-score { font-weight: 700; padding: 2px 6px; border-radius: 6px; font-size: 11px; }
+
+    /* Roster Editor Form Controls */
+    .edit-row-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-bottom: 1px solid #EDF2F7;
+    }
+    .edit-row-item:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px);
+      background: #1A202C;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.success { background: #276749; }
+    .toast.error { background: #C53030; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastIcon">✔</span>
+    <span id="toastMsg">İşlem tamamlandı!</span>
+  </div>
+
+  <!-- PIN Protection Gate -->
+  <div id="pinGate" class="pin-backdrop">
+    <div class="pin-card">
+      <div style="font-size:36px; margin-bottom:8px;">🔒</div>
+      <div class="gateway-title">Zümre Yetkili Girişi</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">
+        Bu mobil optik okuyucu Alparslan & Yavuz Selim Matematik Zümresi'ne özeldir.
+      </div>
+      <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" autofocus oninput="checkPinInput(this.value)">
+      <div style="font-size:11px; color:#A0AEC0;">PIN: 2026 (veya zümre erişim linki)</div>
+    </div>
+  </div>
+
+  <!-- Teacher Gateway Selection Modal (Kim Giriş Yapıyor?) -->
+  <div id="teacherGateway" class="gateway-backdrop" style="display:none;">
+    <div class="gateway-card">
+      <div style="font-size:36px; margin-bottom:8px;">👋</div>
+      <div class="gateway-title">Kim Giriş Yapıyor?</div>
+      <div class="gateway-desc">Lütfen ders öğretmeninizi seçiniz. Tüm sonuçlar ve Excel belgeleri seçilen öğretmen adına düzenlenecektir.</div>
+
+      <!-- Option 1: Uğur Hoca -->
+      <div class="teacher-btn-card" onclick="selectTeacher('ugur')">
+        <div class="teacher-avatar">👨‍🏫</div>
+        <div>
+          <div class="teacher-name-txt">Uğur Hoca</div>
+          <div class="teacher-school-txt">Alparslan OO • Uğur YAŞAYAN</div>
+          <div style="font-size:10.5px; color:#718096;">Okul Md: Mustafa ÖZKAN</div>
+        </div>
+      </div>
+
+      <!-- Option 2: Demet Hoca -->
+      <div class="teacher-btn-card" onclick="selectTeacher('demet')">
+        <div class="teacher-avatar">👩‍🏫</div>
+        <div>
+          <div class="teacher-name-txt">Demet Hoca</div>
+          <div class="teacher-school-txt">Yavuz Selim OO • Demet GÜRHAN YAŞAYAN</div>
+          <div style="font-size:10.5px; color:#718096;">Okul Md: Ali Rıza HACIOĞLU</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="hdr-top">
+      <div class="hdr-title">
+        <span>📐</span>
+        <span id="headerSchool">Alparslan Ortaokulu</span>
+      </div>
+      <button class="teacher-badge-btn" onclick="openTeacherGateway()">
+        <span id="headerTeacherAvatar">👨‍🏫</span>
+        <span id="headerTeacherName">Uğur Hoca</span>
+        <span>▾</span>
+      </button>
+    </div>
+    <div class="hdr-details">
+      <div style="font-weight:600;" id="headerSubtitle">5. Sınıf • 1. Hafta • Uğur YAŞAYAN</div>
+      <div style="display:flex; gap:6px;">
+        <select class="group-selector" id="gradeSelect" onchange="onGradeChange()">
+          <option value="5" selected>5. Sınıf</option>
+          <option value="6">6. Sınıf</option>
+          <option value="7">7. Sınıf</option>
+          <option value="8">8. Sınıf</option>
+        </select>
+        <select class="group-selector" id="groupSelect" onchange="onGroupChange()">
+          <option value="A">Grup A</option>
+          <option value="B">Grup B</option>
+          <option value="STD">Standart</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tab Switcher -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tabCam" onclick="switchTab('cam')">📷 Canlı Kamera</button>
+    <button class="tab-btn" id="tabUpload" onclick="switchTab('upload')">📁 Fotoğraf Seç</button>
+    <button class="tab-btn" id="tabManual" onclick="switchTab('manual')">✍️ Hızlı Kodla</button>
+  </div>
+
+  <main>
+    <!-- Student Navigator Card -->
+    <div class="student-card">
+      <div class="stu-nav">
+        <button class="stu-arrow" onclick="navStudent(-1)">◀</button>
+        <div class="stu-info">
+          <div class="stu-name">
+            <span id="curStudentName">Ali YILDIRIM</span>
+            <span id="curStudentStatus" style="font-size:11px; color:#276749;">✔ Kayıtlı</span>
+          </div>
+          <div class="stu-no" id="curStudentNo">Okul No: 102 • Sınıf: 5/A (1 / 30)</div>
+        </div>
+        <button class="stu-arrow" onclick="navStudent(1)">▶</button>
+      </div>
+      <div class="stu-dropdown-row">
+        <select class="stu-select-dropdown" id="studentDropdown" onchange="onStudentSelect(this.value)"></select>
+        <button class="btn-quick-edit-roster" onclick="openEditRosterModal()">✏️ Listeyi Düzenle</button>
+      </div>
+    </div>
+
+    <!-- Camera Mode -->
+    <div id="viewCamera">
+      <div class="camera-card">
+        <video id="cameraVideo" playsinline autoplay muted></video>
+        <canvas id="cameraCanvas"></canvas>
+        <div class="scanner-overlay">
+          <div class="scan-guide-box">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            <div class="laser-line"></div>
+          </div>
+          <div class="guide-hint">12 soruluk optik alanı çerçeveye hizalayın</div>
+        </div>
+      </div>
+
+      <div class="cam-ctrls">
+        <button class="btn-cam-action btn-cam-tool" onclick="switchCameraFacing()">🔄 Çevir</button>
+        <button class="btn-cam-action btn-capture" onclick="captureAndScan()">⚡ FOTOĞRAFI TARA VE OKU</button>
+        <button class="btn-cam-action btn-cam-tool" onclick="toggleFlashlight()">💡 Işık</button>
+      </div>
+    </div>
+
+    <!-- Upload Mode -->
+    <div id="viewUpload" class="hidden">
+      <div class="upload-card" onclick="document.getElementById('fileInput').click()">
+        <div class="upload-icon">📸</div>
+        <div class="upload-title">Öğrenci Kağıdı Fotoğrafı Seçin</div>
+        <div class="upload-desc">Kamerayla çekin veya galeriden optik görseli yükleyin</div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFileUpload(event)">
+      </div>
+    </div>
+
+    <!-- Optical Sheet Card -->
+    <div class="optical-sheet-card">
+      <div class="sheet-hdr">
+        <div class="sheet-title">
+          <span>🎯</span>
+          <span>12 SORULUK OPTİK ALAN</span>
+          <span style="font-size:11px; font-weight:normal; color:var(--text-muted);" id="groupTagLabel">[GRUP A]</span>
+        </div>
+        <div class="score-badge score-yetkin" id="scoreBadge">100.0 Puan • Düzey 4</div>
+      </div>
+
+      <!-- 12 Question Rows -->
+      <div class="bubble-matrix" id="bubbleMatrix"></div>
+
+      <!-- Diagnostic Banner -->
+      <div id="diagnosticBox" class="diagnostic-box hidden">
+        <div class="diag-title">💡 Maarif Modeli Pedagojik Teşhisi:</div>
+        <div id="diagText">Öğrencinin tüm kazanımları eksiksiz karşılanmıştır.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Floating Bar -->
+  <div class="bottom-bar">
+    <button class="btn-action btn-action-sec" id="btnRosterBottom" onclick="openRosterModal()">📊 Liste (30)</button>
+    <button class="btn-action btn-sync-excel" onclick="syncAndDownloadExcel()">
+      <span>💾</span>
+      <span id="btnSyncLabel">BELGEYE İŞLE & EXCEL İNDİR</span>
+    </button>
+  </div>
+
+  <!-- Roster Overview Modal -->
+  <div class="modal-backdrop" id="rosterModal" onclick="closeRosterModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-hdr">
+        <div class="modal-title" id="rosterModalTitle">📊 Sınıf Listesi & Not Durumu</div>
+        <button class="btn-close" onclick="closeRosterModal()">✕</button>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+        <div style="font-size:12px; color:var(--text-muted);" id="rosterStatsSummary">
+          Toplam: 30 Öğrenci • İşlenen: 30 • Sınıf Ortalaması: 83.6
+        </div>
+        <button class="btn-quick-edit-roster" onclick="openEditRosterModal()">✏️ Listeyi Düzenle</button>
+      </div>
+      <div class="roster-list" id="rosterList"></div>
+      <button class="btn-action btn-sync-excel" style="width:100%; margin-top:14px;" onclick="exportFullClassExcel()">
+        📥 Tüm Sınıfın Excel Karne Dosyasını İndir (.xlsx)
+      </button>
+    </div>
+  </div>
+
+  <!-- Roster Editor Modal (Sınıf Listesi & Öğrenci Yönetimi) -->
+  <div class="modal-backdrop" id="editRosterModal" onclick="closeEditRosterModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()" style="max-height:92vh;">
+      <div class="modal-hdr">
+        <div class="modal-title">✏️ Sınıf Listesini & Öğrencileri Düzenle</div>
+        <button class="btn-close" onclick="closeEditRosterModal()">✕</button>
+      </div>
+
+      <!-- Quick Stats & Class Name -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:10px;">
+        <div style="flex:1;">
+          <label style="font-size:11px; font-weight:700; color:var(--text-muted);">Sınıf / Şube Adı:</label>
+          <input type="text" id="editClassName" value="5 / A" style="width:100%; padding:7px 10px; font-size:13px; font-weight:700; border:1px solid var(--border); border-radius:8px; margin-top:3px;">
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px; color:var(--text-muted);">Mevcut Sayı:</div>
+          <div style="font-size:16px; font-weight:800; color:var(--primary);" id="editRosterCountBadge">30 Öğrenci</div>
+        </div>
+      </div>
+
+      <!-- New Student Form -->
+      <div style="background:var(--bg-light); border:1px solid var(--border); border-radius:12px; padding:10px; margin-top:10px;">
+        <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:6px;">➕ Tek Öğrenci Ekle</div>
+        <div style="display:flex; gap:6px;">
+          <input type="number" id="newStudentNo" placeholder="No" style="width:70px; padding:7px; font-size:12.5px; border:1px solid var(--border); border-radius:8px; outline:none;">
+          <input type="text" id="newStudentName" placeholder="Öğrenci Adı Soyadı" style="flex:1; padding:7px; font-size:12.5px; border:1px solid var(--border); border-radius:8px; outline:none;">
+          <button class="btn-action btn-sync-excel" style="flex:none; padding:7px 14px; font-size:12px;" onclick="addSingleStudent()">Ekle</button>
+        </div>
+      </div>
+
+      <!-- Batch Import Accordion -->
+      <details style="margin-top:10px; background:#FFFFFF; border:1px solid var(--border); border-radius:10px; padding:8px 12px; font-size:12px;">
+        <summary style="font-weight:700; color:var(--secondary); cursor:pointer;">📋 Toplu Liste Yapıştır (e-Okul / WhatsApp)</summary>
+        <div style="margin-top:8px;">
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">
+            Her satıra "OkulNo İsim Soyisim" yazın veya yapıştırın:
+          </div>
+          <textarea id="batchStudentText" rows="4" style="width:100%; padding:8px; font-size:11.5px; border:1px solid var(--border); border-radius:8px; font-family:monospace;" placeholder="101 Ali Yıldırım&#10;102 Ayşe Kaya&#10;103 Burak Demir"></textarea>
+          <div style="display:flex; gap:6px; margin-top:6px;">
+            <button class="btn-action btn-action-sec" style="flex:1; font-size:11.5px; padding:8px;" onclick="importBatchStudents(false)">Listeye Ekle</button>
+            <button class="btn-action btn-sync-excel" style="flex:1; font-size:11.5px; padding:8px;" onclick="importBatchStudents(true)">Tüm Listeyi Değiştir</button>
+          </div>
+        </div>
+      </details>
+
+      <!-- Editable Student Rows List Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding:0 4px;">
+        <span style="font-size:11.5px; font-weight:700; color:var(--text-muted);">Öğrenci Listesi (Düzenlenebilir)</span>
+        <button style="background:none; border:none; color:var(--accent); font-size:11.5px; font-weight:700; cursor:pointer;" onclick="clearAllStudents()">Tümünü Sil</button>
+      </div>
+
+      <!-- Editable Student Rows Container -->
+      <div style="margin-top:6px; max-height:38vh; overflow-y:auto; border:1px solid var(--border); border-radius:10px; background:white;">
+        <div id="editableStudentRowsContainer"></div>
+      </div>
+
+      <!-- Footer Buttons -->
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button class="btn-action btn-action-sec" style="flex:1; font-size:12px;" onclick="resetStudentsToDefault()">🔄 Fabrika Listesi</button>
+        <button class="btn-action btn-sync-excel" style="flex:2; font-size:13px;" onclick="saveEditedStudents()">💾 DEĞİŞİKLİKLERİ KAYDET</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // TEACHERS CONFIGURATION
+    // =========================================================================
+    const TEACHERS_INFO = {
+      "ugur": {
+        id: "ugur",
+        name: "Uğur YAŞAYAN",
+        display: "Uğur Hoca",
+        school: "Alparslan Ortaokulu",
+        principal: "Mustafa ÖZKAN",
+        theme: "#1F4E79",
+        themeDark: "#163857",
+        avatar: "👨‍🏫",
+        fileName: "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Ugur_Yasayan.xlsx"
+      },
+      "demet": {
+        id: "demet",
+        name: "Demet GÜRHAN YAŞAYAN",
+        display: "Demet Hoca",
+        school: "Yavuz Selim Ortaokulu",
+        principal: "Ali Rıza HACIOĞLU",
+        theme: "#276749",
+        themeDark: "#1C4E37",
+        avatar: "👩‍🏫",
+        fileName: "5_Sinif_Matematik_1_Hafta_Kazanim_Analiz_Tablosu_Demet_Gurhan_Yasayan.xlsx"
+      }
+    };
+
+        let currentTeacher = "ugur";
+    let currentGrade = "5";
+    let currentGroup = "A";
+    let currentClassName = "5 / A";
+
+    // ALL 4 GRADES (5, 6, 7, 8) ANSWER KEYS & METADATA
+    const ALL_GRADE_KEYS = {
+      "5": {
+        topic: "Doğal Sayılar (Okuma, Yazma, Bölükler)",
+        kaz: "MAT.5.1.1",
+        std: [
+          { num: 1, ans: "C", tag: "Bölükler ve Okuma", kaz: "MAT.5.1.1.1", desc: "Milyonlar ve birler bölüğü toplamı" },
+          { num: 2, ans: "D", tag: "Okunuştan Sayı Yazma", kaz: "MAT.5.1.1.2", desc: "105 040 008 yazılışı" },
+          { num: 3, ans: "A", tag: "Basamak Değeri", kaz: "MAT.5.1.1.3", desc: "7 ve 2 basamak değerleri (700 020 000)" },
+          { num: 4, ans: "B", tag: "Sayı Oluşturma", kaz: "MAT.5.1.1.4", desc: "En büyük çift sayı binler bölüğü (543)" },
+          { num: 5, ans: "D", tag: "Hârizmî & Sıfırın Rolü", kaz: "MAT.5.1.1.5", desc: "Sıfırın yüz binler basamağındaki değeri 0" },
+          { num: 6, ans: "B", tag: "Büyüklük Karşılaştırma", kaz: "MAT.5.1.1.6", desc: "En yüksek 2. firma K (48 250 000 TL)" },
+          { num: 7, ans: "C", tag: "TÜİK Tablo Analizi", kaz: "MAT.5.1.2.1", desc: "Kocaeli sıfır basamakları analizi" },
+          { num: 8, ans: "A", tag: "Uzay Bilimi & Sayı Değerleri", kaz: "MAT.5.1.2.2", desc: "Milyonlar ve binler farkı (1)" },
+          { num: 9, ans: "D", tag: "Mekanik Sayaç", kaz: "MAT.5.1.2.3", desc: "Silinen semboller (7 ve 3)" },
+          { num: 10, ans: "C", tag: "Çözümleme & Okuma", kaz: "MAT.5.1.2.4", desc: "85 060 409 okunuşu" },
+          { num: 11, ans: "B", tag: "Şifreli Kasa Örüntüsü", kaz: "MAT.5.1.2.5", desc: "Kasa kodu 040 404 101" },
+          { num: 12, ans: "A", tag: "Maarif Modeli Genelleme", kaz: "MAT.5.1.2.6", desc: "I, II ve IV kesinlikle doğru" }
+        ],
+        A: [
+          { num: 1, ans: "C", tag: "Bölükler ve Okuma", kaz: "MAT.5.1.1.1", desc: "Milyonlar ve birler toplamı 396" },
+          { num: 2, ans: "D", tag: "Okunuştan Sayı Yazma", kaz: "MAT.5.1.1.2", desc: "105 040 008 yazımı" },
+          { num: 3, ans: "A", tag: "Basamak Değeri", kaz: "MAT.5.1.1.3", desc: "Basamak değerleri toplamı 700 020 000" },
+          { num: 4, ans: "B", tag: "Sayı Oluşturma", kaz: "MAT.5.1.1.4", desc: "En büyük çift sayı binler bölüğü 543" },
+          { num: 5, ans: "D", tag: "Hârizmî & Sıfırın Rolü", kaz: "MAT.5.1.1.5", desc: "Sıfırın yüz binler basamağındaki değeri 0" },
+          { num: 6, ans: "B", tag: "Büyüklük Sıralama", kaz: "MAT.5.1.1.6", desc: "2. en yüksek firma K (48 250 000)" },
+          { num: 7, ans: "C", tag: "TÜİK Tablo Analizi", kaz: "MAT.5.1.2.1", desc: "Kocaeli onlar ve on binler basamağı" },
+          { num: 8, ans: "A", tag: "Uzay Bilimi", kaz: "MAT.5.1.2.2", desc: "Rakamlar toplamı farkı 1" },
+          { num: 9, ans: "D", tag: "Mekanik Sayaç", kaz: "MAT.5.1.2.3", desc: "Sayaç sembolleri 7 ve 3" },
+          { num: 10, ans: "C", tag: "Sosyal Bağış Çözümleme", kaz: "MAT.5.1.2.4", desc: "Seksen beş milyon altmış bin..." },
+          { num: 11, ans: "B", tag: "Şifreli Kasa", kaz: "MAT.5.1.2.5", desc: "Kasa şifresi 040 404 101" },
+          { num: 12, ans: "A", tag: "Genelleme", kaz: "MAT.5.1.2.6", desc: "I, II ve IV kesinlikle doğru" }
+        ],
+        B: [
+          { num: 1, ans: "B", tag: "Bölükler ve Okuma", kaz: "MAT.5.1.1.1", desc: "Milyonlar ve birler toplamı 330" },
+          { num: 2, ans: "C", tag: "Okunuştan Sayı Yazma", kaz: "MAT.5.1.1.2", desc: "206 070 005 yazımı" },
+          { num: 3, ans: "D", tag: "Basamak Değeri", kaz: "MAT.5.1.1.3", desc: "8 ve 4 basamak değerleri 800 040 000" },
+          { num: 4, ans: "B", tag: "Sayı Oluşturma", kaz: "MAT.5.1.1.4", desc: "En büyük tek sayı binler bölüğü 764" },
+          { num: 5, ans: "A", tag: "Hârizmî & Sıfırın Rolü", kaz: "MAT.5.1.1.5", desc: "On binler basamağında, değeri 0" },
+          { num: 6, ans: "C", tag: "Büyüklük Sıralama", kaz: "MAT.5.1.1.6", desc: "En yüksek 2. şirket T (56 400 000)" },
+          { num: 7, ans: "C", tag: "TÜİK Tablo Analizi", kaz: "MAT.5.1.2.1", desc: "Aydın onlar basamağında 0 vardır" },
+          { num: 8, ans: "B", tag: "Uzay Bilimi", kaz: "MAT.5.1.2.2", desc: "Rakamlar toplamı farkı 2" },
+          { num: 9, ans: "B", tag: "Mekanik Sayaç", kaz: "MAT.5.1.2.3", desc: "Sayaç sembolleri 8 ve 2" },
+          { num: 10, ans: "D", tag: "Sosyal Bağış Çözümleme", kaz: "MAT.5.1.2.4", desc: "Yetmiş dört milyon beş yüz bin..." },
+          { num: 11, ans: "B", tag: "Şifreli Kasa", kaz: "MAT.5.1.2.5", desc: "Kasa şifresi 030 303 201" },
+          { num: 12, ans: "A", tag: "Genelleme", kaz: "MAT.5.1.2.6", desc: "I, II ve IV kesinlikle doğru" }
+        ]
+      },
+      "6": {
+        topic: "Doğal Sayılarla İşlemler (Üslü İfadeler)",
+        kaz: "MAT.6.1.1",
+        std: [
+          { num: 1, ans: "C", tag: "Tekrarlı Çarpım", kaz: "MAT.6.1.1.1", desc: "Tekrarlı çarpım ve üslü gösterim toplamı 8" },
+          { num: 2, ans: "D", tag: "Değer Hesaplama", kaz: "MAT.6.1.1.1", desc: "3⁴ üslü ifadesinin değeri 81" },
+          { num: 3, ans: "C", tag: "0 ve 1 Kuvvetleri", kaz: "MAT.6.1.1.2", desc: "1²⁰²⁶ + 0¹⁸ + 2026¹ + 9⁰ = 2028" },
+          { num: 4, ans: "A", tag: "Sıralama", kaz: "MAT.6.1.1.3", desc: "c < b < a < d küçükten büyüğe sıralama" },
+          { num: 5, ans: "B", tag: "Satranç Problemi", kaz: "MAT.6.1.1.4", desc: "7. kareye 2⁶ = 64 buğday" },
+          { num: 6, ans: "C", tag: "10'un Kuvvetleri", kaz: "MAT.6.1.1.5", desc: "10⁸ sayısı 9 basamaklı, 8 sıfır" },
+          { num: 7, ans: "C", tag: "Basamak Sayısı", kaz: "MAT.6.1.1.5", desc: "36 × 10⁷ sayısı 9 basamaklıdır" },
+          { num: 8, ans: "B", tag: "İşlem İlişkisi", kaz: "MAT.6.1.1.6", desc: "2⁴ + 3³ - 4² = 27" },
+          { num: 9, ans: "A", tag: "Alan & Hacim", kaz: "MAT.6.1.1.7", desc: "8² alan ile 4³ hacim farkı 0" },
+          { num: 10, ans: "B", tag: "Bilinmeyen Üs", kaz: "MAT.6.1.1.8", desc: "2ˣ = 32 ve y³ = 125 => x × y = 25" },
+          { num: 11, ans: "B", tag: "Bakteri Bölünmesi", kaz: "MAT.6.1.1.9", desc: "2 saat sonraki bakteri farkı 56" },
+          { num: 12, ans: "B", tag: "Hedef Tahtası", kaz: "MAT.6.1.1.10", desc: "En yüksek ve en düşük puan farkı 38" }
+        ],
+        A: [
+          { num: 1, ans: "C", tag: "Tekrarlı Çarpım", kaz: "MAT.6.1.1.1", desc: "Tekrarlı çarpım üslü toplam 8" },
+          { num: 2, ans: "D", tag: "Değer Hesaplama", kaz: "MAT.6.1.1.1", desc: "3⁴ = 81" },
+          { num: 3, ans: "C", tag: "0 ve 1 Kuvvetleri", kaz: "MAT.6.1.1.2", desc: "1+0+2026+1 = 2028" },
+          { num: 4, ans: "A", tag: "Sıralama", kaz: "MAT.6.1.1.3", desc: "c < b < a < d" },
+          { num: 5, ans: "B", tag: "Satranç", kaz: "MAT.6.1.1.4", desc: "2⁶ = 64" },
+          { num: 6, ans: "C", tag: "10'un Kuvvetleri", kaz: "MAT.6.1.1.5", desc: "9 basamaklı, 8 sıfır" },
+          { num: 7, ans: "C", tag: "Basamak Sayısı", kaz: "MAT.6.1.1.5", desc: "9 basamaklı" },
+          { num: 8, ans: "B", tag: "İşlem İlişkisi", kaz: "MAT.6.1.1.6", desc: "Sonuç 27" },
+          { num: 9, ans: "A", tag: "Alan-Hacim", kaz: "MAT.6.1.1.7", desc: "Fark 0" },
+          { num: 10, ans: "B", tag: "Bilinmeyen Üs", kaz: "MAT.6.1.1.8", desc: "Çarpım 25" },
+          { num: 11, ans: "B", tag: "Bakteri", kaz: "MAT.6.1.1.9", desc: "Fark 56" },
+          { num: 12, ans: "B", tag: "Hedef Tahtası", kaz: "MAT.6.1.1.10", desc: "Fark 38" }
+        ],
+        B: [
+          { num: 1, ans: "C", tag: "Tekrarlı Çarpım", kaz: "MAT.6.1.1.1", desc: "Tekrarlı çarpım toplamı 9" },
+          { num: 2, ans: "D", tag: "Değer Hesaplama", kaz: "MAT.6.1.1.1", desc: "4³ = 64" },
+          { num: 3, ans: "C", tag: "0 ve 1 Kuvvetleri", kaz: "MAT.6.1.1.2", desc: "1+0+1453+1 = 1455" },
+          { num: 4, ans: "A", tag: "Sıralama", kaz: "MAT.6.1.1.3", desc: "m < l = n < k" },
+          { num: 5, ans: "B", tag: "Katlanma", kaz: "MAT.6.1.1.4", desc: "2⁶ = 64 kat" },
+          { num: 6, ans: "C", tag: "10'un Kuvvetleri", kaz: "MAT.6.1.1.5", desc: "7 basamaklı, 6 sıfır" },
+          { num: 7, ans: "C", tag: "Basamak Sayısı", kaz: "MAT.6.1.1.5", desc: "8 basamaklı" },
+          { num: 8, ans: "B", tag: "İşlem İlişkisi", kaz: "MAT.6.1.1.6", desc: "Sonuç 74" },
+          { num: 9, ans: "A", tag: "Alan-Hacim", kaz: "MAT.6.1.1.7", desc: "Fark 9" },
+          { num: 10, ans: "B", tag: "Bilinmeyen Üs", kaz: "MAT.6.1.1.8", desc: "Çarpım 32" },
+          { num: 11, ans: "B", tag: "Amip Bölünmesi", kaz: "MAT.6.1.1.9", desc: "Fark 18" },
+          { num: 12, ans: "B", tag: "Kutu Bilye", kaz: "MAT.6.1.1.10", desc: "Fark 65" }
+        ]
+      },
+      "7": {
+        topic: "Tam Sayılarla İşlemler (Toplama ve Çıkarma)",
+        kaz: "MAT.7.1.1",
+        std: [
+          { num: 1, ans: "A", tag: "Temel Toplama", kaz: "MAT.7.1.1.1", desc: "(-16) + (+9) + (-5) = -12" },
+          { num: 2, ans: "C", tag: "Çıkarma Kuralı", kaz: "MAT.7.1.1.1", desc: "(+18) - (-14) - (+7) = +25" },
+          { num: 3, ans: "A", tag: "Sayma Pulları", kaz: "MAT.7.1.1.2", desc: "9 (+) ve 5 (-) puldan 4 (+) kalır" },
+          { num: 4, ans: "C", tag: "Sayı Doğrusu", kaz: "MAT.7.1.1.2", desc: "-8 + 15 - 4 = +3" },
+          { num: 5, ans: "C", tag: "Özellikler", kaz: "MAT.7.1.1.3", desc: "Ters eleman ve birleşme toplamı 21" },
+          { num: 6, ans: "C", tag: "Mutlak Değer", kaz: "MAT.7.1.1.4", desc: "|-35| - |+12| + |-8| = 31" },
+          { num: 7, ans: "C", tag: "Sıcaklık Farkı", kaz: "MAT.7.1.1.5", desc: "(+6) - (-18) = 24°C fark" },
+          { num: 8, ans: "C", tag: "Kot Farkı", kaz: "MAT.7.1.1.5", desc: "320 - (-50) = 370 m mesafe" },
+          { num: 9, ans: "A", tag: "Banka Bakiyesi", kaz: "MAT.7.1.1.6", desc: "-480 + 1500 - 360 = +660 TL" },
+          { num: 10, ans: "A", tag: "Parantezli İşlem", kaz: "MAT.7.1.1.7", desc: "Sonuç -2" },
+          { num: 11, ans: "C", tag: "Asansör Problemi", kaz: "MAT.7.1.1.8", desc: "-2 + 8 - 3 = +3. kat" },
+          { num: 12, ans: "D", tag: "Mantık Muhakeme", kaz: "MAT.7.1.1.9", desc: "A - B = 8 - (-18) = +26" }
+        ],
+        A: [
+          { num: 1, ans: "A", tag: "Toplama", kaz: "MAT.7.1.1.1", desc: "Sonuç -12" },
+          { num: 2, ans: "C", tag: "Çıkarma", kaz: "MAT.7.1.1.1", desc: "Sonuç +25" },
+          { num: 3, ans: "A", tag: "Pullar", kaz: "MAT.7.1.1.2", desc: "4 (+) pul kalır" },
+          { num: 4, ans: "C", tag: "Sayı Doğrusu", kaz: "MAT.7.1.1.2", desc: "Ulaşılan nokta +3" },
+          { num: 5, ans: "C", tag: "Özellikler", kaz: "MAT.7.1.1.3", desc: "Toplam 21" },
+          { num: 6, ans: "C", tag: "Mutlak Değer", kaz: "MAT.7.1.1.4", desc: "Sonuç 31" },
+          { num: 7, ans: "C", tag: "Sıcaklık", kaz: "MAT.7.1.1.5", desc: "Fark 24°C" },
+          { num: 8, ans: "C", tag: "Kot Farkı", kaz: "MAT.7.1.1.5", desc: "370 m" },
+          { num: 9, ans: "A", tag: "Bakiye", kaz: "MAT.7.1.1.6", desc: "+660 TL" },
+          { num: 10, ans: "A", tag: "Parantezli", kaz: "MAT.7.1.1.7", desc: "Sonuç -2" },
+          { num: 11, ans: "C", tag: "Asansör", kaz: "MAT.7.1.1.8", desc: "+3. kat" },
+          { num: 12, ans: "D", tag: "Değişkenli", kaz: "MAT.7.1.1.9", desc: "+26" }
+        ],
+        B: [
+          { num: 1, ans: "A", tag: "Toplama", kaz: "MAT.7.1.1.1", desc: "Sonuç -12" },
+          { num: 2, ans: "C", tag: "Çıkarma", kaz: "MAT.7.1.1.1", desc: "Sonuç +25" },
+          { num: 3, ans: "A", tag: "Pullar", kaz: "MAT.7.1.1.2", desc: "4 (+) pul kalır" },
+          { num: 4, ans: "C", tag: "Sayı Doğrusu", kaz: "MAT.7.1.1.2", desc: "Son tam sayı +3" },
+          { num: 5, ans: "C", tag: "Özellikler", kaz: "MAT.7.1.1.3", desc: "Toplam 21" },
+          { num: 6, ans: "C", tag: "Mutlak Değer", kaz: "MAT.7.1.1.4", desc: "Sonuç 31" },
+          { num: 7, ans: "C", tag: "Sıcaklık", kaz: "MAT.7.1.1.5", desc: "Fark 24°C" },
+          { num: 8, ans: "C", tag: "Kot Farkı", kaz: "MAT.7.1.1.5", desc: "370 m" },
+          { num: 9, ans: "A", tag: "Bakiye", kaz: "MAT.7.1.1.6", desc: "+660 TL" },
+          { num: 10, ans: "A", tag: "Parantezli", kaz: "MAT.7.1.1.7", desc: "Sonuç -2" },
+          { num: 11, ans: "C", tag: "Asansör", kaz: "MAT.7.1.1.8", desc: "+3. kat" },
+          { num: 12, ans: "D", tag: "Değişkenli", kaz: "MAT.7.1.1.9", desc: "+26" }
+        ]
+      },
+      "8": {
+        topic: "Çarpanlar ve Katlar (Asal Çarpanlar & LGS)",
+        kaz: "MAT.8.1.1",
+        std: [
+          { num: 1, ans: "C", tag: "Pozitif Çarpan", kaz: "MAT.8.1.1.1", desc: "72 sayısının 12 adet böleni vardır" },
+          { num: 2, ans: "B", tag: "Gökkuşağı Kuralı", kaz: "MAT.8.1.1.1", desc: "48 sayısında a+b = 6+16 = 22" },
+          { num: 3, ans: "B", tag: "Bölen Listesi", kaz: "MAT.8.1.1.2", desc: "180 = 2² × 3² × 5¹ => x+y+z = 5" },
+          { num: 4, ans: "B", tag: "Asallar Toplamı", kaz: "MAT.8.1.1.2", desc: "210'un asalları toplamı 2+3+5+7 = 17" },
+          { num: 5, ans: "B", tag: "Çarpan Ağacı", kaz: "MAT.8.1.1.3", desc: "K - M = 210 - 105 = 105" },
+          { num: 6, ans: "B", tag: "Alan & Çevre", kaz: "MAT.8.1.1.4", desc: "Alanı 48 olan dikdörtgenin en küçük çevresi 28 cm" },
+          { num: 7, ans: "C", tag: "Asal Sınırlar", kaz: "MAT.8.1.1.5", desc: "11 + 97 = 108" },
+          { num: 8, ans: "C", tag: "Üslü Çarpan", kaz: "MAT.8.1.1.6", desc: "54 sayısı 3³ içerdiğinden bölen değildir" },
+          { num: 9, ans: "C", tag: "Tam Kareler", kaz: "MAT.8.1.1.7", desc: "1-50 arası tam kare adedi 7 tanedir" },
+          { num: 10, ans: "C", tag: "Asal Kısıt", kaz: "MAT.8.1.1.8", desc: "Yalnız 2 ve 3 asal çarpanlı en büyük sayı 96" },
+          { num: 11, ans: "C", tag: "LGS Parçalama", kaz: "MAT.8.1.1.9", desc: "90 cm için 5-20 arası 5 farklı değer" },
+          { num: 12, ans: "C", tag: "LGS Kart Seçimi", kaz: "MAT.8.1.1.10", desc: "2 ve 3 olan fakat 5 olmayan sayı 84" }
+        ],
+        A: [
+          { num: 1, ans: "C", tag: "Pozitif Çarpan", kaz: "MAT.8.1.1.1", desc: "12 adet" },
+          { num: 2, ans: "B", tag: "Gökkuşağı", kaz: "MAT.8.1.1.1", desc: "a+b = 22" },
+          { num: 3, ans: "B", tag: "Bölen Listesi", kaz: "MAT.8.1.1.2", desc: "Toplam 5" },
+          { num: 4, ans: "B", tag: "Asallar Toplamı", kaz: "MAT.8.1.1.2", desc: "Toplam 17" },
+          { num: 5, ans: "B", tag: "Ağaç", kaz: "MAT.8.1.1.3", desc: "Fark 105" },
+          { num: 6, ans: "B", tag: "Çevre Min", kaz: "MAT.8.1.1.4", desc: "28 cm" },
+          { num: 7, ans: "C", tag: "Asallar", kaz: "MAT.8.1.1.5", desc: "108" },
+          { num: 8, ans: "C", tag: "Üslü Çarpan", kaz: "MAT.8.1.1.6", desc: "54 bölen değil" },
+          { num: 9, ans: "C", tag: "Tam Kare", kaz: "MAT.8.1.1.7", desc: "7 adet" },
+          { num: 10, ans: "C", tag: "Asal Kısıt", kaz: "MAT.8.1.1.8", desc: "96" },
+          { num: 11, ans: "C", tag: "Parçalama", kaz: "MAT.8.1.1.9", desc: "5 değer" },
+          { num: 12, ans: "C", tag: "Kart", kaz: "MAT.8.1.1.10", desc: "84" }
+        ],
+        B: [
+          { num: 1, ans: "C", tag: "Pozitif Çarpan", kaz: "MAT.8.1.1.1", desc: "12 adet" },
+          { num: 2, ans: "B", tag: "Gökkuşağı", kaz: "MAT.8.1.1.1", desc: "a+b = 21" },
+          { num: 3, ans: "B", tag: "Bölen Listesi", kaz: "MAT.8.1.1.2", desc: "Toplam 5" },
+          { num: 4, ans: "B", tag: "Asallar", kaz: "MAT.8.1.1.2", desc: "Toplam 21" },
+          { num: 5, ans: "B", tag: "Ağaç", kaz: "MAT.8.1.1.3", desc: "Fark 75" },
+          { num: 6, ans: "B", tag: "Çevre Min", kaz: "MAT.8.1.1.4", desc: "32 cm" },
+          { num: 7, ans: "C", tag: "Asallar", kaz: "MAT.8.1.1.5", desc: "108" },
+          { num: 8, ans: "C", tag: "Üslü Çarpan", kaz: "MAT.8.1.1.6", desc: "54 bölen değil" },
+          { num: 9, ans: "C", tag: "Tam Kare", kaz: "MAT.8.1.1.7", desc: "8 adet" },
+          { num: 10, ans: "A", tag: "Asal Kısıt", kaz: "MAT.8.1.1.8", desc: "80" },
+          { num: 11, ans: "C", tag: "Parçalama", kaz: "MAT.8.1.1.9", desc: "5 değer" },
+          { num: 12, ans: "A", tag: "Kutu", kaz: "MAT.8.1.1.10", desc: "42" }
+        ]
+      }
+    };
+
+    let ANSWER_KEYS = {
+      "STD": ALL_GRADE_KEYS["5"].std,
+      "A": ALL_GRADE_KEYS["5"].A,
+      "B": ALL_GRADE_KEYS["5"].B
+    };
+
+    function onGradeChange() {
+      currentGrade = document.getElementById('gradeSelect').value;
+      currentClassName = `${currentGrade} / A`;
+      if (document.getElementById('editClassNameInput')) {
+        document.getElementById('editClassNameInput').value = currentClassName;
+      }
+      
+      const gData = ALL_GRADE_KEYS[currentGrade];
+      ANSWER_KEYS = {
+        "STD": gData.std,
+        "A": gData.A,
+        "B": gData.B
+      };
+      
+      // Update subtitle
+      const t = TEACHERS_INFO[currentTeacher];
+      document.getElementById('headerSubtitle').textContent = `${currentGrade}. Sınıf • 1. Hafta • ${t.name}`;
+      
+      // Reload students for this grade
+      loadStudentsFromStorage();
+      renderAll();
+      showToast(`${currentGrade}. Sınıf moduna geçildi: ${gData.topic}`);
+    }
+
+
+    // Immutable Default Baseline (30 Students)
+    const DEFAULT_STUDENTS = [
+      { no: 102, name: "Ali YILDIRIM", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 105, name: "Ayşe KAYA", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 112, name: "Burak DEMİR", answers: ["C", "D", "A", "B", "D", "B", "B", "A", "D", "C", "B", "A"], saved: true },
+      { no: 118, name: "Ceren ÇELİK", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "D"], saved: true },
+      { no: 124, name: "Deniz ARSLAN", answers: ["C", "A", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 130, name: "Efe POLAT", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "B", "C", "B", "A"], saved: true },
+      { no: 135, name: "Elif ÖZTÜRK", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 141, name: "Emre ŞAHİN", answers: ["C", "D", "B", "B", "D", "B", "C", "A", "D", "A", "B", "A"], saved: true },
+      { no: 147, name: "Esra KOÇ", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 153, name: "Furkan AYDIN", answers: ["A", "D", "A", "B", "B", "B", "C", "A", "D", "C", "A", "D"], saved: true },
+      { no: 158, name: "Gamze YILMAZ", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 164, name: "Hakan KURT", answers: ["C", "D", "A", "A", "D", "B", "C", "B", "D", "C", "B", "A"], saved: true },
+      { no: 170, name: "İrem DOĞAN", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 175, name: "Kerem YILDIZ", answers: ["C", "D", "A", "B", "D", "A", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 181, name: "Leyla ASLAN", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 187, name: "Mehmet GÜLER", answers: ["C", "D", "A", "B", "D", "B", "B", "A", "B", "C", "B", "A"], saved: true },
+      { no: 192, name: "Merve ÖZDEMİR", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 198, name: "Murat ÇETİN", answers: ["C", "A", "A", "B", "D", "B", "C", "A", "D", "C", "B", "D"], saved: true },
+      { no: 204, name: "Nehir KILIÇ", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 210, name: "Oğuzhan TEKİN", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "A", "A"], saved: true },
+      { no: 215, name: "Öykü KORKMAZ", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 221, name: "Rüzgar ACAR", answers: ["C", "D", "A", "B", "B", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 227, name: "Selin ŞEN", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 233, name: "Sinan YAVUZ", answers: ["A", "D", "B", "B", "D", "B", "C", "A", "B", "C", "B", "D"], saved: true },
+      { no: 239, name: "Tuana AKSOY", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 245, name: "Umut GÜNEŞ", answers: ["C", "D", "A", "B", "D", "B", "B", "A", "D", "A", "B", "A"], saved: true },
+      { no: 251, name: "Yağmur KARA", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 257, name: "Yiğit BULUT", answers: ["C", "D", "A", "B", "D", "A", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 263, name: "Zeynep ÇAKIR", answers: ["C", "D", "A", "B", "D", "B", "C", "A", "D", "C", "B", "A"], saved: true },
+      { no: 270, name: "Ziya ERDOĞAN", answers: ["C", "A", "A", "B", "D", "B", "C", "B", "D", "C", "B", "D"], saved: true }
+    ];
+
+    // Working Student Array
+    let STUDENTS = [];
+    let currentStudentIdx = 0;
+    let currentAnswers = [];
+    let mediaStream = null;
+    let currentFacingMode = "environment";
+    let isTorchOn = false;
+
+    // Web Audio Sound Synth
+    let audioCtx = null;
+    function playBeep(success = true) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        if (success) {
+          osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+          osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.08);
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.25);
+        } else {
+          osc.type = "sawtooth";
+          osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.3);
+        }
+      } catch (e) {}
+    }
+
+    // =========================================================================
+    // SECURITY & PIN GATE
+    // =========================================================================
+    function checkSecurityAccess() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const key = urlParams.get('anahtar') || urlParams.get('key');
+      const isAuth = localStorage.getItem('zumre_optik_auth');
+
+      if (key === 'zumre2026' || isAuth === 'true') {
+        localStorage.setItem('zumre_optik_auth', 'true');
+        document.getElementById('pinGate').style.display = 'none';
+        initAppFlow();
+      } else {
+        document.getElementById('pinGate').style.display = 'flex';
+      }
+    }
+
+    function checkPinInput(val) {
+      if (val === '2026' || val === 'zumre') {
+        localStorage.setItem('zumre_optik_auth', 'true');
+        document.getElementById('pinGate').style.display = 'none';
+        showToast("✔ Erişim onaylandı, hoş geldiniz!");
+        initAppFlow();
+      }
+    }
+
+    // =========================================================================
+    // TEACHER GATEWAY ONBOARDING
+    // =========================================================================
+    function initAppFlow() {
+      const savedTeacher = localStorage.getItem('zumre_selected_teacher');
+      if (!savedTeacher) {
+        openTeacherGateway();
+      } else {
+        applyTeacher(savedTeacher);
+      }
+      startCamera();
+    }
+
+    function openTeacherGateway() {
+      document.getElementById('teacherGateway').style.display = 'flex';
+    }
+
+    function selectTeacher(tId) {
+      localStorage.setItem('zumre_selected_teacher', tId);
+      applyTeacher(tId);
+      document.getElementById('teacherGateway').style.display = 'none';
+      showToast(`✔ ${TEACHERS_INFO[tId].display} seçildi. Belge ve sınıf bilgileri güncellendi!`);
+    }
+
+    function applyTeacher(tId) {
+      currentTeacher = tId;
+      const info = TEACHERS_INFO[tId];
+
+      document.getElementById('headerSchool').textContent = info.school;
+      document.getElementById('headerTeacherName').textContent = info.display;
+      document.getElementById('headerTeacherAvatar').textContent = info.avatar;
+      document.getElementById('headerSubtitle').textContent = `5. Sınıf • 1. Hafta • ${info.name}`;
+      document.getElementById('btnSyncLabel').textContent = `BELGEYE İŞLE (${info.display})`;
+
+      document.documentElement.style.setProperty('--primary', info.theme);
+      document.documentElement.style.setProperty('--primary-dark', info.themeDark);
+
+      // Load Teacher's own student roster & class name
+      loadStudentsForTeacher(tId);
+    }
+
+    function onGroupChange() {
+      currentGroup = document.getElementById('groupSelect').value;
+      document.getElementById('groupTagLabel').textContent = `[GRUP ${currentGroup}]`;
+      renderBubbleMatrix();
+      showToast(`Sınav Grubu: [Grup ${currentGroup}] olarak değiştirildi.`);
+    }
+
+    // =========================================================================
+    // STUDENT ROSTER STORAGE & MANAGEMENT
+    // =========================================================================
+    function loadStudentsForTeacher(tId) {
+      const storageKey = 'zumre_students_' + tId;
+      const classKey = 'zumre_classname_' + tId;
+
+      currentClassName = localStorage.getItem(classKey) || "5 / A";
+      document.getElementById('editClassName').value = currentClassName;
+
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        try {
+          STUDENTS = JSON.parse(raw);
+        } catch (e) {
+          STUDENTS = JSON.parse(JSON.stringify(DEFAULT_STUDENTS));
+        }
+      } else {
+        STUDENTS = JSON.parse(JSON.stringify(DEFAULT_STUDENTS));
+      }
+
+      if (currentStudentIdx >= STUDENTS.length) {
+        currentStudentIdx = 0;
+      }
+
+      currentAnswers = STUDENTS.length > 0 ? [...STUDENTS[currentStudentIdx].answers] : Array(12).fill("");
+      refreshRosterUI();
+    }
+
+    function saveStudentsToStorage() {
+      const storageKey = 'zumre_students_' + currentTeacher;
+      const classKey = 'zumre_classname_' + currentTeacher;
+      localStorage.setItem(storageKey, JSON.stringify(STUDENTS));
+      localStorage.setItem(classKey, currentClassName);
+    }
+
+    function refreshRosterUI() {
+      buildStudentDropdown();
+      updateStudentUI();
+      renderBubbleMatrix();
+
+      const count = STUDENTS.length;
+      document.getElementById('btnRosterBottom').textContent = `📊 Liste (${count})`;
+      document.getElementById('editRosterCountBadge').textContent = `${count} Öğrenci`;
+      document.getElementById('rosterModalTitle').textContent = `📊 ${currentClassName} Sınıf Listesi & Not Durumu`;
+    }
+
+    function buildStudentDropdown() {
+      const sel = document.getElementById('studentDropdown');
+      sel.innerHTML = '';
+      STUDENTS.forEach((s, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = `${s.no} - ${s.name}`;
+        sel.appendChild(opt);
+      });
+      if (STUDENTS.length > 0) {
+        sel.value = currentStudentIdx;
+      }
+    }
+
+    function navStudent(direction) {
+      if (STUDENTS.length === 0) return;
+      currentStudentIdx = (currentStudentIdx + direction + STUDENTS.length) % STUDENTS.length;
+      document.getElementById('studentDropdown').value = currentStudentIdx;
+      loadStudentData(currentStudentIdx);
+    }
+
+    function onStudentSelect(val) {
+      currentStudentIdx = parseInt(val, 10);
+      loadStudentData(currentStudentIdx);
+    }
+
+    function loadStudentData(idx) {
+      if (idx < 0 || idx >= STUDENTS.length) return;
+      currentStudentIdx = idx;
+      const s = STUDENTS[idx];
+      currentAnswers = [...s.answers];
+      updateStudentUI();
+      renderBubbleMatrix();
+      playBeep(true);
+    }
+
+    function updateStudentUI() {
+      if (STUDENTS.length === 0) {
+        document.getElementById('curStudentName').textContent = "Öğrenci Yok";
+        document.getElementById('curStudentNo').textContent = "Lütfen listeye öğrenci ekleyin.";
+        document.getElementById('curStudentStatus').textContent = "";
+        return;
+      }
+      const s = STUDENTS[currentStudentIdx];
+      document.getElementById('curStudentName').textContent = s.name;
+      document.getElementById('curStudentNo').textContent = `Okul No: ${s.no} • Sınıf: ${currentClassName} (${currentStudentIdx + 1} / ${STUDENTS.length})`;
+      document.getElementById('curStudentStatus').textContent = s.saved ? "✔ Belgeye İşlendi" : "⏳ Bekliyor";
+      document.getElementById('curStudentStatus').style.color = s.saved ? "#276749" : "#C53030";
+      document.getElementById('studentDropdown').value = currentStudentIdx;
+    }
+
+    // =========================================================================
+    // ROSTER EDITOR (MODAL & ACTIONS)
+    // =========================================================================
+    function openEditRosterModal() {
+      closeRosterModal();
+      document.getElementById('editClassName').value = currentClassName;
+      renderEditableStudentRows();
+      document.getElementById('editRosterModal').style.display = 'flex';
+    }
+
+    function closeEditRosterModal(evt) {
+      document.getElementById('editRosterModal').style.display = 'none';
+    }
+
+    function renderEditableStudentRows() {
+      const container = document.getElementById('editableStudentRowsContainer');
+      container.innerHTML = '';
+      document.getElementById('editRosterCountBadge').textContent = `${STUDENTS.length} Öğrenci`;
+
+      if (STUDENTS.length === 0) {
+        container.innerHTML = '<div style="padding:20px; text-align:center; color:#A0AEC0; font-size:12px;">Listenizde henüz öğrenci bulunmuyor. Yukarıdan ekleyebilirsiniz.</div>';
+        return;
+      }
+
+      STUDENTS.forEach((s, idx) => {
+        const row = document.createElement('div');
+        row.className = 'edit-row-item';
+        row.innerHTML = `
+          <span style="font-size:11px; font-weight:700; color:#718096; width:22px;">${idx + 1}.</span>
+          <input type="number" class="edit-stu-no" data-idx="${idx}" value="${s.no}" style="width:68px; padding:6px; font-size:12px; font-weight:700; border:1px solid #CBD5E0; border-radius:6px; outline:none;" placeholder="No">
+          <input type="text" class="edit-stu-name" data-idx="${idx}" value="${s.name}" style="flex:1; padding:6px; font-size:12px; font-weight:600; border:1px solid #CBD5E0; border-radius:6px; outline:none;" placeholder="Adı Soyadı">
+          <button style="background:#FFF5F5; border:1px solid #FEB2B2; color:#C53030; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:12px;" onclick="deleteStudentRow(${idx})">🗑️</button>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function addSingleStudent() {
+      const noInput = document.getElementById('newStudentNo');
+      const nameInput = document.getElementById('newStudentName');
+      const noVal = noInput.value.trim();
+      const nameVal = nameInput.value.trim();
+
+      if (!noVal || !nameVal) {
+        showToast("Lütfen Okul No ve Adı Soyadı alanlarını doldurunuz.", false);
+        return;
+      }
+
+      STUDENTS.push({
+        no: parseInt(noVal, 10),
+        name: nameVal,
+        answers: Array(12).fill(""),
+        saved: false
+      });
+
+      noInput.value = '';
+      nameInput.value = '';
+      renderEditableStudentRows();
+      showToast(`✔ ${nameVal} eklendi.`);
+    }
+
+    function deleteStudentRow(idx) {
+      if (idx < 0 || idx >= STUDENTS.length) return;
+      const removed = STUDENTS.splice(idx, 1);
+      if (currentStudentIdx >= STUDENTS.length) {
+        currentStudentIdx = Math.max(0, STUDENTS.length - 1);
+      }
+      renderEditableStudentRows();
+      showToast(`✔ ${removed[0].name} listeden silindi.`);
+    }
+
+    function clearAllStudents() {
+      if (confirm("Tüm öğrenci listesi temizlensin mi?")) {
+        STUDENTS = [];
+        currentStudentIdx = 0;
+        currentAnswers = Array(12).fill("");
+        renderEditableStudentRows();
+        showToast("Tüm liste temizlendi.");
+      }
+    }
+
+    function importBatchStudents(replaceFull = false) {
+      const txt = document.getElementById('batchStudentText').value.trim();
+      if (!txt) {
+        showToast("Lütfen yapıştırılacak metni giriniz.", false);
+        return;
+      }
+
+      const lines = txt.split('\n');
+      const parsed = [];
+
+      lines.forEach((line, i) => {
+        const clean = line.trim();
+        if (!clean) return;
+        // Match numbers followed by name or name followed by numbers
+        const match = clean.match(/^(\d+)[\s\.\-]+(.+)$/) || clean.match(/^(.+)[\s\.\-]+(\d+)$/);
+        if (match) {
+          if (!isNaN(match[1])) {
+            parsed.push({ no: parseInt(match[1], 10), name: match[2].trim(), answers: Array(12).fill(""), saved: false });
+          } else {
+            parsed.push({ no: parseInt(match[2], 10), name: match[1].trim(), answers: Array(12).fill(""), saved: false });
+          }
+        } else {
+          // If no number, assign auto sequential number
+          parsed.push({ no: 100 + i + 1, name: clean, answers: Array(12).fill(""), saved: false });
+        }
+      });
+
+      if (parsed.length === 0) {
+        showToast("Uygun formatta öğrenci bulunamadı.", false);
+        return;
+      }
+
+      if (replaceFull) {
+        STUDENTS = parsed;
+      } else {
+        STUDENTS = STUDENTS.concat(parsed);
+      }
+
+      document.getElementById('batchStudentText').value = '';
+      renderEditableStudentRows();
+      showToast(`✔ ${parsed.length} öğrenci başarıyla içe aktarıldı!`);
+    }
+
+    function saveEditedStudents() {
+      // Collect updated numbers and names from inputs
+      const noInputs = document.querySelectorAll('.edit-stu-no');
+      const nameInputs = document.querySelectorAll('.edit-stu-name');
+
+      noInputs.forEach((noEl) => {
+        const idx = parseInt(noEl.getAttribute('data-idx'), 10);
+        if (STUDENTS[idx]) {
+          STUDENTS[idx].no = parseInt(noEl.value, 10) || STUDENTS[idx].no;
+        }
+      });
+
+      nameInputs.forEach((nameEl) => {
+        const idx = parseInt(nameEl.getAttribute('data-idx'), 10);
+        if (STUDENTS[idx]) {
+          STUDENTS[idx].name = nameEl.value.trim() || STUDENTS[idx].name;
+        }
+      });
+
+      currentClassName = document.getElementById('editClassName').value.trim() || "5 / A";
+      saveStudentsToStorage();
+      refreshRosterUI();
+      closeEditRosterModal();
+      showToast(`🎉 Sınıf listesi kaydedildi: ${currentClassName} (${STUDENTS.length} Öğrenci)`);
+    }
+
+    function resetStudentsToDefault() {
+      if (confirm("Varsayılan 30 kişilik orijinal listeye dönülsün mü? (Mevcut düzenlemeler sıfırlanacaktır)")) {
+        STUDENTS = JSON.parse(JSON.stringify(DEFAULT_STUDENTS));
+        currentClassName = "5 / A";
+        document.getElementById('editClassName').value = currentClassName;
+        saveStudentsToStorage();
+        renderEditableStudentRows();
+        refreshRosterUI();
+        showToast("✔ Orijinal sınıf listesi geri yüklendi.");
+      }
+    }
+
+    // =========================================================================
+    // OPTICAL BUBBLE MATRIX & SCORING
+    // =========================================================================
+    function renderBubbleMatrix() {
+      const container = document.getElementById('bubbleMatrix');
+      container.innerHTML = '';
+      const keySet = ANSWER_KEYS[currentGroup] || ANSWER_KEYS["A"];
+
+      let correctCount = 0;
+      let wrongCount = 0;
+      let emptyCount = 0;
+      let missedQuestions = [];
+
+      for (let i = 0; i < 12; i++) {
+        const qNum = i + 1;
+        const qKey = keySet[i].ans;
+        const marked = currentAnswers[i] || "";
+
+        let statusClass = "icon-empty";
+        let statusIcon = "○";
+        if (marked === "") {
+          emptyCount++;
+        } else if (marked === qKey) {
+          correctCount++;
+          statusClass = "icon-correct";
+          statusIcon = "✔";
+        } else {
+          wrongCount++;
+          statusClass = "icon-wrong";
+          statusIcon = "✖";
+          missedQuestions.push({ num: qNum, marked, key: qKey, info: keySet[i] });
+        }
+
+        const row = document.createElement('div');
+        row.className = 'q-row';
+        row.innerHTML = `
+          <div class="q-lbl">S${qNum}</div>
+          <div class="q-options">
+            ${['A', 'B', 'C', 'D'].map(letter => {
+              let bubbleClass = 'bubble';
+              if (marked === letter) {
+                bubbleClass += (letter === qKey) ? ' correct' : ' wrong';
+              } else if (marked !== "" && letter === qKey) {
+                bubbleClass += ' key-hint';
+              }
+              return `<div class="${bubbleClass}" onclick="setAnswer(${i}, '${letter}')">${letter}</div>`;
+            }).join('')}
+          </div>
+          <div class="q-status-icon ${statusClass}">${statusIcon}</div>
+        `;
+        container.appendChild(row);
+      }
+
+      const score = Math.round((correctCount / 12) * 1000) / 10;
+      let level = "Düzey 1 (Başlangıç)";
+      let levelClass = "score-baslangic";
+      if (score >= 85) {
+        level = "Düzey 4 (Yetkin)";
+        levelClass = "score-yetkin";
+      } else if (score >= 70) {
+        level = "Düzey 3 (Yeterli)";
+        levelClass = "score-yeterli";
+      } else if (score >= 50) {
+        level = "Düzey 2 (Kısmi)";
+        levelClass = "score-gelismeli";
+      }
+
+      const scoreEl = document.getElementById('scoreBadge');
+      scoreEl.className = `score-badge ${levelClass}`;
+      scoreEl.textContent = `${score} Puan • ${level}`;
+
+      // Diagnostic Box
+      const diagBox = document.getElementById('diagnosticBox');
+      const diagText = document.getElementById('diagText');
+      if (missedQuestions.length > 0) {
+        diagBox.classList.remove('hidden');
+        diagText.innerHTML = missedQuestions.map(m => 
+          `• <b>Soru ${m.num} (${m.info.tag}):</b> İşaretlenen [${m.marked}], Doğru [${m.key}].<br/><i>${m.info.kaz}: ${m.info.desc}</i>`
+        ).join('<br/><br/>');
+      } else {
+        diagBox.classList.remove('hidden');
+        diagText.innerHTML = `🌟 <b>Tebrikler!</b> 12 sorunun tamamı doğru kodlandı. Çok basamaklı doğal sayılar ve Maarif Modeli kazanımları tam yetkinlik düzeyindedir.`;
+      }
+    }
+
+    function setAnswer(qIdx, letter) {
+      if (STUDENTS.length === 0) return;
+      if (currentAnswers[qIdx] === letter) {
+        currentAnswers[qIdx] = "";
+      } else {
+        currentAnswers[qIdx] = letter;
+      }
+      STUDENTS[currentStudentIdx].answers = [...currentAnswers];
+      STUDENTS[currentStudentIdx].saved = false;
+      saveStudentsToStorage();
+      updateStudentUI();
+      renderBubbleMatrix();
+      playBeep(true);
+    }
+
+    // =========================================================================
+    // CAMERA & COMPUTER VISION OMR ENGINE
+    // =========================================================================
+    async function startCamera() {
+      const video = document.getElementById('cameraVideo');
+      try {
+        if (mediaStream) {
+          mediaStream.getTracks().forEach(track => track.stop());
+        }
+        const constraints = {
+          video: {
+            facingMode: currentFacingMode,
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          }
+        };
+        mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = mediaStream;
+      } catch (err) {
+        console.warn("Kamera açılamadı:", err);
+      }
+    }
+
+    function switchCameraFacing() {
+      currentFacingMode = (currentFacingMode === "environment") ? "user" : "environment";
+      startCamera();
+      showToast("Kamera yönü değiştirildi.");
+    }
+
+    async function toggleFlashlight() {
+      if (!mediaStream) return;
+      const track = mediaStream.getVideoTracks()[0];
+      try {
+        const caps = track.getCapabilities();
+        if (caps.torch) {
+          isTorchOn = !isTorchOn;
+          await track.applyConstraints({ advanced: [{ torch: isTorchOn }] });
+          showToast(`Flaş ${isTorchOn ? 'Açıldı' : 'Kapatıldı'}`);
+        } else {
+          showToast("Flaş bu cihazda desteklenmiyor.");
+        }
+      } catch (e) {
+        showToast("Flaş kontrolü yapılamadı.");
+      }
+    }
+
+    function captureAndScan() {
+      const video = document.getElementById('cameraVideo');
+      const canvas = document.getElementById('cameraCanvas');
+      if (!video || !video.videoWidth) {
+        showToast("Kamera görüntüsü henüz hazır değil.", false);
+        return;
+      }
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      processOpticalImage(canvas);
+    }
+
+    function handleFileUpload(evt) {
+      const file = evt.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.getElementById('cameraCanvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          processOpticalImage(canvas);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function processOpticalImage(srcCanvas) {
+      if (STUDENTS.length === 0) {
+        showToast("Önce listeye öğrenci ekleyiniz.", false);
+        return;
+      }
+      showToast("🔍 Optik form analiz ediliyor...");
+      const ctx = srcCanvas.getContext('2d');
+      const w = srcCanvas.width;
+      const h = srcCanvas.height;
+
+      const roiX = Math.floor(w * 0.10);
+      const roiY = Math.floor(h * 0.15);
+      const roiW = Math.floor(w * 0.80);
+      const roiH = Math.floor(h * 0.70);
+
+      const imgData = ctx.getImageData(roiX, roiY, roiW, roiH);
+      const data = imgData.data;
+
+      const detectedAnswers = [];
+      const options = ['A', 'B', 'C', 'D'];
+
+      for (let q = 0; q < 12; q++) {
+        const isRightCol = q >= 6;
+        const rowInCol = q % 6;
+
+        const colStartX = isRightCol ? (roiW * 0.52) : (roiW * 0.05);
+        const colWidth = roiW * 0.43;
+        const rowY = (rowInCol + 0.5) * (roiH / 6.0);
+        const rowHeight = roiH / 8.0;
+
+        let bestOption = "";
+        let maxDarkness = -1;
+
+        for (let optIdx = 0; optIdx < 4; optIdx++) {
+          const bubbleCenterX = colStartX + (optIdx + 0.8) * (colWidth / 5.2);
+          const bubbleCenterY = rowY;
+          const radius = Math.min(rowHeight, colWidth / 8.0) * 0.38;
+
+          let darkPixels = 0;
+          let totalSampled = 0;
+
+          const startX = Math.max(0, Math.floor(bubbleCenterX - radius));
+          const endX = Math.min(roiW, Math.floor(bubbleCenterX + radius));
+          const startY = Math.max(0, Math.floor(bubbleCenterY - radius));
+          const endY = Math.min(roiH, Math.floor(bubbleCenterY + radius));
+
+          for (let py = startY; py < endY; py += 2) {
+            for (let px = startX; px < endX; px += 2) {
+              const dx = px - bubbleCenterX;
+              const dy = py - bubbleCenterY;
+              if (dx * dx + dy * dy <= radius * radius) {
+                const idx = (py * roiW + px) * 4;
+                const r = data[idx];
+                const g = data[idx + 1];
+                const b = data[idx + 2];
+                const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+                if (lum < 115) {
+                  darkPixels++;
+                }
+                totalSampled++;
+              }
+            }
+          }
+
+          const darknessRatio = totalSampled > 0 ? (darkPixels / totalSampled) : 0;
+          if (darknessRatio > maxDarkness && darknessRatio > 0.28) {
+            maxDarkness = darknessRatio;
+            bestOption = options[optIdx];
+          }
+        }
+
+        detectedAnswers.push(bestOption || (STUDENTS[currentStudentIdx] && STUDENTS[currentStudentIdx].answers[q]) || "A");
+      }
+
+      currentAnswers = detectedAnswers;
+      STUDENTS[currentStudentIdx].answers = [...detectedAnswers];
+      STUDENTS[currentStudentIdx].saved = false;
+      saveStudentsToStorage();
+
+      updateStudentUI();
+      renderBubbleMatrix();
+      playBeep(true);
+      showToast(`✔ Optik okundu: ${STUDENTS[currentStudentIdx].name}`);
+    }
+
+    function switchTab(mode) {
+      document.getElementById('tabCam').classList.toggle('active', mode === 'cam');
+      document.getElementById('tabUpload').classList.toggle('active', mode === 'upload');
+      document.getElementById('tabManual').classList.toggle('active', mode === 'manual');
+
+      document.getElementById('viewCamera').classList.toggle('hidden', mode !== 'cam');
+      document.getElementById('viewUpload').classList.toggle('hidden', mode !== 'upload');
+    }
+
+    // =========================================================================
+    // EXCEL WORKBOOK GENERATOR (SHEETJS ENGINE ON CLIENT-SIDE)
+    // =========================================================================
+    function syncAndDownloadExcel() {
+      if (STUDENTS.length === 0) return;
+      const student = STUDENTS[currentStudentIdx];
+      student.saved = true;
+      saveStudentsToStorage();
+      updateStudentUI();
+      playBeep(true);
+
+      showToast(`💾 [${TEACHERS_INFO[currentTeacher].display}] ${student.name} sonuçları kaydedildi!`);
+      
+      // Auto advance
+      setTimeout(() => {
+        navStudent(1);
+      }, 1000);
+    }
+
+    function exportFullClassExcel() {
+      if (STUDENTS.length === 0) {
+        showToast("Listenizde öğrenci bulunmuyor.", false);
+        return;
+      }
+      const teacherInfo = TEACHERS_INFO[currentTeacher];
+      const keySet = ANSWER_KEYS[currentGroup] || ANSWER_KEYS["A"];
+
+      // Create Workbook
+      const wb = XLSX.utils.book_new();
+
+      // --- SHEET 1: Optik Giriş ve Notlar ---
+      const ws1_data = [
+        ["T.C. MİLLÎ EĞİTİM BAKANLIĞI - " + teacherInfo.school.toUpperCase()],
+        ["2026 - 2027 EĞİTİM ÖĞRETİM YILI • TÜRKİYE YÜZYILI MAARİF MODELİ 5. SINIF MATEMATİK DERSİ"],
+        ["1. HAFTA ÇALIŞMA KAĞIDI: OPTİK CEVAP KODLAMA, NOT VE KAZANIM ANALİZ ÇİZELGESİ"],
+        ["Sınıf / Şube:", currentClassName, "Ders Öğretmeni:", teacherInfo.name, "Okul Müdürü:", teacherInfo.principal],
+        [],
+        ["🎯 RESMÎ CEVAP ANAHTARI:", "", "", ...keySet.map(k => k.ans), `12 Soru • Toplam ${STUDENTS.length} Öğrenci`],
+        ["No", "Okul No", "Öğrencinin Adı Soyadı", "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12", "Doğru", "Yanlış", "Boş", "Puan", "Başarı Düzeyi"]
+      ];
+
+      STUDENTS.forEach((s, idx) => {
+        let corr = 0, wrg = 0, blk = 0;
+        for (let i = 0; i < 12; i++) {
+          const ans = (s.answers && s.answers[i]) || "";
+          if (!ans) blk++;
+          else if (ans === keySet[i].ans) corr++;
+          else wrg++;
+        }
+        const score = Math.round((corr / 12) * 1000) / 10;
+        let level = "Düzey 1 (Başlangıç)";
+        if (score >= 85) level = "Düzey 4 (Yetkin)";
+        else if (score >= 70) level = "Düzey 3 (Yeterli)";
+        else if (score >= 50) level = "Düzey 2 (Kısmi)";
+
+        ws1_data.push([
+          idx + 1,
+          s.no,
+          s.name,
+          ...(s.answers || Array(12).fill("")),
+          corr,
+          wrg,
+          blk,
+          score,
+          level
+        ]);
+      });
+
+      const ws1 = XLSX.utils.aoa_to_sheet(ws1_data);
+      XLSX.utils.book_append_sheet(wb, ws1, "Optik Giriş ve Notlar");
+
+      // --- SHEET 2: Kazanım Analizi ---
+      const ws2_data = [
+        ["5. SINIF MATEMATİK • 1. HAFTA KAZANIM GELİŞİM VE TEŞHİS ANALİZİ"],
+        ["Ders Öğretmeni:", teacherInfo.name, "Kurum:", teacherInfo.school, "Sınıf:", currentClassName],
+        [],
+        ["Soru No", "Kazanım Kodu", "Pedagojik Açıklama", "Doğru Cevap", "Sınıf Başarı Yüzdesi", "Teşhis & Gelişim Önerisi"]
+      ];
+
+      keySet.forEach((k, i) => {
+        let correctCount = 0;
+        STUDENTS.forEach(s => {
+          if (s.answers && s.answers[i] === k.ans) correctCount++;
+        });
+        const pct = STUDENTS.length > 0 ? Math.round((correctCount / STUDENTS.length) * 100) : 0;
+        ws2_data.push([
+          `S${k.num}`,
+          k.kaz,
+          k.desc,
+          k.ans,
+          `%${pct}`,
+          pct >= 80 ? "Yetkin kavranmıştır." : (pct >= 60 ? "Soru çözüm pekiştirmesi yapılmalı." : "Kavram yanılgısı çalışılmalı.")
+        ]);
+      });
+
+      const ws2 = XLSX.utils.aoa_to_sheet(ws2_data);
+      XLSX.utils.book_append_sheet(wb, ws2, "Kazanım Analizi");
+
+      // Export file
+      XLSX.writeFile(wb, teacherInfo.fileName);
+      showToast(`🎉 ${teacherInfo.fileName} başarıyla cihazınıza indirildi!`);
+    }
+
+    function openRosterModal() {
+      const listEl = document.getElementById('rosterList');
+      listEl.innerHTML = '';
+      const keySet = ANSWER_KEYS[currentGroup] || ANSWER_KEYS["A"];
+
+      let totalScore = 0;
+      let scannedCount = 0;
+
+      STUDENTS.forEach((s, idx) => {
+        let corr = 0;
+        for (let i = 0; i < 12; i++) {
+          if (s.answers && s.answers[i] === keySet[i].ans) corr++;
+        }
+        const score = Math.round((corr / 12) * 1000) / 10;
+        totalScore += score;
+        if (s.saved) scannedCount++;
+
+        let badgeStyle = "background:#FED7D7; color:#742A2A;";
+        if (score >= 85) badgeStyle = "background:#C6F6D5; color:#22543D;";
+        else if (score >= 70) badgeStyle = "background:#BEE3F8; color:#2A4365;";
+        else if (score >= 50) badgeStyle = "background:#FEEBC8; color:#7B341E;";
+
+        const row = document.createElement('div');
+        row.className = 'roster-row';
+        row.onclick = () => {
+          loadStudentData(idx);
+          closeRosterModal();
+        };
+        row.innerHTML = `
+          <div>
+            <b>${s.no}</b> • ${s.name}
+            <span style="font-size:11px; color:${s.saved ? '#276749' : '#A0AEC0'}; margin-left:6px;">
+              ${s.saved ? '✔ İşlendi' : '⏳ Bekliyor'}
+            </span>
+          </div>
+          <div class="roster-score" style="${badgeStyle}">${score} Puan</div>
+        `;
+        listEl.appendChild(row);
+      });
+
+      const avg = STUDENTS.length > 0 ? Math.round((totalScore / STUDENTS.length) * 10) / 10 : 0;
+      document.getElementById('rosterStatsSummary').textContent = 
+        `Toplam: ${STUDENTS.length} Öğrenci • İşlenen: ${scannedCount} • Sınıf Ortalaması: ${avg} Puan`;
+
+      document.getElementById('rosterModal').style.display = 'flex';
+    }
+
+    function closeRosterModal(evt) {
+      document.getElementById('rosterModal').style.display = 'none';
+    }
+
+    function showToast(msg, isSuccess = true) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      const text = document.getElementById('toastMsg');
+      toast.className = `toast ${isSuccess ? 'success' : 'error'} show`;
+      icon.textContent = isSuccess ? '✔' : '✖';
+      text.textContent = msg;
+      setTimeout(() => {
+        toast.className = 'toast';
+      }, 3200);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkSecurityAccess();
+    });
+  </script>
+</body>
+</html>

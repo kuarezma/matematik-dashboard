@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>T.C. MEB • Ortaokul Matematik Zümresi Master Doküman Merkezi (5, 6, 7, 8. Sınıf)</title>
+  <meta name="description" content="T.C. MEB Ortaokul Matematik Zümresi Master Doküman Merkezi - Uğur YAŞAYAN & Demet GÜRHAN YAŞAYAN">
+  <meta name="theme-color" content="#080d1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(71, 85, 105, 1); }
+
+    .glass-card {
+      background: rgba(17, 24, 39, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.25);
+    }
+    .glass-nav {
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    @keyframes live-pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .live-indicator {
+      animation: live-pulse 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#080d1a] text-slate-100 min-h-screen font-sans selection:bg-blue-600 selection:text-white pb-16">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 glass-nav px-4 sm:px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <!-- School Logo Icon -->
+      <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-500 p-0.5 shadow-lg shadow-blue-500/25 flex items-center justify-center shrink-0">
+        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center font-bold text-amber-400 text-lg">
+          ∑
+        </div>
+        <span class="absolute -bottom-1 -right-1 bg-blue-600 text-[10px] font-extrabold text-white px-1 rounded-full ring-2 ring-slate-900">MEB</span>
+      </div>
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <h1 class="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5">
+            T.C. MEB • <span class="bg-gradient-to-r from-blue-400 via-teal-300 to-amber-400 bg-clip-text text-transparent">Matematik Zümresi</span>
+          </h1>
+          <span class="text-[10px] sm:text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full">5, 6, 7, 8. Sınıf Master Portalı</span>
+        </div>
+        <p class="text-[11px] sm:text-xs text-slate-400 font-medium truncate max-w-[280px] sm:max-w-none">
+          Demet GÜRHAN YAŞAYAN (Yavuz Selim OO) & Uğur YAŞAYAN (Alparslan OO)
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Status Badge -->
+      <div class="hidden md:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 live-indicator"></span>
+        <span>ÇEVRİMİÇİ BULUT SENKRON</span>
+      </div>
+
+      <!-- Quick Optik Reader Button -->
+      <a href="https://kuarezma.github.io/optik-okuyucu/?anahtar=zumre2026" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+        <span>📱</span>
+        <span class="hidden sm:inline">Mobil Optik Aç</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- SUB-NAV / GRADE SELECTOR -->
+  <div class="bg-slate-900/90 border-b border-slate-800 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 sticky top-[61px] z-30 backdrop-blur-md">
+    <div class="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar max-w-full">
+      <button onclick="selectGrade('all')" id="gradePill-all" class="grade-pill active px-3 py-1.5 rounded-xl text-xs font-bold transition bg-blue-600 text-white shadow-md">
+        🌟 Tüm Kademeler
+      </button>
+      <button onclick="selectGrade('5')" id="gradePill-5" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800">
+        5. Sınıf
+      </button>
+      <button onclick="selectGrade('6')" id="gradePill-6" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800">
+        6. Sınıf
+      </button>
+      <button onclick="selectGrade('7')" id="gradePill-7" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800">
+        7. Sınıf
+      </button>
+      <button onclick="selectGrade('8')" id="gradePill-8" class="grade-pill px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800">
+        8. Sınıf (LGS)
+      </button>
+    </div>
+
+    <!-- Active Grade Context Info -->
+    <div class="flex items-center gap-2 text-xs">
+      <span class="text-slate-400">Aktif Hafta:</span>
+      <span class="bg-slate-800 text-blue-300 font-semibold px-2.5 py-0.5 rounded-lg border border-slate-700/80">7-13 Eylül Haftası</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+
+    <!-- DASHBOARD TABS BAR -->
+    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-6 flex-wrap gap-3">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <button onclick="switchTab('overview')" id="tabBtn-overview" class="tab-btn active flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-800 text-white">
+          <span>📊</span>
+          <span id="tabLabel-overview">Master Genel Bakış</span>
+        </button>
+        <button onclick="switchTab('documents')" id="tabBtn-documents" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800/50">
+          <span>📂</span>
+          <span>Evrak & Materyal Merkezi</span>
+        </button>
+        <button onclick="switchTab('analytics')" id="tabBtn-analytics" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800/50">
+          <span>📈</span>
+          <span>Excel Teşhis & Kazanım Analizi</span>
+        </button>
+        <button onclick="switchTab('explorer')" id="tabBtn-explorer" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800/50">
+          <span>🌲</span>
+          <span>Klasör & Dosya Gezgini</span>
+        </button>
+        <button onclick="switchTab('interactive')" id="tabBtn-interactive" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white hover:bg-slate-800/50">
+          <span>📱</span>
+          <span>Mobil Optik & Akıllı Tahta</span>
+        </button>
+      </div>
+
+      <!-- Quick Teacher Filter Badge -->
+      <div class="flex items-center gap-1.5 bg-slate-900/80 border border-slate-800 p-1 rounded-xl text-xs">
+        <span class="text-slate-500 text-[11px] px-2 font-medium">Görünüm:</span>
+        <button onclick="setGlobalTeacherFilter('all')" id="teacherFilterBtn-all" class="teacher-filter-btn active px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-600 text-white transition">Tümü</button>
+        <button onclick="setGlobalTeacherFilter('demet')" id="teacherFilterBtn-demet" class="teacher-filter-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Demet Hoca</button>
+        <button onclick="setGlobalTeacherFilter('ugur')" id="teacherFilterBtn-ugur" class="teacher-filter-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Uğur Hoca</button>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: MASTER GENEL BAKIŞ (OVERVIEW) -->
+    <!-- =================================================================== -->
+    <section id="tab-overview" class="tab-content space-y-6">
+      
+      <!-- HERO BANNER -->
+      <div class="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-blue-900/40 via-indigo-950/50 to-slate-900/80 border border-blue-500/20 shadow-2xl shadow-blue-900/10">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold mb-3">
+              <span>🏛️ 2026-2027 Eğitim Öğretim Yılı</span>
+              <span>•</span>
+              <span>Türkiye Yüzyılı Maarif Modeli</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Ortaokul Matematik Zümresi Master Doküman Merkezi
+            </h2>
+            <p class="text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
+              5, 6, 7 ve 8. Sınıf seviyelerinde çift öğretmen (<strong class="text-teal-400 font-semibold">Demet GÜRHAN YAŞAYAN</strong> & <strong class="text-blue-400 font-semibold">Uğur YAŞAYAN</strong>) adına üretilmiş çalışma kağıtları, A/B sınavları, çıkış biletleri, rubrikler, Excel analizleri ve akıllı tahta oyunları bulut portalı.
+            </p>
+          </div>
+
+          <!-- Quick Actions in Banner -->
+          <div class="flex flex-wrap gap-2.5 shrink-0">
+            <button onclick="selectGrade('5'); switchTab('documents')" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition">
+              5. Sınıf Evrakları
+            </button>
+            <button onclick="selectGrade('8'); switchTab('documents')" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg shadow-amber-600/30 transition">
+              8. Sınıf (LGS) Evrakları
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI METRIC CARDS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div class="glass-card rounded-2xl p-4.5 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-semibold mb-2">
+            <span>Tamamlanma Oranı</span>
+            <span class="text-emerald-400 text-sm">✓</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400" id="kpiCompletion">%100</div>
+          <div class="text-[11px] text-slate-500 mt-1">Tüm sınıflar ve öğretmenler hazır</div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4.5 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-semibold mb-2">
+            <span>Toplam Evrak Sayısı</span>
+            <span class="text-blue-400 text-sm">📁</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white" id="kpiTotalFiles">168 Dosya</div>
+          <div class="text-[11px] text-slate-500 mt-1">PDF, DOCX, XLSX ve HTML5</div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4.5 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-semibold mb-2">
+            <span>Arşiv Boyutu</span>
+            <span class="text-indigo-400 text-sm">💾</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-indigo-300" id="kpiTotalSize">11.1 MB</div>
+          <div class="text-[11px] text-slate-500 mt-1">Yüksek çözünürlüklü baskı kalitesi</div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4.5 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-semibold mb-2">
+            <span>Zümre Kapsamı</span>
+            <span class="text-amber-400 text-sm">🏫</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">4 Kademe</div>
+          <div class="text-[11px] text-slate-500 mt-1">5, 6, 7 ve 8. Sınıf (LGS)</div>
+        </div>
+      </div>
+
+      <!-- GRADE STATUS CARDS (5, 6, 7, 8) -->
+      <div>
+        <h3 class="text-sm font-extrabold text-white mb-3.5 flex items-center gap-2">
+          <span>📚</span>
+          <span>Sınıf Düzeyleri ve Kazanım Envanteri</span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="overviewGradesContainer">
+          <!-- Will be rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- ZÜMRE TEACHERS DUAL CARD -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Demet Hoca Card -->
+        <div class="glass-card rounded-2xl p-5 border border-teal-500/20 bg-teal-950/10 relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">Zümre Öğretmeni</span>
+              <h4 class="text-lg font-extrabold text-white mt-2">Demet GÜRHAN YAŞAYAN</h4>
+              <p class="text-xs text-teal-400 font-semibold mt-0.5">Yavuz Selim Ortaokulu</p>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-2xl text-teal-300">
+              👩🏻‍🏫
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <div class="flex justify-between">
+              <span>Okul Müdürü:</span>
+              <strong class="text-slate-200">Ali Rıza HACIOĞLU</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Evrak Durumu:</span>
+              <strong class="text-emerald-400">Eksiksiz (%100)</strong>
+            </div>
+          </div>
+          <button onclick="setGlobalTeacherFilter('demet'); switchTab('documents')" class="w-full mt-4 bg-teal-600/20 hover:bg-teal-600/30 border border-teal-500/30 text-teal-300 font-bold text-xs py-2 rounded-xl transition flex items-center justify-center gap-1.5">
+            <span>Demet Hoca Evraklarını Gör</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Uğur Hoca Card -->
+        <div class="glass-card rounded-2xl p-5 border border-blue-500/20 bg-blue-950/10 relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Zümre Başkanı</span>
+              <h4 class="text-lg font-extrabold text-white mt-2">Uğur YAŞAYAN</h4>
+              <p class="text-xs text-blue-400 font-semibold mt-0.5">Alparslan Ortaokulu</p>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-2xl text-blue-300">
+              👨🏻‍🏫
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <div class="flex justify-between">
+              <span>Okul Müdürü:</span>
+              <strong class="text-slate-200">Mustafa ÖZKAN</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Evrak Durumu:</span>
+              <strong class="text-emerald-400">Eksiksiz (%100)</strong>
+            </div>
+          </div>
+          <button onclick="setGlobalTeacherFilter('ugur'); switchTab('documents')" class="w-full mt-4 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 font-bold text-xs py-2 rounded-xl transition flex items-center justify-center gap-1.5">
+            <span>Uğur Hoca Evraklarını Gör</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: EVRAK & MATERYAL MERKEZİ (DOCUMENTS) -->
+    <!-- =================================================================== -->
+    <section id="tab-documents" class="tab-content hidden space-y-5">
+      
+      <!-- Grade Context & Filters Bar -->
+      <div class="glass-card rounded-2xl p-4 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 rounded-lg" id="docHeaderGradeBadge">5. Sınıf</span>
+            <h3 class="text-base font-extrabold text-white" id="docHeaderTitle">Çok Basamaklı Doğal Sayılar & Bölükler</h3>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Öğrenci & Öğretmen PDF ve Word Nüshaları, Çözümler ve Analizler</p>
+        </div>
+
+        <!-- Document Type Quick Pills -->
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button onclick="filterDocsByType('all')" id="docCatPill-all" class="doc-cat-pill active text-xs font-semibold px-2.5 py-1 rounded-lg bg-blue-600 text-white transition">Tümü</button>
+          <button onclick="filterDocsByType('Çalışma Kağıdı')" id="docCatPill-ck" class="doc-cat-pill text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">Çalışma Kağıdı</button>
+          <button onclick="filterDocsByType('Çıkış Bileti')" id="docCatPill-cb" class="doc-cat-pill text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">Çıkış Bileti</button>
+          <button onclick="filterDocsByType('Kazanım Analiz Tablosu')" id="docCatPill-ex" class="doc-cat-pill text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">Excel Analiz</button>
+          <button onclick="filterDocsByType('Süreç Değerlendirme Rubriği')" id="docCatPill-rb" class="doc-cat-pill text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">Rubrik</button>
+          <button onclick="filterDocsByType('Akıllı Tahta Oyunu')" id="docCatPill-gm" class="doc-cat-pill text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">Tahta Oyunu</button>
+        </div>
+      </div>
+
+      <!-- Documents Container -->
+      <div id="documentsListContainer" class="space-y-4">
+        <!-- Will be rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: EXCEL TEŞHİS & KAZANIM ANALİZİ (ANALYTICS) -->
+    <!-- =================================================================== -->
+    <section id="tab-analytics" class="tab-content hidden space-y-6">
+      
+      <!-- Analytics Controls -->
+      <div class="glass-card rounded-2xl p-4.5 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span>📈</span>
+            <span>Akıllı Kazanım Teşhis ve Öğrenci Not Çizelgesi</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Öğrenci optik kodlama sonuçları, başarı yüzdeleri ve kazanım güçlük analizi</p>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+          <!-- Grade select for analytics -->
+          <div class="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-xl text-xs border border-slate-700">
+            <span class="text-slate-400">Sınıf:</span>
+            <select id="analyticsGradeSelect" onchange="loadAnalyticsData()" class="bg-transparent text-white font-bold focus:outline-none cursor-pointer">
+              <option value="5">5. Sınıf</option>
+              <option value="6">6. Sınıf</option>
+              <option value="7">7. Sınıf</option>
+              <option value="8">8. Sınıf (LGS)</option>
+            </select>
+          </div>
+
+          <!-- Teacher select for analytics -->
+          <div class="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-xl text-xs border border-slate-700">
+            <span class="text-slate-400">Öğretmen:</span>
+            <select id="analyticsTeacherSelect" onchange="loadAnalyticsData()" class="bg-transparent text-white font-bold focus:outline-none cursor-pointer">
+              <option value="demet">Demet GÜRHAN YAŞAYAN (Yavuz Selim OO)</option>
+              <option value="ugur">Uğur YAŞAYAN (Alparslan OO)</option>
+            </select>
+          </div>
+
+          <!-- Download Excel File Button -->
+          <button id="downloadExcelBtn" onclick="downloadCurrentExcel()" class="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+            <span>📥</span>
+            <span>Excel İndir (.xlsx)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Analytics KPI Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5" id="analyticsKpiContainer">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Tab Switcher between Student List and Kazanım Table -->
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <button onclick="switchAnalyticsSubTab('students')" id="subTabBtn-students" class="analytics-subtab active text-xs font-bold px-3 py-1.5 rounded-xl bg-blue-600 text-white transition">
+          👥 Öğrenci Not & Cevap Çizelgesi
+        </button>
+        <button onclick="switchAnalyticsSubTab('outcomes')" id="subTabBtn-outcomes" class="analytics-subtab text-xs font-bold px-3 py-1.5 rounded-xl text-slate-400 hover:text-white transition">
+          🎯 Soru & Kazanım Başarı Analizi
+        </button>
+      </div>
+
+      <!-- Subtab 1: Students Roster -->
+      <div id="analyticsSubTab-students" class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-900/90 text-slate-300 font-semibold border-b border-slate-800">
+              <tr>
+                <th class="p-3 text-center w-12">Sıra</th>
+                <th class="p-3 text-center w-16">No</th>
+                <th class="p-3">Adı Soyadı</th>
+                <th class="p-3 text-center">1-12 Cevap Kodları</th>
+                <th class="p-3 text-center text-emerald-400 font-bold">D</th>
+                <th class="p-3 text-center text-red-400 font-bold">Y</th>
+                <th class="p-3 text-center text-slate-400 font-bold">B</th>
+                <th class="p-3 text-center text-blue-400 font-bold">Puan</th>
+                <th class="p-3 text-center">Durum</th>
+              </tr>
+            </thead>
+            <tbody id="analyticsStudentsTbody" class="divide-y divide-slate-800/60 font-mono text-[11px]">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Subtab 2: Question Outcomes -->
+      <div id="analyticsSubTab-outcomes" class="glass-card rounded-2xl overflow-hidden border border-slate-800 hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-900/90 text-slate-300 font-semibold border-b border-slate-800">
+              <tr>
+                <th class="p-3 text-center w-14">Soru</th>
+                <th class="p-3 w-40">Konu</th>
+                <th class="p-3">MEB Maarif Modeli Kazanımı</th>
+                <th class="p-3 text-center w-16">Doğru</th>
+                <th class="p-3 text-center w-20">Başarı %</th>
+                <th class="p-3 text-center w-24">Güçlük</th>
+              </tr>
+            </thead>
+            <tbody id="analyticsOutcomesTbody" class="divide-y divide-slate-800/60 text-[11px]">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 4: KLASÖR & ARŞİV GEZGİNİ (EXPLORER) -->
+    <!-- =================================================================== -->
+    <section id="tab-explorer" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-2xl p-5 border border-slate-800">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+          <div>
+            <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+              <span>🌲</span>
+              <span>Resmî Arşiv ve Doküman Ağacı</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Klasör hiyerarşisi, dosya boyutları ve tek tıkla indirme bağlantıları</p>
+          </div>
+          <span class="text-xs bg-slate-800 text-blue-400 px-3 py-1 rounded-lg font-mono">files/</span>
+        </div>
+
+        <div id="folderTreeContainer" class="font-mono text-xs space-y-1">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 5: MOBİL OPTİK & AKILLI TAHTA (INTERACTIVE) -->
+    <!-- =================================================================== -->
+    <section id="tab-interactive" class="tab-content hidden space-y-6">
+      
+      <!-- Optik Okuyucu Hero Card -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-slate-900 to-slate-950">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="space-y-4 max-w-xl">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              ⚡ Canlı Kamera Tabanlı PWA
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+              Yapay Zekâ Destekli Mobil Optik Okuyucu
+            </h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Telefon veya tablet kamerasını çalışma kağıdının altındaki optik forma tutarak saniyeler içinde okuma yapın. Hem Demet Hoca (Yavuz Selim OO) hem Uğur Hoca (Alparslan OO) için bağımsız liste, soru bazlı analiz ve anında Excel raporlama!
+            </p>
+            
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block">Yedek Güvenlik PIN'i:</span>
+                <strong class="text-emerald-400 font-mono text-base tracking-wider">2026</strong>
+              </div>
+              <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block">Desteklenen Kademeler:</span>
+                <strong class="text-white font-semibold">5, 6, 7 ve 8. Sınıf</strong>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap gap-3">
+              <a href="https://kuarezma.github.io/optik-okuyucu/?anahtar=zumre2026" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm px-6 py-3 rounded-2xl shadow-xl shadow-emerald-600/30 transition flex items-center gap-2">
+                <span>📱</span>
+                <span>Mobil Optik Okuyucuyu Başlat</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- QR Code Preview Box -->
+          <div class="shrink-0 text-center bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-xl">
+            <div class="w-44 h-44 bg-white p-2 rounded-xl flex items-center justify-center mx-auto shadow-inner">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://kuarezma.github.io/optik-okuyucu/?anahtar=zumre2026" alt="Mobil Optik QR" class="w-full h-full object-contain">
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2.5 font-medium">Telefon kamerasından taratarak açın</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Board Games Grid -->
+      <div>
+        <h3 class="text-base font-extrabold text-white mb-3 flex items-center gap-2">
+          <span>🎮</span>
+          <span>Akıllı Tahta HTML5 Matematik Oyunları</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="gamesCardsContainer">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================== -->
+  <!-- MODAL: FILE PREVIEWER (PDF & GAMES) -->
+  <!-- =================================================================== -->
+  <div id="previewModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
+    <div class="glass-card w-full max-w-5xl h-[92vh] rounded-3xl flex flex-col overflow-hidden border border-slate-700/80 shadow-2xl animate-in fade-in zoom-in duration-200">
+      
+      <!-- Modal Header -->
+      <div class="px-5 py-3.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3 truncate">
+          <span id="modalFileBadge" class="text-xs font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0">PDF</span>
+          <span id="modalFileName" class="text-sm font-bold text-white truncate">Belge Önizleme</span>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a id="modalExternalLink" href="#" target="_blank" class="p-2 hover:bg-slate-800 text-slate-400 hover:text-white rounded-xl transition text-xs font-semibold flex items-center gap-1">
+            <span>Yeni Sekmede Aç</span>
+            <span>↗</span>
+          </a>
+          <a id="modalDownloadLink" href="#" download class="p-2 hover:bg-slate-800 text-slate-400 hover:text-emerald-400 rounded-xl transition text-xs font-semibold flex items-center gap-1">
+            <span>İndir</span>
+            <span>⬇</span>
+          </a>
+          <button onclick="closePreviewModal()" class="p-2 hover:bg-red-500/20 text-slate-400 hover:text-red-400 rounded-xl transition font-bold text-base">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="flex-1 bg-slate-950 relative overflow-hidden">
+        <iframe id="previewIframe" src="" class="w-full h-full border-none"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // State
+    let masterData = null;
+    let gradesData = {};
+    let excelAllData = null;
+    let folderTreeData = null;
+
+    let activeGrade = "all";
+    let activeTab = "overview";
+    let selectedTeacherFilter = "all"; // "all", "demet", "ugur"
+    let selectedDocTypeFilter = "all";
+
+    // Startup
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadAllStaticData();
+      renderMasterOverview();
+      renderDocumentsView();
+      renderGamesCards();
+    });
+
+    // --- DATA FETCHER ---
+    async function loadAllStaticData() {
+      try {
+        const [resMaster, resExcel, resTree] = await Promise.all([
+          fetch('data/master-status.json'),
+          fetch('data/excel-data.json'),
+          fetch('data/folder-tree.json')
+        ]);
+
+        masterData = await resMaster.json();
+        excelAllData = await resExcel.json();
+        folderTreeData = await resTree.json();
+
+        // Load all 4 grades
+        for (const g of [5, 6, 7, 8]) {
+          const res = await fetch(`data/grade-${g}.json`);
+          gradesData[g] = await res.json();
+        }
+      } catch (err) {
+        console.error("Veri yükleme hatası:", err);
+      }
+    }
+
+    // --- TAB SWITCHER ---
+    function switchTab(tabId) {
+      activeTab = tabId;
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(el => {
+        el.classList.remove("active", "bg-slate-800", "text-white");
+        el.classList.add("text-slate-400");
+      });
+
+      const section = document.getElementById(`tab-${tabId}`);
+      const btn = document.getElementById(`tabBtn-${tabId}`);
+      if (section) section.classList.remove("hidden");
+      if (btn) {
+        btn.classList.add("active", "bg-slate-800", "text-white");
+        btn.classList.remove("text-slate-400");
+      }
+
+      if (tabId === "analytics") {
+        loadAnalyticsData();
+      } else if (tabId === "explorer") {
+        renderFolderTree();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- GRADE SWITCHER ---
+    function selectGrade(grade) {
+      activeGrade = grade;
+
+      document.querySelectorAll(".grade-pill").forEach(p => {
+        p.classList.remove("active", "bg-blue-600", "text-white", "shadow-md");
+        p.classList.add("text-slate-400");
+      });
+      const pill = document.getElementById(`gradePill-${grade}`);
+      if (pill) {
+        pill.classList.add("active", "bg-blue-600", "text-white", "shadow-md");
+        pill.classList.remove("text-slate-400");
+      }
+
+      const tabOverviewLabel = document.getElementById("tabLabel-overview");
+      if (grade === "all") {
+        tabOverviewLabel.textContent = "Master Genel Bakış";
+        switchTab('overview');
+      } else {
+        tabOverviewLabel.textContent = `${grade}. Sınıf Genel Bakış`;
+        document.getElementById("analyticsGradeSelect").value = grade;
+        renderDocumentsView();
+        switchTab('documents');
+      }
+    }
+
+    // --- TEACHER FILTER ---
+    function setGlobalTeacherFilter(teacherId) {
+      selectedTeacherFilter = teacherId;
+      document.querySelectorAll(".teacher-filter-btn").forEach(b => {
+        b.classList.remove("active", "bg-blue-600", "text-white");
+        b.classList.add("text-slate-400");
+      });
+      const b = document.getElementById(`teacherFilterBtn-${teacherId}`);
+      if (b) {
+        b.classList.add("active", "bg-blue-600", "text-white");
+        b.classList.remove("text-slate-400");
+      }
+
+      if (teacherId === "demet") {
+        document.getElementById("analyticsTeacherSelect").value = "demet";
+      } else if (teacherId === "ugur") {
+        document.getElementById("analyticsTeacherSelect").value = "ugur";
+      }
+
+      renderDocumentsView();
+      if (activeTab === "analytics") {
+        loadAnalyticsData();
+      }
+    }
+
+    // --- RENDER MASTER OVERVIEW ---
+    function renderMasterOverview() {
+      if (!masterData) return;
+
+      document.getElementById("kpiCompletion").textContent = `%${masterData.overall_completion}`;
+      document.getElementById("kpiTotalFiles").textContent = `${masterData.grand_existing_files} Dosya`;
+      document.getElementById("kpiTotalSize").textContent = masterData.grand_size_str;
+
+      const container = document.getElementById("overviewGradesContainer");
+      container.innerHTML = "";
+
+      masterData.grades.forEach(g => {
+        const borderCol = g.grade === 5 ? 'border-blue-500/30' : g.grade === 6 ? 'border-teal-500/30' : g.grade === 7 ? 'border-purple-500/30' : 'border-amber-500/30';
+        const textCol = g.grade === 5 ? 'text-blue-400' : g.grade === 6 ? 'text-teal-400' : g.grade === 7 ? 'text-purple-400' : 'text-amber-400';
+        
+        container.innerHTML += `
+          <div class="glass-card glass-card-hover rounded-2xl p-4.5 border ${borderCol} transition flex flex-col justify-between cursor-pointer" onclick="selectGrade('${g.grade}')">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 ${textCol}">${g.name}</span>
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">%100 Hazır</span>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">${g.title}</h4>
+              <p class="text-xs text-slate-400">${g.files_count} dosya hazır (${g.size_str})</p>
+            </div>
+
+            <div class="pt-4 mt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="${textCol} font-semibold flex items-center gap-1 hover:underline">
+                <span>Evrakları İncele</span>
+                <span>→</span>
+              </span>
+              <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-1 rounded-lg">
+                Demet & Uğur
+              </span>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // --- RENDER DOCUMENTS VIEW ---
+    function filterDocsByType(catFolder) {
+      selectedDocTypeFilter = catFolder;
+      document.querySelectorAll(".doc-cat-pill").forEach(p => {
+        p.classList.remove("active", "bg-blue-600", "text-white");
+        p.classList.add("bg-slate-800", "text-slate-400");
+      });
+      const pill = event.target;
+      if (pill) {
+        pill.classList.add("active", "bg-blue-600", "text-white");
+        pill.classList.remove("bg-slate-800", "text-slate-400");
+      }
+      renderDocumentsView();
+    }
+
+    function renderDocumentsView() {
+      const targetGrade = activeGrade === "all" ? 5 : parseInt(activeGrade);
+      const gradeData = gradesData[targetGrade];
+      if (!gradeData) return;
+
+      document.getElementById("docHeaderGradeBadge").textContent = gradeData.name;
+      document.getElementById("docHeaderTitle").textContent = gradeData.title;
+
+      const container = document.getElementById("documentsListContainer");
+      const demetTeacher = gradeData.teachers.find(t => t.id === 'demet');
+      const ugurTeacher = gradeData.teachers.find(t => t.id === 'ugur');
+
+      let categories = ugurTeacher.documents.map(d => ({
+        id: d.id,
+        title: d.title,
+        desc: d.desc,
+        folder: d.folder,
+        badge: d.badge
+      }));
+
+      if (selectedDocTypeFilter !== "all") {
+        categories = categories.filter(c => c.folder === selectedDocTypeFilter);
+      }
+
+      let html = "";
+      categories.forEach(cat => {
+        const dDoc = demetTeacher.documents.find(d => d.id === cat.id);
+        const uDoc = ugurTeacher.documents.find(d => d.id === cat.id);
+
+        html += `
+          <div class="glass-card glass-card-hover rounded-2xl p-4 sm:p-5 border border-slate-800 transition">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-md">${gradeData.grade}. Sınıf • ${cat.badge}</span>
+                  <h4 class="text-sm font-extrabold text-white">${cat.title}</h4>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">${cat.desc}</p>
+              </div>
+              <div class="text-[11px] font-mono text-slate-500 bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-800 self-start sm:self-auto">
+                📁 ${cat.folder}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 ${selectedTeacherFilter === 'all' ? 'lg:grid-cols-2' : ''} gap-3 pt-3 border-t border-slate-800/80">
+        `;
+
+        if (selectedTeacherFilter === "all" || selectedTeacherFilter === "demet") {
+          html += renderTeacherDocCell(demetTeacher, dDoc);
+        }
+        if (selectedTeacherFilter === "all" || selectedTeacherFilter === "ugur") {
+          html += renderTeacherDocCell(ugurTeacher, uDoc);
+        }
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html || '<div class="text-center py-10 text-slate-500">Bu filtrede evrak bulunamadı.</div>';
+    }
+
+    function renderTeacherDocCell(teacher, doc) {
+      if (!doc) return "";
+      const isDemet = teacher.id === "demet";
+      const teacherTheme = isDemet ? "text-teal-400" : "text-blue-400";
+      const teacherBorder = isDemet ? "border-teal-500/20 bg-teal-500/5" : "border-blue-500/20 bg-blue-500/5";
+
+      let formatsHtml = "";
+      doc.formats.forEach(f => {
+        if (f.exists) {
+          const extBadge = f.ext.toUpperCase();
+          const extColor = extBadge === "PDF" ? "bg-red-500/20 text-red-400 border-red-500/30" :
+                           extBadge === "DOCX" ? "bg-blue-500/20 text-blue-400 border-blue-500/30" :
+                           extBadge === "XLSX" ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" :
+                           "bg-amber-500/20 text-amber-400 border-amber-500/30";
+
+          formatsHtml += `
+            <div class="flex items-center justify-between bg-slate-900/80 p-2 rounded-xl border border-slate-800 text-xs">
+              <div class="flex items-center gap-2 truncate pr-2">
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded border ${extColor}">${extBadge}</span>
+                <span class="text-slate-300 font-medium truncate max-w-[180px] sm:max-w-[240px]" title="${f.filename}">${f.filename}</span>
+                <span class="text-[11px] text-slate-500 shrink-0">(${f.size_str})</span>
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <button onclick="previewFile('${f.rel_path}', '${f.filename}', '${extBadge}')" title="Tarayıcıda Önizle" class="px-2 py-1 bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white rounded-lg transition text-[11px] font-semibold flex items-center gap-1">
+                  <span>👁️</span>
+                  <span>Önizle</span>
+                </button>
+                <a href="${f.rel_path}" download="${f.filename}" title="Dosyayı İndir" class="px-2 py-1 bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white rounded-lg transition text-[11px] font-semibold flex items-center gap-1">
+                  <span>⬇</span>
+                  <span>İndir</span>
+                </a>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      return `
+        <div class="rounded-xl p-3 border ${teacherBorder}">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold ${teacherTheme}">${teacher.name}</span>
+            <span class="text-[10px] text-slate-400">${teacher.school}</span>
+          </div>
+          <div class="space-y-1.5">${formatsHtml}</div>
+        </div>
+      `;
+    }
+
+    // --- MODAL PREVIEWER ---
+    function previewFile(relPath, fileName, ext) {
+      const modal = document.getElementById("previewModal");
+      const iframe = document.getElementById("previewIframe");
+      const modalFileName = document.getElementById("modalFileName");
+      const modalFileBadge = document.getElementById("modalFileBadge");
+      const externalLink = document.getElementById("modalExternalLink");
+      const downloadLink = document.getElementById("modalDownloadLink");
+
+      modalFileName.textContent = fileName;
+      modalFileBadge.textContent = ext;
+      externalLink.href = relPath;
+      downloadLink.href = relPath;
+      downloadLink.setAttribute("download", fileName);
+
+      iframe.src = relPath;
+      modal.classList.remove("hidden");
+    }
+
+    function closePreviewModal() {
+      const modal = document.getElementById("previewModal");
+      const iframe = document.getElementById("previewIframe");
+      iframe.src = "";
+      modal.classList.add("hidden");
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePreviewModal();
+    });
+
+    // --- ANALYTICS VIEWER ---
+    function switchAnalyticsSubTab(sub) {
+      document.querySelectorAll(".analytics-subtab").forEach(b => {
+        b.classList.remove("active", "bg-blue-600", "text-white");
+        b.classList.add("text-slate-400");
+      });
+      document.getElementById(`subTabBtn-${sub}`).classList.add("active", "bg-blue-600", "text-white");
+      document.getElementById(`subTabBtn-${sub}`).classList.remove("text-slate-400");
+
+      if (sub === "students") {
+        document.getElementById("analyticsSubTab-students").classList.remove("hidden");
+        document.getElementById("analyticsSubTab-outcomes").classList.add("hidden");
+      } else {
+        document.getElementById("analyticsSubTab-students").classList.add("hidden");
+        document.getElementById("analyticsSubTab-outcomes").classList.remove("hidden");
+      }
+    }
+
+    function loadAnalyticsData() {
+      if (!excelAllData) return;
+      const g = document.getElementById("analyticsGradeSelect").value;
+      const t = document.getElementById("analyticsTeacherSelect").value;
+      const key = `${g}_${t}`;
+      const data = excelAllData[key];
+
+      if (!data) return;
+
+      // KPIs
+      const kpiContainer = document.getElementById("analyticsKpiContainer");
+      kpiContainer.innerHTML = `
+        <div class="glass-card rounded-2xl p-4 border border-slate-800">
+          <span class="text-xs text-slate-400 font-semibold">Toplam Öğrenci</span>
+          <div class="text-2xl font-extrabold text-white mt-1">${data.total_students} Öğrenci</div>
+          <span class="text-[11px] text-slate-500">${data.school}</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 border border-slate-800">
+          <span class="text-xs text-slate-400 font-semibold">Sınıf Ortalaması</span>
+          <div class="text-2xl font-extrabold text-blue-400 mt-1">${data.avg_score} Puan</div>
+          <span class="text-[11px] text-slate-500">100 üzerinden</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 border border-slate-800">
+          <span class="text-xs text-slate-400 font-semibold">En Yüksek Puan</span>
+          <div class="text-2xl font-extrabold text-emerald-400 mt-1">${data.max_score} Puan</div>
+          <span class="text-[11px] text-slate-500">Sınıf Zirvesi</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 border border-slate-800">
+          <span class="text-xs text-slate-400 font-semibold">En Düşük Puan</span>
+          <div class="text-2xl font-extrabold text-amber-400 mt-1">${data.min_score} Puan</div>
+          <span class="text-[11px] text-slate-500">Desteklenecek seviye</span>
+        </div>
+      `;
+
+      // Students Tbody
+      const tbody = document.getElementById("analyticsStudentsTbody");
+      tbody.innerHTML = "";
+      data.students.forEach(st => {
+        const badgeCol = st.puan >= 85 ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30' :
+                         st.puan >= 70 ? 'text-blue-400 bg-blue-500/10 border-blue-500/30' :
+                         st.puan >= 50 ? 'text-amber-400 bg-amber-500/10 border-amber-500/30' :
+                         'text-red-400 bg-red-500/10 border-red-500/30';
+        const badgeLabel = st.puan >= 85 ? 'Pekiyi' : st.puan >= 70 ? 'İyi' : st.puan >= 50 ? 'Orta' : 'Geliştirilmeli';
+
+        const ansString = st.cevaplar.map((ans, idx) => {
+          const isCorrect = ans === data.answer_key[idx];
+          const col = isCorrect ? 'text-emerald-400' : ans === '-' ? 'text-slate-600' : 'text-red-400 font-bold';
+          return `<span class="${col}">${ans}</span>`;
+        }).join(" ");
+
+        tbody.innerHTML += `
+          <tr class="hover:bg-slate-800/40 transition">
+            <td class="p-3 text-center text-slate-500">${st.sira}</td>
+            <td class="p-3 text-center text-slate-400 font-semibold">${st.okul_no}</td>
+            <td class="p-3 font-sans font-semibold text-white">${st.ad_soyad}</td>
+            <td class="p-3 text-center tracking-wider">${ansString}</td>
+            <td class="p-3 text-center text-emerald-400 font-bold">${st.dogru}</td>
+            <td class="p-3 text-center text-red-400 font-bold">${st.yanlis}</td>
+            <td class="p-3 text-center text-slate-400">${st.bos}</td>
+            <td class="p-3 text-center font-bold text-white">${st.puan}</td>
+            <td class="p-3 text-center font-sans">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border ${badgeCol}">${badgeLabel}</span>
+            </td>
+          </tr>
+        `;
+      });
+
+      // Outcomes Tbody
+      const outTbody = document.getElementById("analyticsOutcomesTbody");
+      outTbody.innerHTML = "";
+      data.outcomes.forEach(o => {
+        const diffCol = o.gucluk === "Kolay" ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" :
+                        o.gucluk === "Orta" ? "text-blue-400 bg-blue-500/10 border-blue-500/30" :
+                        "text-amber-400 bg-amber-500/10 border-amber-500/30";
+
+        outTbody.innerHTML += `
+          <tr class="hover:bg-slate-800/40 transition">
+            <td class="p-3 text-center font-bold text-white font-mono">Soru ${o.soru_no}</td>
+            <td class="p-3 font-semibold text-slate-200">${o.konu}</td>
+            <td class="p-3 text-slate-300 leading-snug">${o.kazanim}</td>
+            <td class="p-3 text-center font-mono font-bold text-amber-400">${o.dogru_sik}</td>
+            <td class="p-3 text-center font-mono font-bold text-blue-400">%${o.basari_pct}</td>
+            <td class="p-3 text-center">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border ${diffCol}">${o.gucluk}</span>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    function downloadCurrentExcel() {
+      const g = document.getElementById("analyticsGradeSelect").value;
+      const t = document.getElementById("analyticsTeacherSelect").value;
+      const key = `${g}_${t}`;
+      const data = excelAllData[key];
+      if (data && data.rel_path) {
+        const a = document.createElement("a");
+        a.href = data.rel_path;
+        a.download = data.file_name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
+    // --- FOLDER TREE EXPLORER ---
+    function renderFolderTree() {
+      if (!folderTreeData) return;
+      const container = document.getElementById("folderTreeContainer");
+      container.innerHTML = renderTreeNodes(folderTreeData.tree);
+    }
+
+    function renderTreeNodes(nodes, level = 0) {
+      let html = "";
+      nodes.forEach(node => {
+        const indent = level * 16;
+        if (node.is_dir) {
+          html += `
+            <div class="py-1">
+              <div class="flex items-center gap-1.5 text-blue-400 font-bold" style="padding-left: ${indent}px">
+                <span>📁</span>
+                <span>${node.name}</span>
+              </div>
+              <div>${renderTreeNodes(node.children || [], level + 1)}</div>
+            </div>
+          `;
+        } else {
+          const extBadge = node.ext.toUpperCase();
+          const extColor = extBadge === "PDF" ? "text-red-400" : extBadge === "DOCX" ? "text-blue-400" : extBadge === "XLSX" ? "text-emerald-400" : "text-amber-400";
+          html += `
+            <div class="flex items-center justify-between py-1 hover:bg-slate-800/50 px-2 rounded-lg" style="padding-left: ${indent + 12}px">
+              <div class="flex items-center gap-2 truncate">
+                <span class="${extColor} text-[10px] font-bold">[${extBadge}]</span>
+                <span class="text-slate-300 truncate">${node.name}</span>
+                <span class="text-slate-500 text-[10px]">(${node.size_str})</span>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="previewFile('${node.rel_path}', '${node.name}', '${extBadge}')" class="text-slate-400 hover:text-blue-400 text-[11px] p-0.5">👁️</button>
+                <a href="${node.rel_path}" download="${node.name}" class="text-slate-400 hover:text-emerald-400 text-[11px] p-0.5">⬇</a>
+              </div>
+            </div>
+          `;
+        }
+      });
+      return html;
+    }
+
+    // --- GAMES CARDS ---
+    function renderGamesCards() {
+      const container = document.getElementById("gamesCardsContainer");
+      if (!container) return;
+
+      const games = [
+        { grade: 5, title: "Çok Basamaklı Doğal Sayılar", path: "files/5_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/5_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html" },
+        { grade: 6, title: "Doğal Sayılarla İşlemler", path: "files/6_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/6_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html" },
+        { grade: 7, title: "Tam Sayılarda İşlemler", path: "files/7_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/7_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html" },
+        { grade: 8, title: "Çarpanlar ve Katlar (LGS)", path: "files/8_sinif/Ugur_Hoca/Akilli_Tahta_Oyunu/8_Sinif_Matematik_1_Hafta_Akilli_Tahta_Oyunu.html" }
+      ];
+
+      container.innerHTML = "";
+      games.forEach(g => {
+        container.innerHTML += `
+          <div class="glass-card glass-card-hover rounded-2xl p-4.5 border border-slate-800 flex flex-col justify-between transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold px-2 py-0.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">${g.grade}. Sınıf</span>
+                <span class="text-[10px] text-slate-400">HTML5 Dokunmatik</span>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">${g.title}</h4>
+              <p class="text-xs text-slate-400">Akıllı tahtada etkileşimli soru çözümü ve oyun mekaniği</p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between">
+              <button onclick="previewFile('${g.path}', '${g.grade}. Sınıf Akıllı Tahta Oyunu', 'HTML')" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl transition flex items-center gap-1">
+                <span>▶</span>
+                <span>Oyunu Oyna</span>
+              </button>
+              <a href="${g.path}" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center gap-0.5">
+                <span>Tam Ekran</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
